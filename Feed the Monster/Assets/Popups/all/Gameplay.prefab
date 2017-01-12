@@ -1,0 +1,374 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1928527691161216}
+  m_IsPrefabParent: 1
+--- !u!1 &1928527691161216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4126723195874974}
+  - component: {fileID: 114546271614042174}
+  - component: {fileID: 114921043641457658}
+  - component: {fileID: 114418645699438230}
+  - component: {fileID: 114281610090402722}
+  - component: {fileID: 114421758832971886}
+  - component: {fileID: 82628571100352252}
+  - component: {fileID: 114946802678697564}
+  - component: {fileID: 114015489065793634}
+  - component: {fileID: 114332396908264248}
+  - component: {fileID: 114513930832395546}
+  - component: {fileID: 114238168962873016}
+  m_Layer: 0
+  m_Name: Gameplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4126723195874974
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82628571100352252
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114015489065793634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59ef848f9a10634588e13914b747a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartMonsters:
+  - {fileID: 11400000, guid: 45c871bb794e6f744a9ddefbbde403ec, type: 2}
+--- !u!114 &114238168962873016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527fff63940eeb2439611937870aca77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  googleAnalytics: {fileID: 0}
+--- !u!114 &114281610090402722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eea12b7571d2294eb1804a80482d4f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114332396908264248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853addc5deecf594694fab84b6e387ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialHandImage: {fileID: 0}
+  PanelTutorial: {fileID: 0}
+  startButton: {fileID: 0}
+  MapBlocker: {fileID: 0}
+--- !u!114 &114418645699438230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1726720a7580e234396474286824b7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugPanel: {fileID: 0}
+  IsDebugMode: 0
+  SplashPanel: {fileID: 0}
+  SplashScreenStartButton: {fileID: 0}
+  MapPanel: {fileID: 0}
+  GamePanel: {fileID: 0}
+  SettingsPopup: {fileID: 0}
+  SelectFriendPopup: {fileID: 0}
+  MiniGamePopup: {fileID: 0}
+  MonsterStatusPopup: {fileID: 0}
+  DiscoverNewFriendsPanel: {fileID: 0}
+  PausePopup: {fileID: 0}
+  ConfirmationPopup: {fileID: 0}
+  LoadingPopup: {fileID: 0}
+  MonsterSelectionPanel: {fileID: 0}
+  MonsterCollectionPanel: {fileID: 0}
+  LoadingScreenPopup: {fileID: 0}
+  PuzzleCountdown: {fileID: 0}
+  LevelEndPopup: {fileID: 0}
+  ScreenTransitionEffect: {fileID: 0}
+  DEBUG_SET_MONSTER_SAD: 0
+  DEBUG_CLEAR_PLAYERPREFS: 0
+  DEBUG_OPEN_ALL_LEVELS_PLAYERPREFS: 1
+  ClickSound: {fileID: 8300000, guid: 2851a9ddacf9d0045b8ca3a5f55b2213, type: 3}
+--- !u!114 &114421758832971886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8980478c30ba6e942b34571aa146185d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicSource: {fileID: 82628571100352252}
+  Music: {fileID: 8300000, guid: f85b7670c5f42e7478fc335262225fae, type: 3}
+--- !u!114 &114513930832395546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95160a53276252c4faab57832f417aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CountTo10: {fileID: 0}
+  MonsterPetting: {fileID: 0}
+  TutorialMinigame: 0
+--- !u!114 &114546271614042174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5c3e2e325e9904daac87ea59a49d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecognitionVariantsText: {fileID: 4900000, guid: 2b6bdabf6ebf3534cbe76a1b977eeb46,
+    type: 3}
+  CurrentActive: {fileID: 0}
+  Recognitions: []
+  CheatButton: {fileID: 0}
+  NumOfLevels: 72
+  LetterPrefab: {fileID: 169574, guid: 94c4c06c875f0ef43b250c910cfe89f5, type: 2}
+  LetterPrefab_1: {fileID: 169574, guid: db761986f06875345a29c14df0ff1e7a, type: 2}
+  LetterPrefab_2: {fileID: 169574, guid: 79547ec2f3cf84f4db6f750282d441d9, type: 2}
+  LettersLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  LettersPanel: {fileID: 0}
+  MonsterPrefab: {fileID: 104358, guid: 95aa4ee590b33cb43aebe5c731f7fae5, type: 2}
+  MonsterPanel: {fileID: 0}
+  BoosterPrefab: {fileID: 169574, guid: da7b5fbecd039474797dfb988d6e904a, type: 2}
+  MouseTrailMaterial: {fileID: 2100000, guid: 530ec09de48f6ac48acc005e81392aff, type: 2}
+  LevelScoreText: {fileID: 0}
+  SegmentsDisplay: {fileID: 0}
+  ScoreAnimation: {fileID: 0}
+  ShowupBetweenLetterDelay: 0.065
+  IsPause: 0
+  IsInteractable: 1
+  Debug_Run_Level_Index: -1
+  MonsterHoleButton: {fileID: 0}
+  FreezeGauge: {fileID: 0}
+  FeedbackGO: {fileID: 1000011689573808, guid: b4e98e76e22581f46b4f08b1f288b610, type: 2}
+  LevelBackground: {fileID: 0}
+  startButton: {fileID: 0}
+  LauncherPoint: {x: 0, y: 0}
+  treasureChest: {fileID: 1000013533458360, guid: 3c40c509c0377474eab19c176fec2abf,
+    type: 2}
+  SoundTimeup: {fileID: 8300000, guid: e962f764a657bc14981327b8c6ebd369, type: 3}
+  SoundMargeLetters: {fileID: 8300000, guid: 513f4e2f338fe1a40a6a2bc306551207, type: 3}
+  SoundCancelDrag: {fileID: 8300000, guid: 339289467ef0a0048be5271c9ff85d06, type: 3}
+  SoundSpitsMeal: {fileID: 8300000, guid: f6684078673bd4d4185e3272ef567213, type: 3}
+  SoundScoreCount: {fileID: 8300000, guid: e304589b7b107b349b203d699f2ca5d4, type: 3}
+  segmentTime: 0
+  canvasCamera: {fileID: 0}
+  timerSlider: {fileID: 0}
+  timerTicks1: {fileID: 0}
+  timerTicks2: {fileID: 0}
+  isSegmentComplete: 0
+  isFreezeTimer: 0
+--- !u!114 &114921043641457658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1071e55c46d6e249a5004f8e4d4c8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114946802678697564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6b84e5cb9f46d4e8dc520dfbc646ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

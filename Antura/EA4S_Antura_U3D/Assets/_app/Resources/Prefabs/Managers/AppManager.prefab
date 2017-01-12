@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &188774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 484274}
+  - 114: {fileID: 11431742}
+  - 114: {fileID: 11441512}
+  - 114: {fileID: 11455790}
+  - 114: {fileID: 11444334}
+  - 114: {fileID: 11453334}
+  - 114: {fileID: 11405910}
+  m_Layer: 0
+  m_Name: AppManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484274
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11405910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e708d3dbc1c3b014d8056dbc67f7c06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModuleActivationState: 0
+--- !u!114 &11431742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4055498e9231945739feb8dd395084b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MultiGame: 0
+  Modules:
+    LocalizationDataPath: 
+  GameSettings:
+    GameID: Antura
+    GameName: Antura
+    DoLogPlayerBehaviour: 0
+    HighQualityGfx: 0
+  ActualGame: 
+  DB: {fileID: 11400000, guid: e7398fb7d95a5470ab6975cb96382e96, type: 2}
+  CurrentGameManagerGO: {fileID: 0}
+  Stage: 2
+  LearningBlock: 4
+  PlaySession: 1
+  PlaySessionGameDone: 0
+  ActualMinigame:
+    Id: 
+    Variation: 
+    Status: 
+    Parent: 
+    Description: 
+    Title_En: 
+    Title_Ar: 
+    Scene: 
+    TitleNew: 
+    Team: 
+    MiniGameCode: 0
+    Available: 0
+--- !u!114 &11441512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb4974aced744d51934c58f484a150c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioManager: {fileID: 113176, guid: 8d2a6e676863b4658a06be3b5a745eca, type: 2}
+  EventsManager: {fileID: 157592, guid: 79a617bc66d4648f8bd1e58c7a6f3213, type: 2}
+  TouchManager: {fileID: 146898, guid: 6a2e78cf593284ef881cad68b7e43060, type: 2}
+--- !u!114 &11444334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25456b5a3f44a234f86a7c3783c57b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModuleActivationState: 0
+  settings:
+    UIManager: {fileID: 0}
+--- !u!114 &11453334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847e0eeb80b76e84c97095da159759a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModuleActivationState: 0
+--- !u!114 &11455790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291b156a9e7dea5479a33c683920beda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModuleActivationState: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 188774}
+  m_IsPrefabParent: 1

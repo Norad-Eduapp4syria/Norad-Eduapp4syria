@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{1955E53D-0CBA-23B2-AEC5-45EDEFD3DD8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_5;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\ArabicSupport\Scripts\Fix3dTextCS.cs" />
+     <Compile Include="Assets\ArabicSupport\Scripts\FixGUITextCS.cs" />
+     <Compile Include="Assets\ArabicSupport\Scripts\SetArabicTextExample.cs" />
+     <Compile Include="Assets\Habitat\Scripts\KatkootiController.cs" />
+     <Compile Include="Assets\Habitat\Scripts\LoadingScreenController.cs" />
+     <Compile Include="Assets\Habitat\Scripts\LoadingUIController.cs" />
+     <Compile Include="Assets\Habitat\Scripts\MonkeyController.cs" />
+     <Compile Include="Assets\Habitat\Scripts\TigerController.cs" />
+     <Compile Include="Assets\Habitat\Scripts\Util\BaloonWoggle.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\AnimationController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\CameraShake.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\ColliderUpdate.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\HareController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\HurdleMainController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRCameraController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRFillBar.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRGenericTrigger.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRManager.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRPlayerController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRPlayerOuterComponents.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRSceneShiftController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRSceneShiftTrigger.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRStarCollectController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRTriggerSpawner.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\IRUILetterBox.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\LandSceneController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\LetterCollectAnimation.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\LocalSoundHandler.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\MoveObjectSimpleTransform.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\MovingObject.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\ObjectBounds.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\ObjectSpawner.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\Parallax.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\ParallexDisabler.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\PondAnimationController.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\PowerUp.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\RandomOpacityChanger.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\ShadowFolow.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\SmoothFollow.cs" />
+     <Compile Include="Assets\InfiniteRunner\Scripts\birdController.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX3_AutoStopLoopedEffect.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX3_Demo.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX3_Demo_Translate.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutodestructWhenNoChildren.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
+     <Compile Include="Assets\Junk\AnimateAlpha.cs" />
+     <Compile Include="Assets\Junk\DailogueModel.cs" />
+     <Compile Include="Assets\Junk\ItemsSelected.cs" />
+     <Compile Include="Assets\Junk\JungleHubController.cs" />
+     <Compile Include="Assets\Junk\NoButtonHandler.cs" />
+     <Compile Include="Assets\Junk\Starter.cs" />
+     <Compile Include="Assets\Junk\UIController.cs" />
+     <Compile Include="Assets\Junk\WFFillBar.cs" />
+     <Compile Include="Assets\Junk\arabicgenerator.cs" />
+     <Compile Include="Assets\Junk\ccheckonmousedown.cs" />
+     <Compile Include="Assets\Junk\justtest.cs" />
+     <Compile Include="Assets\Junk\test.cs" />
+     <Compile Include="Assets\Junk\testScript.cs" />
+     <Compile Include="Assets\Junk\testmainsceneitem.cs" />
+     <Compile Include="Assets\Junk\teststart.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\AcceptLetter.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\Letter.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\LetterChunkMover.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\MonkeyEvents.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\SquirelRunner.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\TapLetter.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\UIManager.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\WFManager.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\WFWaypoints.cs" />
+     <Compile Include="Assets\WordsFactory\_Scripts\templetter.cs" />
+     <Compile Include="Assets\_Scripts\CentralData\CentralConstants.cs" />
+     <Compile Include="Assets\_Scripts\CentralData\CentralVariables.cs" />
+     <Compile Include="Assets\_Scripts\CentralData\GameSettings.cs" />
+     <Compile Include="Assets\_Scripts\CloudParalexing.cs" />
+     <Compile Include="Assets\_Scripts\Controller\DailogueController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\DecisionUIController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\DecisionUIObjects.cs" />
+     <Compile Include="Assets\_Scripts\Controller\DialogController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\ElephantController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\GiraafeController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\HudController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\InventoryUIController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\MapComponentActivate.cs" />
+     <Compile Include="Assets\_Scripts\Controller\MapController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\MapIconsGlowEffect.cs" />
+     <Compile Include="Assets\_Scripts\Controller\MapSoundCheck.cs" />
+     <Compile Include="Assets\_Scripts\Controller\MapUIController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\MonkeyHubController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\MoveTapToTarget.cs" />
+     <Compile Include="Assets\_Scripts\Controller\TextMeshSortLayer.cs" />
+     <Compile Include="Assets\_Scripts\Controller\TigerSceneController.cs" />
+     <Compile Include="Assets\_Scripts\Controller\TortoiseController.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\CameraController.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\ElephantHub.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\ElephantHubController.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\Exterior.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\Habitat.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\IItem.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\Interior.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\Inventory.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\JungleCourtController.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\LearningItem.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\Location.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\NPC.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\Quest.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\QuestItem.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\SoundAudioBase.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\SwingingVinesController.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\TigerCaveController.cs" />
+     <Compile Include="Assets\_Scripts\GameBase\TutorialController.cs" />
+     <Compile Include="Assets\_Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\_Scripts\Managers\MainUIManager.cs" />
+     <Compile Include="Assets\_Scripts\Managers\SoundManager.cs" />
+     <Compile Include="Assets\_Scripts\RandomParallexScript.cs" />
+     <Compile Include="Assets\_Scripts\Utility\ArabicTranslateUnityText.cs" />
+     <Compile Include="Assets\_Scripts\Utility\FadeIn.cs" />
+     <Compile Include="Assets\_Scripts\Utility\FadeOut.cs" />
+     <Compile Include="Assets\_Scripts\Utility\GameData\DataLoader.cs" />
+     <Compile Include="Assets\_Scripts\Utility\GameData\DataReader.cs" />
+     <Compile Include="Assets\_Scripts\Utility\GameData\Databank.cs" />
+     <Compile Include="Assets\_Scripts\Utility\GameData\FileIO.cs" />
+     <Compile Include="Assets\_Scripts\Utility\GameData\mLetter.cs" />
+     <Compile Include="Assets\_Scripts\Utility\GameUtility\MoveObjectAxis.cs" />
+     <Compile Include="Assets\_Scripts\Utility\GameUtility\ParallaxOffset.cs" />
+     <Compile Include="Assets\_Scripts\Utility\Helpers.cs" />
+     <Compile Include="Assets\_Scripts\Utility\InputDirectionListener.cs" />
+     <Compile Include="Assets\_Scripts\Utility\MoveLerp.cs" />
+     <Compile Include="Assets\_Scripts\Utility\OnDisableChildDisabler.cs" />
+     <Compile Include="Assets\_Scripts\Utility\SelfDestroy.cs" />
+     <Compile Include="Assets\_Scripts\Utility\Singleton.cs" />
+     <Compile Include="Assets\_Scripts\Utility\TrueParallax.cs" />
+     <Compile Include="Assets\_Scripts\Utility\Util.cs" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX3 Readme.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Invert.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="ArabicSupport">
+ <HintPath>E:/1Byte Unity WorkSpace/EduSyriaApp/EduSyriaApp/Assets/ArabicSupport/Plugins/ArabicSupport.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{97BCA950-45D2-B287-740E-E27AA7C7E492}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

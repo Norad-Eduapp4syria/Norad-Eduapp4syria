@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e59c7aec7d861441b96413d260bc0f3, type: 3}
+  m_Name: Ice
+  m_EditorClassIdentifier: 
+  booster: 0
+  SpritesheetName: Green
+  MonsterType: 2
+  MonsterPrefab: {fileID: 104358, guid: 03e9a56b26fe48e4c972d83b53c7d4f1, type: 2}
+  GageCost: 70170000282300001027000010270000
+  PlayGameObjects:
+  - {fileID: 1000011678460616, guid: 5a269c7040c64b44f97ffbb2f5634294, type: 2}
+  - {fileID: 1000013189668680, guid: 129e6832b449d4c408c6c05c4b32c35c, type: 2}
+  - {fileID: 1000010308551404, guid: 39d39372ea2b77d419d8cabec3a6bf6f, type: 2}
+  - {fileID: 1000013981977264, guid: 36e2b01b23ffb944599547dcfd2b5cbc, type: 2}
+  IdleStates: 0200000003000000
+  EatStates: 02000000
+  NoEatStates: 04000000
+  HappyStates: 02000000
+  SadStates: 03000000
+  ImpatientStates: 00000000
+  Pitch: 1

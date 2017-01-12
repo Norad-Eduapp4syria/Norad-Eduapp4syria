@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="LetterInWord" 
+	HideCallout="-1"
+	CollectableMonster="Ice"
+	SegmentTime="12"
+	ReplaceLerrtrTimes="0"
+	ReplaceLerrtrStartTime="5"
+	ReplaceLerrtrDelay="5"
+>
+<!---
+XMLLevel
+**************************
+monsterInputType: type of pazle (Letter, LetterInWord, Word)
+CollectableMonster: Monster type (Green, White, Blue, Pink)
+LevelTemplete: backgrund type(LevelTempleteBlueSky, LevelTempleteNight, LevelTempletePinkSky, LevelTempleteYellowSky)
+
+SegmentTime: time for each Segment in seconds
+ReplaceLerrtrTimes: num of reaplace letter locations
+ReplaceLerrtrStartTime: start reaplace letter locations after ? seconds
+ReplaceLerrtrDelay: reaplace letter locations evry ? seconds
+
+Segment
+**************************
+spawnIds: put letters only  in locations from the list (split by comma)
+
+string
+**************************
+content can be any letter or one of the boosters:
+	FreezeTime: freeze segment timer for 5 seconds
+	FireWrongLetter: blow an wrong letter
+	LoseSegment: lose current segment 
+	MagnetLetter: Magnet same letter or next letter to the draged letter
+	StopAutoMove: stop reaplace letter locations in the current segment
+	IgnorWrongLetter: 
+
+-->
+  <Segments>
+    <Segment spawnIds="11,12,14,15" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle One -->
+	  <MonsterRequiredLetters>
+		<string>ﻣَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>X</string>
+		<string>ﺴ</string>
+		<string>ﺮَ</string>
+		<string>ﺡ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ﻣَ</string>
+		<string>ﺣَ</string>
+		<string>ﺳَ</string>
+		<string>MonsterBooster</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle Two -->
+	  <MonsterRequiredLetters>
+		<string>ﺳَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>X</string>
+		<string>ﻤَ</string>
+		<string>ﺮ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="18">ﺳَ</string>
+		<string spawnId="22">ﺱَ</string>
+		<string spawnId="19">ﻣَ</string>
+		<string spawnId="21">MonsterBooster</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="10,11,12,13" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle Three -->
+	  <MonsterRequiredLetters>
+		<string>ﺭَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>X</string>
+		<string>ﺳَ</string>
+		<string>ﻢَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ﺭَ</string>
+		<string>ﺩَ</string>
+		<string>ﺣَ</string>
+		<string>MonsterBooster</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle Four -->
+	  <MonsterRequiredLetters>
+		<string>ﺩَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>X</string>
+		<string>ﺭَ</string>
+		<string>سَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="21">ﺩَ</string>
+		<string spawnId="27">رَ</string>
+		<string spawnId="22">ﻣَ</string>
+		<string spawnId="26">MonsterBooster</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="10,13,14,15" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle Five -->
+	  <MonsterRequiredLetters>
+		<string>ﺣَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>X</string>
+		<string>ﺴَ</string>
+		<string>ﻢَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ﺣَ</string>
+        <string>ﺡَ</string>
+        <string>مَ</string>
+		<string>MonsterBooster</string>
+      </Stones>
+    </Segment>
+  </Segments>
+</XMLLevel>

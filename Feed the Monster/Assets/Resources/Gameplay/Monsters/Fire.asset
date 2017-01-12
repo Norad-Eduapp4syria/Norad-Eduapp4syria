@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e59c7aec7d861441b96413d260bc0f3, type: 3}
+  m_Name: Fire
+  m_EditorClassIdentifier: 
+  booster: 1
+  MonsterType: 4
+  MonsterPrefab: {fileID: 104358, guid: ac8b34086b6bd5840800f357ac505d9b, type: 2}
+  GageCost: 88130000401f00002823000028230000
+  PlayGameObjects:
+  - {fileID: 1922025372137170, guid: 7ed129b40ebb9084ab53cc1ea61d02a9, type: 2}
+  - {fileID: 1439676878416518, guid: 0119d5ca1c2abcf40934f4fcbe931758, type: 2}
+  - {fileID: 1808330172599284, guid: 16ddce181f050af40836b26f76b2acfa, type: 2}
+  - {fileID: 1000011970071462, guid: 84a873c236004ee48b895c0822125a5f, type: 2}
+  IdleStates: 0200000003000000
+  EatStates: 02000000
+  NoEatStates: 04000000
+  HappyStates: 02000000
+  SadStates: 03000000
+  ImpatientStates: 00000000
+  Pitch: 1

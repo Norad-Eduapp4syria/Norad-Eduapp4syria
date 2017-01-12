@@ -1,0 +1,452 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/_Art/SongBar_full.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_01_pointing_up.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_01_pointing_up_flashing_shoe.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_happy_flashing_shoe.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_idle_01_flashing_shoe.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_idle_02_flashing_shoe.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_me_flashing_shoe.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_thumbs_up_flashing_shoe.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_conversation_shiny_hat.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_excited_shiny_hat.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_idle_01_shiny_hat.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_idle_02_shiny_hat.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_me_shiny_hat.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_thumbs_up_shiny_hat.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_01_panic.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_01_pointing_up.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_agree.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_conversation.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_idle_01.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_idle_01_sad.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_me.tpsheet
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_thumbs_up.tpsheet
+- Assets/Habitat/Art/ConstructionParticles.tpsheet
+- Assets/Habitat/Art/Elephanat Hub/Elephant_balanced.tpsheet
+- Assets/Habitat/Art/Elephanat Hub/Elephant_Unbalanced.tpsheet
+- Assets/Habitat/Art/flashingShoes.tpsheet
+- Assets/Habitat/Art/KK_Exterior/KK Exterior HUB/Wind.tpsheet
+- Assets/Habitat/Art/shinyhat.tpsheet
+- Assets/Habitat/Art/Sprites/a_monkey_conversation.tpsheet
+- Assets/Habitat/Art/Sprites/b_monkey_conversation.tpsheet
+- Assets/Habitat/Art/Sprites/c_monkey_conversation.tpsheet
+- Assets/Habitat/Art/Sprites/d_monkey_conversation.tpsheet
+- Assets/Habitat/Art/Sprites/Elephant_balanced.tpsheet
+- Assets/Habitat/Art/Sprites/Elephant_Unbalanced.tpsheet
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_conversation_01.tpsheet
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_conversation_02.tpsheet
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_conversation_flip_02.tpsheet
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_idle_01.tpsheet
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_idle_02.tpsheet
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_idle_03.tpsheet
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_idle_flip_02.tpsheet
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_order_order.tpsheet
+- Assets/Habitat/Art/Sprites/giraffe_idle_01.tpsheet
+- Assets/Habitat/Art/Sprites/giraffe_wave_01.tpsheet
+- Assets/Habitat/Art/Sprites/Hare/hare_conversation_01.tpsheet
+- Assets/Habitat/Art/Sprites/Hare/hare_idle_01.tpsheet
+- Assets/Habitat/Art/Sprites/Hare/hare_idle_02.tpsheet
+- Assets/Habitat/Art/Sprites/Hare/hare_run 1.tpsheet
+- Assets/Habitat/Art/Sprites/Hare/hare_run.tpsheet
+- Assets/Habitat/Art/Sprites/Hare/hare_sleeping.tpsheet
+- Assets/Habitat/Art/Sprites/Hare/hare_transition_run_to_idle.tpsheet
+- Assets/Habitat/Art/Sprites/KK_celebrate.tpsheet
+- Assets/Habitat/Art/Sprites/KK_idle_01.tpsheet
+- Assets/Habitat/Art/Sprites/KK_idle_02.tpsheet
+- Assets/Habitat/Art/Sprites/KK_talk_01.tpsheet
+- Assets/Habitat/Art/Sprites/KK_talk_02.tpsheet
+- Assets/Habitat/Art/Sprites/KK_talk_03.tpsheet
+- Assets/Habitat/Art/Sprites/KK_walk_01.tpsheet
+- Assets/Habitat/Art/Sprites/KK_wave.tpsheet
+- Assets/Habitat/Art/Sprites/SongBarChickyAlone.tpsheet
+- Assets/Habitat/Art/Sprites/SongBarWithChicky.tpsheet
+- Assets/Habitat/Art/Sprites/SongBarWithoutChicky.tpsheet
+- Assets/Habitat/Art/Sprites/tiger_idle_01.tpsheet
+- Assets/Habitat/Art/Sprites/tiger_idle_sad_01.tpsheet
+- Assets/Habitat/Art/Sprites/Totrtoise/NewAnimations/tortoise_conversations.tpsheet
+- Assets/Habitat/Art/Sprites/Totrtoise/NewAnimations/tortoise_idle_01.tpsheet
+- Assets/Habitat/Art/Sprites/Totrtoise/NewAnimations/tortoise_idle_02.tpsheet
+- Assets/Habitat/Art/Sprites/Totrtoise/tortoise_conversations.tpsheet
+- Assets/Habitat/Art/Sprites/Totrtoise/tortoise_idle_01.tpsheet
+- Assets/Habitat/Art/Sprites/Totrtoise/tortoise_idle_02.tpsheet
+- Assets/Habitat/Art/Sprites/Totrtoise/tortoise_walk.tpsheet
+- Assets/Habitat/Art/UI/Decision UI/ChoiceScreenBackground.tpsheet
+- Assets/Habitat/Art/UI/Dialogue/Tap_Feedback.tpsheet
+- Assets/Habitat/Art/UI/Dialogue/Tap_Hand.tpsheet
+- Assets/Habitat/Art/UI/JungleMedal/tortoise medal.tpsheet
+- Assets/Habitat/Art/UI/Tap_Hand.tpsheet
+- Assets/Habitat/monkey medal.tpsheet
+- Assets/InfiniteRunner/Animation/RabbitRun.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/fish_orange.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/fish_red.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/fish_red_many.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_02.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_03.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_04.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_05.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_06.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_07.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/hurdle_bird_2.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_fly.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_fly_hurt.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_jump.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_rotate.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run_hurt.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run_to_fly.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run_to_slide.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run_to_swim.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_slide.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_slide_to_run.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_swim.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_swim_hurt.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_swim_lane_change.tpsheet
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_swim_to_fly_to_run.tpsheet
+- Assets/InfiniteRunner/sprites/fish_orange.tpsheet
+- Assets/InfiniteRunner/sprites/fish_red.tpsheet
+- Assets/InfiniteRunner/sprites/KK_run_to_fly.tpsheet
+- Assets/InfiniteRunner/sprites/KK_run_to_swim.tpsheet
+- Assets/InfiniteRunner/sprites/KK_swim.tpsheet
+- Assets/InfiniteRunner/sprites/KK_swim_lane_change.tpsheet
+- Assets/InfiniteRunner/UIForest/BlueCoin.tpsheet
+- Assets/InfiniteRunner/UIForest/letter_tray.tpsheet
+- Assets/InfiniteRunner/UIForest/Scroll.tpsheet
+- Assets/WordsFactory/_Assets/Art/Decision Wheel/wheel_loop.tpsheet
+- Assets/WordsFactory/_Assets/Art/KK/KK_happy_01.tpsheet
+- Assets/WordsFactory/_Assets/Art/KK/KK_idle_01.tpsheet
+- Assets/WordsFactory/_Assets/Art/KK/KK_idle_02.tpsheet
+- Assets/WordsFactory/_Assets/Art/KK/KK_press_wheel.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey/M_happy_01.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey/M_idle_01.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey/M_idle_02.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey/M_letter_hit.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey/M_sad_01.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_fetch_throw.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_happy.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_idle_1.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_idle_2.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_no.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_fetch_throw.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_happy.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_idle_1.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_idle_2.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_no.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_fetch_throw.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_happy.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_idle_1.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_idle_2.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_no.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_fetch_throw.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_happy.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_idle_1.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_idle_2.tpsheet
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_no.tpsheet
+- Assets/WordsFactory/_Assets/Art/New Assets/hand_pointing.tpsheet
+- Assets/WordsFactory/_Assets/Art/New Assets/KK_idle_01.tpsheet
+- Assets/WordsFactory/_Assets/Art/New Assets/letter_word_tray.tpsheet
+- Assets/WordsFactory/_Assets/Art/New Assets/sfx_screen_glow.tpsheet
+- Assets/WordsFactory/_Assets/Art/New Assets/Squirrel_run.tpsheet
+- Assets/WordsFactory/_Assets/Art/ScreenGlowwithStars/screen_glow_1.tpsheet
+- Assets/WordsFactory/_Assets/Art/ScreenGlowwithStars/screen_glow_2.tpsheet
+textureFileNames:
+- Assets/_Art/SongBar_full.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_01_pointing_up.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_01_pointing_up_flashing_shoe.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_happy_flashing_shoe.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_idle_01_flashing_shoe.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_idle_02_flashing_shoe.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_me_flashing_shoe.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Flashing_Shoe/tiger_thumbs_up_flashing_shoe.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_conversation_shiny_hat.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_excited_shiny_hat.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_idle_01_shiny_hat.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_idle_02_shiny_hat.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_me_shiny_hat.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/Shiny_Hat/tiger_thumbs_up_shiny_hat.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_01_panic.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_01_pointing_up.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_agree.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_conversation.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_idle_01.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_idle_01_sad.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_me.png
+- Assets/Habitat/Art/Aniamtions/tiger/tiger/tiger_thumbs_up.png
+- Assets/Habitat/Art/ConstructionParticles.png
+- Assets/Habitat/Art/Elephanat Hub/Elephant_balanced.png
+- Assets/Habitat/Art/Elephanat Hub/Elephant_Unbalanced.png
+- Assets/Habitat/Art/flashingShoes.png
+- Assets/Habitat/Art/KK_Exterior/KK Exterior HUB/Wind.png
+- Assets/Habitat/Art/shinyhat.png
+- Assets/Habitat/Art/Sprites/a_monkey_conversation.png
+- Assets/Habitat/Art/Sprites/b_monkey_conversation.png
+- Assets/Habitat/Art/Sprites/c_monkey_conversation.png
+- Assets/Habitat/Art/Sprites/d_monkey_conversation.png
+- Assets/Habitat/Art/Sprites/Elephant_balanced.png
+- Assets/Habitat/Art/Sprites/Elephant_Unbalanced.png
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_conversation_01.png
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_conversation_02.png
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_conversation_flip_02.png
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_idle_01.png
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_idle_02.png
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_idle_03.png
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_idle_flip_02.png
+- Assets/Habitat/Art/Sprites/Giraafe/giraffe_order_order.png
+- Assets/Habitat/Art/Sprites/giraffe_idle_01.png
+- Assets/Habitat/Art/Sprites/giraffe_wave_01.png
+- Assets/Habitat/Art/Sprites/Hare/hare_conversation_01.png
+- Assets/Habitat/Art/Sprites/Hare/hare_idle_01.png
+- Assets/Habitat/Art/Sprites/Hare/hare_idle_02.png
+- Assets/Habitat/Art/Sprites/Hare/hare_run.png
+- Assets/Habitat/Art/Sprites/Hare/hare_run.png
+- Assets/Habitat/Art/Sprites/Hare/hare_sleeping.png
+- Assets/Habitat/Art/Sprites/Hare/hare_transition_run_to_idle.png
+- Assets/Habitat/Art/Sprites/KK_celebrate.png
+- Assets/Habitat/Art/Sprites/KK_idle_01.png
+- Assets/Habitat/Art/Sprites/KK_idle_02.png
+- Assets/Habitat/Art/Sprites/KK_talk_01.png
+- Assets/Habitat/Art/Sprites/KK_talk_02.png
+- Assets/Habitat/Art/Sprites/KK_talk_03.png
+- Assets/Habitat/Art/Sprites/KK_walk_01.png
+- Assets/Habitat/Art/Sprites/KK_wave.png
+- Assets/Habitat/Art/Sprites/SongBarChickyAlone.png
+- Assets/Habitat/Art/Sprites/SongBarWithChicky.png
+- Assets/Habitat/Art/Sprites/SongBarWithoutChicky.png
+- Assets/Habitat/Art/Sprites/tiger_idle_01.png
+- Assets/Habitat/Art/Sprites/tiger_idle_sad_01.png
+- Assets/Habitat/Art/Sprites/Totrtoise/NewAnimations/tortoise_conversations.png
+- Assets/Habitat/Art/Sprites/Totrtoise/NewAnimations/tortoise_idle_01.png
+- Assets/Habitat/Art/Sprites/Totrtoise/NewAnimations/tortoise_idle_02.png
+- Assets/Habitat/Art/Sprites/Totrtoise/tortoise_conversations.png
+- Assets/Habitat/Art/Sprites/Totrtoise/tortoise_idle_01.png
+- Assets/Habitat/Art/Sprites/Totrtoise/tortoise_idle_02.png
+- Assets/Habitat/Art/Sprites/Totrtoise/tortoise_walk.png
+- Assets/Habitat/Art/UI/Decision UI/ChoiceScreenBackground.png
+- Assets/Habitat/Art/UI/Dialogue/Tap_Feedback.png
+- Assets/Habitat/Art/UI/Dialogue/Tap_Hand.png
+- Assets/Habitat/Art/UI/JungleMedal/tortoise medal.png
+- Assets/Habitat/Art/UI/Tap_Hand.png
+- Assets/Habitat/monkey medal.png
+- Assets/InfiniteRunner/Animation/RabbitRun.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/fish_orange.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/fish_red.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/fish_red_many.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_02.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_03.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_04.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_05.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_06.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/Hurdle_07.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/hurdle_bird_2.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_fly.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_fly_hurt.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_jump.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_rotate.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run_hurt.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run_to_fly.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run_to_slide.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_run_to_swim.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_slide.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_slide_to_run.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_swim.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_swim_hurt.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_swim_lane_change.png
+- Assets/InfiniteRunner/Game assets/ForestRunner_Sprites/KK_swim_to_fly_to_run.png
+- Assets/InfiniteRunner/sprites/fish_orange.png
+- Assets/InfiniteRunner/sprites/fish_red.png
+- Assets/InfiniteRunner/sprites/KK_run_to_fly.png
+- Assets/InfiniteRunner/sprites/KK_run_to_swim.png
+- Assets/InfiniteRunner/sprites/KK_swim.png
+- Assets/InfiniteRunner/sprites/KK_swim_lane_change.png
+- Assets/InfiniteRunner/UIForest/BlueCoin.png
+- Assets/InfiniteRunner/UIForest/letter_tray.png
+- Assets/InfiniteRunner/UIForest/Scroll.png
+- Assets/WordsFactory/_Assets/Art/Decision Wheel/wheel_loop.png
+- Assets/WordsFactory/_Assets/Art/KK/KK_happy_01.png
+- Assets/WordsFactory/_Assets/Art/KK/KK_idle_01.png
+- Assets/WordsFactory/_Assets/Art/KK/KK_idle_02.png
+- Assets/WordsFactory/_Assets/Art/KK/KK_press_wheel.png
+- Assets/WordsFactory/_Assets/Art/Monkey/M_happy_01.png
+- Assets/WordsFactory/_Assets/Art/Monkey/M_idle_01.png
+- Assets/WordsFactory/_Assets/Art/Monkey/M_idle_02.png
+- Assets/WordsFactory/_Assets/Art/Monkey/M_letter_hit.png
+- Assets/WordsFactory/_Assets/Art/Monkey/M_sad_01.png
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_fetch_throw.png
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_happy.png
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_idle_1.png
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_idle_2.png
+- Assets/WordsFactory/_Assets/Art/Monkey1/a_monkey_no.png
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_fetch_throw.png
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_happy.png
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_idle_1.png
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_idle_2.png
+- Assets/WordsFactory/_Assets/Art/Monkey2/b_monkey_no.png
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_fetch_throw.png
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_happy.png
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_idle_1.png
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_idle_2.png
+- Assets/WordsFactory/_Assets/Art/Monkey3/c_monkey_no.png
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_fetch_throw.png
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_happy.png
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_idle_1.png
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_idle_2.png
+- Assets/WordsFactory/_Assets/Art/Monkey4/d_monkey_no.png
+- Assets/WordsFactory/_Assets/Art/New Assets/hand_pointing.png
+- Assets/WordsFactory/_Assets/Art/New Assets/KK_idle_01.png
+- Assets/WordsFactory/_Assets/Art/New Assets/letter_word_tray.png
+- Assets/WordsFactory/_Assets/Art/New Assets/sfx_screen_glow.png
+- Assets/WordsFactory/_Assets/Art/New Assets/Squirrel_run.png
+- Assets/WordsFactory/_Assets/Art/ScreenGlowwithStars/screen_glow_1.png
+- Assets/WordsFactory/_Assets/Art/ScreenGlowwithStars/screen_glow_2.png
+normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 

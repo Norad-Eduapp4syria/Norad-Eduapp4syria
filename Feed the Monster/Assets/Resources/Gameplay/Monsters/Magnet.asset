@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e59c7aec7d861441b96413d260bc0f3, type: 3}
+  m_Name: Magnet
+  m_EditorClassIdentifier: 
+  booster: 3
+  SpritesheetName: Blue
+  MonsterType: 1
+  MonsterPrefab: {fileID: 104358, guid: ac8b34086b6bd5840800f357ac505d9b, type: 2}
+  GageCost: 88130000401f00002823000028230000
+  PlayGameObjects:
+  - {fileID: 1000012461498734, guid: 73b52128ed376d54e870d3154611cb32, type: 2}
+  - {fileID: 1000012959642232, guid: b5a53cf6a59e44c398909fde749ee8e6, type: 2}
+  - {fileID: 1000013979157082, guid: d38149184836d7b46b5f584b7132e915, type: 2}
+  - {fileID: 1000011970071462, guid: 84a873c236004ee48b895c0822125a5f, type: 2}
+  IdleStates: 0200000003000000
+  EatStates: 02000000
+  NoEatStates: 04000000
+  HappyStates: 02000000
+  SadStates: 03000000
+  ImpatientStates: 00000000
+  Pitch: 1

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="LetterInWord" 
+	HideCallout="-1"
+	CollectableMonster=""
+	SegmentTime="12"
+	ReplaceLerrtrTimes="0"
+	ReplaceLerrtrStartTime="5"
+	ReplaceLerrtrDelay="5"
+>
+<!---
+XMLLevel
+**************************
+monsterInputType: type of pazle (Letter, LetterInWord, Word)
+CollectableMonster: Monster type (Green, White, Blue, Pink)
+LevelTemplete: backgrund type(LevelTempleteBlueSky, LevelTempleteNight, LevelTempletePinkSky, LevelTempleteYellowSky)
+
+SegmentTime: time for each Segment in seconds
+ReplaceLerrtrTimes: num of reaplace letter locations
+ReplaceLerrtrStartTime: start reaplace letter locations after ? seconds
+ReplaceLerrtrDelay: reaplace letter locations evry ? seconds
+
+Segment
+**************************
+spawnIds: put letters only  in locations from the list (split by comma)
+
+string
+**************************
+content can be any letter or one of the boosters:
+	FreezeTime: freeze segment timer for 5 seconds
+	FireWrongLetter: blow an wrong letter
+	LoseSegment: lose current segment 
+	MagnetLetter: Magnet same letter or next letter to the draged letter
+	StopAutoMove: stop reaplace letter locations in the current segment
+	IgnorWrongLetter: 
+
+-->
+  <Segments>
+    <Segment spawnIds="12,15,11,14" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle One -->
+	  <MonsterRequiredLetters>
+		<string>ﺤَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>ﺳَ</string>
+		<string>X</string>
+		<string>ﺮَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ﺤَ</string>
+        <string>ح</string>
+        <string>ﻣَ</string>
+		<string>MonsterBooster</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle Two -->
+	  <MonsterRequiredLetters>
+		<string>ﻤَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>ﺳَ</string>
+		<string>X</string>
+		<string>ﺮ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="18">ﻤَ</string>
+        <string spawnId="22">ﺡَ</string>
+        <string spawnId="19">ﺱَ</string>
+		<string spawnId="21">MonsterBooster</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="11,12,18,19" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle Three -->
+	  <MonsterRequiredLetters>
+		<string>ﺴَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>ﺣَ</string>
+		<string>X</string>
+		<string>ﻢَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ﺴَ</string>
+        <string>ﺱَ</string>
+        <string>ﻣَ</string>
+		<string>MonsterBooster</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle Four -->
+	  <MonsterRequiredLetters>
+		<string>ﺮَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>ﺣَ</string>
+		<string>X</string>
+		<string>ﺱَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="21">ﺮَ</string>
+        <string spawnId="28">ﺪَ</string>
+        <string spawnId="22">ﺴَ</string>
+		<string spawnId="25">MonsterBooster</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="20,26,27,22" SegmentTime="12" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+      <!-- Puzzle Five -->
+	  <MonsterRequiredLetters>
+		<string>ﺪَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>ﻣَ</string>
+		<string>X</string>
+		<string>ﺡَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ﺪَ</string>
+        <string>ر</string>
+        <string>ﺡَ</string>
+		<string>MonsterBooster</string>
+      </Stones>
+    </Segment>
+  </Segments>
+</XMLLevel>

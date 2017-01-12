@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="Word"
+	HideCallout="-1"
+	CollectableMonster=""
+	SegmentTime="14"
+	ReplaceLerrtrTimes="0"
+	ReplaceLerrtrStartTime="5"
+	ReplaceLerrtrDelay="5"
+>
+<!---
+XMLLevel
+**************************
+monsterInputType: type of pazle (Letter, LetterInWord, Word)
+CollectableMonster: Monster type (Green, White, Blue, Pink)
+LevelTemplete: backgrund type(LevelTempleteBlueSky, LevelTempleteNight, LevelTempletePinkSky, LevelTempleteYellowSky)
+
+SegmentTime: time for each Segment in seconds
+ReplaceLerrtrTimes: num of reaplace letter locations
+ReplaceLerrtrStartTime: start reaplace letter locations after ? seconds
+ReplaceLerrtrDelay: reaplace letter locations evry ? seconds
+
+Segment
+**************************
+spawnIds: put letters only  in locations from the list (split by comma)
+
+string
+**************************
+content can be any letter or one of the boosters:
+	FreezeTime: freeze segment timer for 5 seconds
+	FireWrongLetter: blow an wrong letter
+	LoseSegment: lose current segment 
+	MagnetLetter: Magnet same letter or next letter to the draged letter
+	StopAutoMove: stop reaplace letter locations in the current segment
+	IgnorWrongLetter: 
+
+-->
+	<Segments>
+		<Segment spawnIds="18,28,19,25" SegmentTime="14" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+			<!-- Puzzle One -->
+			<MonsterRequiredLetters>
+				<string>مَـ</string>
+				<string>ـدَ</string>
+				<string>حَ</string>
+			</MonsterRequiredLetters>
+			<MonsterAllLetters>
+			</MonsterAllLetters>
+			<Stones>
+				<string>مَـ</string>
+				<string>ـدَ</string>
+				<string>حَ</string>
+				<string>MonsterBooster</string>
+			</Stones>
+    </Segment>
+	<Segment spawnIds="22,29,21,24" SegmentTime="14" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+		<!-- Puzzle Two -->
+		<MonsterRequiredLetters>
+			<string>سَـ</string>
+			<string>ـرَ</string>
+			<string>دَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>سَـ</string>
+			<string>ـرَ</string>
+			<string>دَ</string>
+			<string>MonsterBooster</string>
+		</Stones>
+    </Segment>
+	<Segment spawnIds="18,21,19,22" SegmentTime="14" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+		<!-- Puzzle Three -->
+		<MonsterRequiredLetters>
+			<string>حَـ</string>
+			<string>ـرَ</string>
+			<string>سَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>حَـ</string>
+			<string>ـرَ</string>
+			<string>سَ</string>
+			<string>MonsterBooster</string>
+		</Stones>
+    </Segment>
+	<Segment spawnIds="11,12,14,15" SegmentTime="14" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+		<!-- Puzzle Four -->
+		<MonsterRequiredLetters>
+			<string>مَـ</string>
+			<string>ـدَ</string>
+			<string>حَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>مَـ</string>
+			<string>ـدَ</string>
+			<string>حَ</string>
+			<string>MonsterBooster</string>
+		</Stones>
+	</Segment>
+	<Segment spawnIds="16,17,18,19" SegmentTime="14" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+		<!-- Puzzle Five -->
+		<MonsterRequiredLetters>
+			<string>حَـ</string>
+			<string>ـمَـ</string>
+			<string>ـدَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>حَـ</string>
+			<string>ـمَـ</string>
+			<string>ـدَ</string>
+			<string>MonsterBooster</string>
+		</Stones>
+    </Segment>
+  </Segments>
+</XMLLevel>

@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{DA361369-E03D-E80F-D59F-65758E1FE109}") = "EduSyria New", "Assembly-CSharp-firstpass.csproj", "{675C0336-B1FE-59D6-549A-B41EFB5C2583}"
+EndProject
+Project("{DA361369-E03D-E80F-D59F-65758E1FE109}") = "EduSyria New", "Assembly-CSharp.csproj", "{5C2BB102-0027-3D5D-17B1-3CAECF962AC2}"
+EndProject
+Project("{DA361369-E03D-E80F-D59F-65758E1FE109}") = "EduSyria New", "Assembly-UnityScript.unityproj", "{469BCD8A-65BC-3C0D-258C-4B6892955834}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{675C0336-B1FE-59D6-549A-B41EFB5C2583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675C0336-B1FE-59D6-549A-B41EFB5C2583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675C0336-B1FE-59D6-549A-B41EFB5C2583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675C0336-B1FE-59D6-549A-B41EFB5C2583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2BB102-0027-3D5D-17B1-3CAECF962AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2BB102-0027-3D5D-17B1-3CAECF962AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2BB102-0027-3D5D-17B1-3CAECF962AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2BB102-0027-3D5D-17B1-3CAECF962AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{469BCD8A-65BC-3C0D-258C-4B6892955834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{469BCD8A-65BC-3C0D-258C-4B6892955834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{469BCD8A-65BC-3C0D-258C-4B6892955834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{469BCD8A-65BC-3C0D-258C-4B6892955834}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

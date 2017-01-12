@@ -1,0 +1,634 @@
+fileFormatVersion: 2
+guid: ee1a8ebef1e79554495a98f4cacf9368
+timeCreated: 1466058732
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: jump_hurt_0
+    21300002: jump_hurt_1
+    21300004: jump_hurt_2
+    21300006: jump_hurt_3
+    21300008: jump_hurt_4
+    21300010: jump_hurt_5
+    21300012: jump_hurt_6
+    21300014: jump_hurt_7
+    21300016: jump_hurt_8
+    21300018: jump_hurt_9
+    21300020: jump_hurt_10
+    21300022: jump_hurt_11
+    21300024: jump_hurt_12
+    21300026: jump_hurt_13
+    21300028: jump_hurt_14
+    21300030: jump_hurt_15
+    21300032: jump_hurt_16
+    21300034: jump_hurt_17
+    21300036: jump_hurt_18
+    21300038: jump_hurt_19
+    21300040: jump_hurt_20
+    21300042: jump_hurt_21
+    21300044: jump_hurt_22
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 14
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 5
+  buildTargetSettings:
+  - buildTarget: Android
+    maxTextureSize: 1024
+    textureFormat: 59
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    sprites:
+    - name: jump_hurt_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 882
+        width: 155
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 55.5, y: 70}
+        - {x: 14.5, y: 70}
+        - {x: 9.5, y: 69}
+        - {x: -13.5, y: 56}
+        - {x: -70.5, y: -15}
+        - {x: -77.5, y: -38}
+        - {x: -77.5, y: -70}
+        - {x: -2.5, y: -70}
+        - {x: 46.5, y: -66}
+        - {x: 77.5, y: -15}
+        - {x: 77.5, y: 23}
+    - name: jump_hurt_1
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 878
+        width: 111
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: -40}
+        - {x: -2.5, y: -69}
+        - {x: 14.5, y: -72}
+        - {x: 43.5, y: -72}
+        - {x: 50.5, y: -61}
+        - {x: 44.5, y: -54}
+        - {x: 39.5, y: -53}
+        - {x: 55.5, y: -30}
+        - {x: 55.5, y: 32}
+        - {x: 48.5, y: 72}
+        - {x: 6.5, y: 72}
+        - {x: -30.5, y: 58}
+        - {x: -55.5, y: 24}
+        - {x: -55.5, y: -72}
+        - {x: -13.5, y: -72}
+        - {x: -7.5, y: -68}
+        - {x: -8.5, y: -63}
+        - {x: -17.5, y: -57}
+    - name: jump_hurt_2
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 877
+        width: 166
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 72.5}
+        - {x: -80, y: 71.5}
+        - {x: -83, y: 66.5}
+        - {x: -83, y: -32.5}
+        - {x: -51, y: -72.5}
+        - {x: 11, y: -72.5}
+        - {x: 81, y: -54.5}
+        - {x: 83, y: -47.5}
+        - {x: 83, y: 64.5}
+        - {x: 28, y: 72.5}
+    - name: jump_hurt_3
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 873
+        width: 176
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -88, y: 74.5}
+        - {x: -88, y: -16.5}
+        - {x: -40, y: -74.5}
+        - {x: 35, y: -74.5}
+        - {x: 63, y: -66.5}
+        - {x: 88, y: -18.5}
+        - {x: 88, y: 62.5}
+        - {x: 60, y: 74.5}
+    - name: jump_hurt_4
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 872
+        width: 127
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23.5, y: 75}
+        - {x: -20.5, y: 48}
+        - {x: -39.5, y: -33}
+        - {x: -39.5, y: -38}
+        - {x: -31.5, y: -45}
+        - {x: -27.5, y: -45}
+        - {x: -34.5, y: -46}
+        - {x: -41.5, y: -46}
+        - {x: -63.5, y: -65}
+        - {x: -63.5, y: -75}
+        - {x: 40.5, y: -75}
+        - {x: 63.5, y: -59}
+        - {x: 63.5, y: 64}
+        - {x: 61.5, y: 75}
+    - name: jump_hurt_5
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 870
+        width: 138
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 76}
+        - {x: -69, y: -9}
+        - {x: -69, y: -72}
+        - {x: -65, y: -76}
+        - {x: 53, y: -76}
+        - {x: 69, y: -49}
+        - {x: 69, y: 64}
+        - {x: 63, y: 76}
+    - name: jump_hurt_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 714
+        width: 138
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26, y: 76}
+        - {x: -15, y: 50}
+        - {x: -69, y: -21}
+        - {x: -69, y: -76}
+        - {x: 69, y: -76}
+        - {x: 69, y: 73}
+        - {x: 67, y: 76}
+    - name: jump_hurt_7
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 714
+        width: 164
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 82, y: 49}
+        - {x: 8, y: 76}
+        - {x: -44, y: 76}
+        - {x: -47, y: 68}
+        - {x: -58, y: 68}
+        - {x: -77, y: 63}
+        - {x: -82, y: 47}
+        - {x: -82, y: 0}
+        - {x: -63, y: -51}
+        - {x: -38, y: -76}
+        - {x: -14, y: -76}
+        - {x: -13, y: -67}
+        - {x: 47, y: -72}
+        - {x: 82, y: -22}
+    - name: jump_hurt_8
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 713
+        width: 138
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 76.5}
+        - {x: -69, y: -24.5}
+        - {x: -69, y: -68.5}
+        - {x: -66, y: -70.5}
+        - {x: -59, y: -72.5}
+        - {x: -8, y: -76.5}
+        - {x: 53, y: -76.5}
+        - {x: 69, y: -69.5}
+        - {x: 69, y: 76.5}
+    - name: jump_hurt_9
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 712
+        width: 141
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60.5, y: 64}
+        - {x: 47.5, y: 70}
+        - {x: 46.5, y: 78}
+        - {x: -24.5, y: 78}
+        - {x: -70.5, y: 46}
+        - {x: -70.5, y: -36}
+        - {x: -57.5, y: -41}
+        - {x: -53.5, y: -38}
+        - {x: -33.5, y: -78}
+        - {x: 41.5, y: -78}
+        - {x: 61.5, y: -74}
+        - {x: 70.5, y: -71}
+        - {x: 70.5, y: -39}
+        - {x: 59.5, y: -19}
+    - name: jump_hurt_10
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 707
+        width: 192
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 79.5}
+        - {x: -32, y: 79.5}
+        - {x: -33, y: 77.5}
+        - {x: -71, y: 47.5}
+        - {x: -96, y: 27.5}
+        - {x: -96, y: -15.5}
+        - {x: -28, y: -79.5}
+        - {x: 9, y: -79.5}
+        - {x: 96, y: -28.5}
+        - {x: 96, y: 45.5}
+        - {x: 85, y: 52.5}
+    - name: jump_hurt_11
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 705
+        width: 100
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 50, y: -27.5}
+        - {x: 50, y: 71.5}
+        - {x: 42, y: 80.5}
+        - {x: 7, y: 80.5}
+        - {x: -50, y: 42.5}
+        - {x: -50, y: -66.5}
+        - {x: -47, y: -80.5}
+        - {x: 13, y: -80.5}
+        - {x: 23, y: -75.5}
+        - {x: 23, y: -69.5}
+        - {x: 16, y: -63.5}
+    - name: jump_hurt_12
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 705
+        width: 118
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 59, y: 54.5}
+        - {x: 44, y: 80.5}
+        - {x: -12, y: 80.5}
+        - {x: -17, y: 79.5}
+        - {x: -59, y: 31.5}
+        - {x: -59, y: -58.5}
+        - {x: -10, y: -80.5}
+        - {x: 9, y: -80.5}
+        - {x: 19, y: -75.5}
+        - {x: 32, y: -61.5}
+        - {x: 32, y: -54.5}
+        - {x: 59, y: -54.5}
+    - name: jump_hurt_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 539
+        width: 178
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 59, y: -21}
+        - {x: 64, y: -22}
+        - {x: 73, y: -16}
+        - {x: 89, y: 5}
+        - {x: 89, y: 35}
+        - {x: -21, y: 81}
+        - {x: -87, y: 81}
+        - {x: -89, y: 75}
+        - {x: -89, y: -42}
+        - {x: -74, y: -81}
+        - {x: 2, y: -81}
+        - {x: 79, y: -69}
+        - {x: 72, y: -50}
+        - {x: 65, y: -45}
+        - {x: 51, y: -46}
+    - name: jump_hurt_14
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 535
+        width: 128
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 83}
+        - {x: -64, y: 0}
+        - {x: -64, y: -83}
+        - {x: 61, y: -83}
+        - {x: 64, y: -74}
+        - {x: 64, y: 31}
+        - {x: 45, y: 83}
+    - name: jump_hurt_15
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 531
+        width: 167
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 85}
+        - {x: -83.5, y: -17}
+        - {x: -83.5, y: -75}
+        - {x: -61.5, y: -85}
+        - {x: 83.5, y: -85}
+        - {x: 83.5, y: 79}
+        - {x: 76.5, y: 85}
+    - name: jump_hurt_16
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 529
+        width: 154
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36, y: -40}
+        - {x: 28, y: -49}
+        - {x: 28, y: -61}
+        - {x: 77, y: -64}
+        - {x: 77, y: 13}
+        - {x: 71, y: 15}
+        - {x: 69, y: 15}
+        - {x: 66, y: 14}
+        - {x: 61, y: 9}
+        - {x: 59, y: 4}
+        - {x: 58, y: 1}
+        - {x: 46, y: -7}
+        - {x: 69, y: 16}
+        - {x: 70, y: 15}
+        - {x: 73, y: 15}
+        - {x: 77, y: 14}
+        - {x: 77, y: 78}
+        - {x: 71, y: 86}
+        - {x: 29, y: 86}
+        - {x: -57, y: -5}
+        - {x: -77, y: -61}
+        - {x: -77, y: -86}
+        - {x: -48, y: -86}
+        - {x: 30, y: -43}
+        - {x: 31, y: -41}
+        - {x: 38, y: -40}
+    - name: jump_hurt_17
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 528
+        width: 106
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: -75.5}
+        - {x: 25, y: -78.5}
+        - {x: 36, y: -72.5}
+        - {x: 47, y: -54.5}
+        - {x: 41, y: -45.5}
+        - {x: 31, y: -45.5}
+        - {x: 53, y: 11.5}
+        - {x: 53, y: 36.5}
+        - {x: 43, y: 43.5}
+        - {x: 41, y: 43.5}
+        - {x: 39, y: 42.5}
+        - {x: 41, y: 45.5}
+        - {x: 53, y: 86.5}
+        - {x: -52, y: 86.5}
+        - {x: -53, y: 82.5}
+        - {x: -53, y: -86.5}
+        - {x: -15, y: -86.5}
+        - {x: -12, y: -85.5}
+        - {x: -8, y: -77.5}
+        - {x: -14, y: -71.5}
+        - {x: -25, y: -67.5}
+    - name: jump_hurt_18
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 528
+        width: 166
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 83, y: -23.5}
+        - {x: 83, y: 62.5}
+        - {x: 72, y: 86.5}
+        - {x: 19, y: 86.5}
+        - {x: -56, y: 43.5}
+        - {x: -53, y: -1.5}
+        - {x: -45, y: -8.5}
+        - {x: -82, y: -20.5}
+        - {x: -83, y: -25.5}
+        - {x: -83, y: -66.5}
+        - {x: -66, y: -70.5}
+        - {x: -44, y: -86.5}
+        - {x: -18, y: -86.5}
+        - {x: -11, y: -85.5}
+        - {x: 5, y: -68.5}
+        - {x: 5, y: -61.5}
+    - name: jump_hurt_19
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 348
+        width: 116
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 88}
+        - {x: -25, y: 61}
+        - {x: -27, y: 57}
+        - {x: -31, y: 33}
+        - {x: -45, y: 15}
+        - {x: -58, y: 6}
+        - {x: -58, y: -88}
+        - {x: 3, y: -88}
+        - {x: 25, y: -81}
+        - {x: 58, y: -60}
+        - {x: 58, y: 88}
+    - name: jump_hurt_20
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 346
+        width: 135
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 66.5, y: 25}
+        - {x: 65.5, y: 73}
+        - {x: 64.5, y: 89}
+        - {x: 4.5, y: 89}
+        - {x: -7.5, y: 64}
+        - {x: -11.5, y: 32}
+        - {x: -7.5, y: 30}
+        - {x: -5.5, y: 30}
+        - {x: -20.5, y: 30}
+        - {x: -26.5, y: 29}
+        - {x: -67.5, y: -17}
+        - {x: -67.5, y: -45}
+        - {x: -59.5, y: -59}
+        - {x: -3.5, y: -89}
+        - {x: 54.5, y: -89}
+        - {x: 58.5, y: -88}
+        - {x: 62.5, y: -70}
+        - {x: 67.5, y: -39}
+        - {x: 67.5, y: 22}
+    - name: jump_hurt_21
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 331
+        width: 126
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30, y: -5.5}
+        - {x: 29, y: 7.5}
+        - {x: 44, y: -5.5}
+        - {x: 47, y: -11.5}
+        - {x: 62, y: -30.5}
+        - {x: 63, y: -26.5}
+        - {x: 63, y: 83.5}
+        - {x: 51, y: 96.5}
+        - {x: 22, y: 96.5}
+        - {x: -9, y: 58.5}
+        - {x: -55, y: -11.5}
+        - {x: -46, y: -21.5}
+        - {x: -63, y: -47.5}
+        - {x: -63, y: -96.5}
+        - {x: 28, y: -96.5}
+        - {x: 47, y: -11.5}
+        - {x: 44, y: -7.5}
+        - {x: 42, y: -5.5}
+    - name: jump_hurt_22
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 331
+        width: 128
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 96.5}
+        - {x: -24, y: 69.5}
+        - {x: -64, y: -5.5}
+        - {x: -64, y: -96.5}
+        - {x: 13, y: -96.5}
+        - {x: 29, y: -69.5}
+        - {x: 25, y: -58.5}
+        - {x: 64, y: -33.5}
+        - {x: 64, y: 96.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
