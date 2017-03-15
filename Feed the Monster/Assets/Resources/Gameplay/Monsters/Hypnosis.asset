@@ -12,15 +12,11 @@ MonoBehaviour:
   m_Name: Hypnosis
   m_EditorClassIdentifier: 
   booster: 4
-  SpritesheetName: Panda
   MonsterType: 3
+  MiniGame: 4
+  AssetId: 3
   MonsterPrefab: {fileID: 104358, guid: 0770e2e45660cbd4b9cd8f71a72dba84, type: 2}
-  GageCost: 581b000010270000f82a0000f82a0000
-  PlayGameObjects:
-  - {fileID: 1000010570866304, guid: ab3e64c07b7164b46a3f2d1b43fb66ef, type: 2}
-  - {fileID: 1000010580935632, guid: 8ffd37891bbb8474899aa2f9ae73f4b1, type: 2}
-  - {fileID: 1000013069408708, guid: e78dcebd2b71a82468d85d82ac52cb15, type: 2}
-  - {fileID: 1000013970995036, guid: 93f141361c13ee749b97d41e5a316588, type: 2}
+  GageCost: 401f0000983a0000204e0000204e0000
   IdleStates: 0200000003000000
   EatStates: 02000000
   NoEatStates: 04000000

@@ -3,21 +3,19 @@ using System.Collections;
 
 public class BaseMiniGame : MonoBehaviour {
 
+	[HideInInspector]
 	public bool GameOver = false;
 
-
-
-//	public GameObject TitleImage;
+	public GameObject TitleImage;
 	public AudioClip TitleSound;
 	public GameObject VictoryImage;
 	//public AudioClip VictorySound;
 
-
 	public AudioClip VictoryFromAngry;
 	public AudioClip VictoryFromBored;
 	public AudioClip VictoryFromSad;
-	public AudioClip VictoryFromHungry;
-	public AudioClip VictoryFromAfraid;
+//	public AudioClip VictoryFromHungry;
+//	public AudioClip VictoryFromAfraid;
 
 
 	protected Animator animController;
@@ -40,8 +38,11 @@ public class BaseMiniGame : MonoBehaviour {
 		}
 //		TitleImage.transform.localScale = new Vector3 (0, 0, 0);
 //		TitleImage.SetActive (true);
-		AudioController.Instance.PlaySound (TitleSound);
-//		this.gameObject.GetComponent<UIPopupPanel> ().PopOutAny (TitleImage.transform, 6f, 2f);
+		if (AudioController.Instance) {
+			AudioController.Instance.PlaySound (TitleSound);
+		}
+
+		//		this.gameObject.GetComponent<UIPopupPanel> ().PopOutAny (TitleImage.transform, 6f, 2f);
 		gameObject.SetActive (true);
 		var obj = GameObject.Find ("monster");
 		if (obj != null) {
@@ -56,8 +57,11 @@ public class BaseMiniGame : MonoBehaviour {
 
 		playHappySound ();
 
-		this.gameObject.GetComponent<UIPopupPanel> ().PopInAny (VictoryImage.transform, 0, 5f);
-		this.gameObject.GetComponent<UIPopupPanel> ().PopOutAny (VictoryImage.transform, 6f, 2f);
+		UIPopupPanel popupPanel = this.gameObject.GetComponent<UIPopupPanel> ();
+		if (popupPanel != null) {
+			popupPanel.PopInAny (VictoryImage.transform, 0, 5f);
+			popupPanel.PopOutAny (VictoryImage.transform, 6f, 2f);
+		}
 
 		onMiniGameDone ();
 //		Invoke ("onMiniGameDone", 4f);
@@ -71,13 +75,17 @@ public class BaseMiniGame : MonoBehaviour {
 	{
 		CurrentMonster = monster;
 
-		animController.SetBool ("IsSad", true);
+		animController.SetBool ("IsMiniGame", true);
 	}
 
 
 	void playHappySound ()
 	{
 		AudioClip snd = null;
+
+		if (AudioController.Instance == null) {
+			return;
+		}
 
 		switch (CurrentMonster.EmotionType) {
 			case MonsterEmotionTypes.Angry:
@@ -89,12 +97,12 @@ public class BaseMiniGame : MonoBehaviour {
 			case MonsterEmotionTypes.Sad:
 				snd = VictoryFromSad;
 				break;
-			case MonsterEmotionTypes.Hungry:
-				snd = VictoryFromHungry;
-				break;
-			case MonsterEmotionTypes.Afraid:
-				snd = VictoryFromAfraid;
-				break;
+//			case MonsterEmotionTypes.Hungry:
+//				snd = VictoryFromHungry;
+//				break;
+//			case MonsterEmotionTypes.Afraid:
+//				snd = VictoryFromAfraid;
+//				break;
 			default:
 				snd = VictoryFromSad;
 				break;

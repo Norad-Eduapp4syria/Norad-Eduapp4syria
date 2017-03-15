@@ -4,7 +4,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class UILevelEndController : MonoBehaviour {
-	public Text TitleText;
 	public Text ScoreText;
 
 	public GameObject Stars;
@@ -17,6 +16,8 @@ public class UILevelEndController : MonoBehaviour {
 	public Button MapButton;
 	public UICircularParticleSystem particles;
 
+	public Slider MonsterGageSliderA;
+	public MonsterBar monsterBar;
 
 	public Image Icon_gage_1;
 	public Image Icon_gage_2;
@@ -44,6 +45,8 @@ public class UILevelEndController : MonoBehaviour {
 
 	public AudioClip SoundBarFull;
 
+	Dictionary<MonsterType, bool> showenStatusPopup = new Dictionary<MonsterType, bool>();
+
 
 	AudioSource SoundScoreCountSRC;
 
@@ -51,9 +54,15 @@ public class UILevelEndController : MonoBehaviour {
 	bool isGageChanged = false;
 
 	bool isStatusPopupShow = false;
-
+	Sprite NextGageSprite;
 
 	Monster monster;
+
+
+	Queue statusQueue = new Queue();
+
+	UIFlashAnimation flashAnimation;
+
 
 	// Use this for initialization
 	void Start () {
@@ -71,7 +80,16 @@ public class UILevelEndController : MonoBehaviour {
 	{
 		isStatusPopupShow = false;
 
+
+		NextButton.interactable = true;
+		RetryButton.interactable = true;
+		RetryFailButton.interactable = true;
+		MapButton.interactable = true;
+
 		hideGageIcons ();
+
+		MonsterGageSliderA.gameObject.SetActive (false);
+//		MonsterGageSliderB.gameObject.SetActive (false);
 
 		isWin = GameplayController.Instance.CurrentLevelStars > 0;
 
@@ -88,10 +106,11 @@ public class UILevelEndController : MonoBehaviour {
 			animController = go.GetComponentInChildren<Animator> ();
 			if (animController != null) {
 				animController.SetInteger ("IdleState", 0);
-				animController.SetInteger ("EmotionState", 0);
+//				animController.SetInteger ("EmotionState", 0);
 				animController.SetInteger ("EatState", 0);
-			}
 
+				animController.SetInteger ("EmotionState", (isWin) ? monster.HappyStates [UnityEngine.Random.Range (0, monster.HappyStates.Count)] : monster.SadStates [UnityEngine.Random.Range (0, monster.SadStates.Count)]);
+			}
 		}
 
 		particles.enabled = isWin;
@@ -103,30 +122,28 @@ public class UILevelEndController : MonoBehaviour {
 			AudioController.Instance.PlaySound (GameWonFanfare);
 			Invoke ("UnPauseMusic", 1.4f);
 
-			Analitics.Instance.treckScreen ("Level " + (GameplayController.Instance.CurrentLevelIndex + 1) + " Success");
+			Analitics.Instance.treckScreen ("Level " + (GameplayController.Instance.CurrentLevelIndex + 1) + " Success - Profile: " + UsersController.Instance.CurrentProfileId);
 
 			Analitics.Instance.treckEvent (AnaliticsCategory.GamePlay, AnaliticsAction.LevelSuccess	+ "_" + (GameplayController.Instance.CurrentLevelIndex + 1).ToString(), GameplayController.Instance.SucsessSegment.ToString() + " puzzles");
 		} else {
 			AudioController.Instance.PlaySound (GameLostFanfare);
 
-			Analitics.Instance.treckScreen ("Level " + (GameplayController.Instance.CurrentLevelIndex + 1) + " Fail");
+			Analitics.Instance.treckScreen ("Level " + (GameplayController.Instance.CurrentLevelIndex + 1) + " Fail - Profile: " + UsersController.Instance.CurrentProfileId);
 			Analitics.Instance.treckEvent (AnaliticsCategory.GamePlay, AnaliticsAction.LevelFail	+ "_" + (GameplayController.Instance.CurrentLevelIndex + 1).ToString(), GameplayController.Instance.SucsessSegment.ToString() + " puzzles");
 		}
 
 		UIController.Instance.ClosePopup (UIController.Instance.GamePanel);
 
-		if (GameplayController.Instance != null && GameplayController.Instance.CurrentActive != null) {
-			GameplayController.Instance.CurrentActive.SetMonsterState (isWin ? MonsterCalloutController.MonsterState.Happy : MonsterCalloutController.MonsterState.Sad);
-		}
+//		if (GameplayController.Instance != null && GameplayController.Instance.CurrentActive != null) {
+//			GameplayController.Instance.CurrentActive.SetMonsterState (isWin ? MonsterCalloutController.MonsterState.Happy : MonsterCalloutController.MonsterState.Sad);
+//		}
 
-//		if (isWin && GameplayController.Instance.Levels.Length > GameplayController.Instance.CurrentLevelIndex + 1) {
-		if (isWin && GameplayController.Instance.NumOfLevels > GameplayController.Instance.CurrentLevelIndex + 1) {
+
+		if (isWin && GameplayController.Instance.NumOfLevels >= GameplayController.Instance.CurrentLevelIndex + 1) {
 			UserInfo.Instance.SetHighestOpenLevel (GameplayController.Instance.CurrentLevelIndex + 1);
 		}
 
 		//NextButton.gameObject.SetActive (UserInfo.Instance.GetHighestOpenLevel() >= GameplayController.Instance.CurrentLevelIndex + 1 );
-
-		TitleText.text = isWin ? "LEVEL\nWON!" : "LEVEL\nFAILED";
 
 		bool hasNextLevel = GameplayController.Instance.CurrentLevelIndex != GameplayController.Instance.NumOfLevels - 1;
 		// button for win
@@ -153,8 +170,10 @@ public class UILevelEndController : MonoBehaviour {
 
 	void OnDisable(){
 //		GameplayController.Instance.GameBackgroundSpriteRenderer.color = new Color (1, 1, 1, 1);
-		Camera.main.orthographicSize = 5;
-		Camera.main.transform.position = new Vector3 (0, 0, -10);
+		if (Camera.main != null) {
+			Camera.main.orthographicSize = 5;
+			Camera.main.transform.position = new Vector3 (0, 0, -10);
+		}
 		particles.enabled = false;
 
 
@@ -190,12 +209,6 @@ public class UILevelEndController : MonoBehaviour {
 		GageZoomIn
 	}
 
-	Queue statusQueue = new Queue();
-
-	public Slider MonsterGageSliderA;
-	public Slider MonsterGageSliderB;
-	public MonsterBar monsterBar;
-	UIFlashAnimation flashAnimation;
 
 
 	void doStatusQueue(status s)
@@ -248,9 +261,6 @@ public class UILevelEndController : MonoBehaviour {
 		showSlider (true);
 	}
 
-	Sprite NextGageSprite;
-
-
 	void hideGageIcons ()
 	{
 		Icon_gage_1.gameObject.SetActive (false);
@@ -281,7 +291,7 @@ public class UILevelEndController : MonoBehaviour {
 			UpdateGageSprite ();
 
 			MonsterGageSliderA.value = monster.GageValue;
-			MonsterGageSliderB.value = monster.GageValue;
+//			MonsterGageSliderB.value = monster.GageValue;
 
 			if (toAddGage) {
 //				isGageChanged = monster.AddGageValue (GameplayController.Instance.CurrentLevelXP);
@@ -306,24 +316,24 @@ public class UILevelEndController : MonoBehaviour {
 	{
 		if (monster.IsReady) {
 			MonsterGageSliderA.gameObject.SetActive (false);
-			MonsterGageSliderB.gameObject.SetActive (false);
-		} else if (MonsterGageSliderA != null && MonsterGageSliderB != null) {
+//			MonsterGageSliderB.gameObject.SetActive (false);
+		} else if (MonsterGageSliderA != null/* && MonsterGageSliderB != null*/) {
 			if (isWin) {
 
 				MonsterGageSliderA.gameObject.SetActive (true);
-				MonsterGageSliderB.gameObject.SetActive (true);
+//				MonsterGageSliderB.gameObject.SetActive (true);
 				return true;
 			} else {
 				MonsterGageSliderA.gameObject.SetActive (false);
-				MonsterGageSliderB.gameObject.SetActive (false);
+//				MonsterGageSliderB.gameObject.SetActive (false);
 			}
 		} else {
 			if (MonsterGageSliderA != null) {
 				MonsterGageSliderA.gameObject.SetActive (false);
 			}
-			if (MonsterGageSliderB != null) {
-				MonsterGageSliderB.gameObject.SetActive (false);
-			} 
+//			if (MonsterGageSliderB != null) {
+//				MonsterGageSliderB.gameObject.SetActive (false);
+//			} 
 		}
 		return false;
 	}
@@ -335,7 +345,11 @@ public class UILevelEndController : MonoBehaviour {
 		if (isGageChanged) {
 			to = 100f;
 		} else {
-			to = monster.GageValue;
+			if (monster.GageValue > 98f) {
+				to = 98f;
+			} else {
+				to = monster.GageValue;
+			}
 		}
 
 		float diff = Mathf.Abs (MonsterGageSliderA.value - to);
@@ -343,6 +357,7 @@ public class UILevelEndController : MonoBehaviour {
 		if (diff > 0.1f) {
 			float newValue = Mathf.Lerp (MonsterGageSliderA.value, to, 2 * Time.deltaTime);
 			float d = (newValue - MonsterGageSliderA.value);
+
 			MonsterGageSliderA.value = newValue;
 
 			int f = (int)(float.Parse (ScoreText.text) - ((monster.currentGageCost / 100f ) * d));
@@ -356,8 +371,6 @@ public class UILevelEndController : MonoBehaviour {
 					}
 				}
 			}
-
-
 
 			if (f <= 0) {
 				if(SoundScoreCountSRC != null) {
@@ -472,28 +485,17 @@ public class UILevelEndController : MonoBehaviour {
 	void onGageZoomInDone()
 	{
 //		Invoke ("ShowStatusPopup", 0.5f);
-
-		if (monster.MonsterType == MonsterType.Magnet && monster.Gage == 1) {
-			RetryButton.interactable = false;
-			NextButton.interactable = false;
-
-			TutorialController.Instance.SetIsInMinigameTutorial (true);
-			TutorialController.Instance.PointAt (MapButton.transform.position, transform);
-		}
 	}
-
-
-	Dictionary<MonsterType, bool> showenStatusPopup = new Dictionary<MonsterType, bool>();
 
 	void ShowStatusPopup()
 	{
 		if (!isStatusPopupShow) {
 
 //			Monster monster = MiniGameController.Instance.getEmotionMonster ();
-			if (monster != null && monster.Gage > 0) {
+			if (monster != null && monster.IsReady && monster.Gage >= monster.GageCost.Length - 1 && monster.MiniGame != MiniGameController.GameType.None) {
 				bool needToShow = false;
 				if (
-					monster.EmotionType != MonsterEmotionTypes.Happy
+					(monster.EmotionType != MonsterEmotionTypes.Happy && monster.EmotionType != MonsterEmotionTypes.NONE)
 					&&
 					(
 					    !showenStatusPopup.ContainsKey (monster.MonsterType)
@@ -501,7 +503,7 @@ public class UILevelEndController : MonoBehaviour {
 					    showenStatusPopup [monster.MonsterType] == false
 					)) {
 					needToShow = true;
-				} else if(monster.EmotionType != MonsterEmotionTypes.Happy) {
+				} else if(monster.EmotionType != MonsterEmotionTypes.Happy && monster.EmotionType != MonsterEmotionTypes.NONE) {
 					float r = Random.value;
 					Debug.Log ("Random.value: " + r.ToString ());
 					if (r <= 0.2f) {
@@ -524,6 +526,47 @@ public class UILevelEndController : MonoBehaviour {
 		}
 		isStatusPopupShow = true;
 	}
+
+
+
+
+	public void RetryLevel()
+	{
+		GameObject.Find ("monster").GetComponent<MonsterPosition> ().setGamePosition (true);
+		UIController.Instance.RetryLevelClick ();
+	}
+
+	public void NextLevel()
+	{
+		GameObject.Find ("monster").GetComponent<MonsterPosition> ().setGamePosition (true);
+		UIController.Instance.NextClick();
+	}
+
+
+	public void DisableAllButtons()
+	{
+		Invoke ("DisableAllButtons_1", 0.01f);
+	}
+
+
+	void DisableAllButtons_1()
+	{
+		if (NextButton) {
+			NextButton.interactable = false;
+		}
+		if (RetryButton) {
+			RetryButton.interactable = false;
+		}
+		if (RetryFailButton) {
+			RetryFailButton.interactable = false;
+		}
+		if (MapButton) {
+			MapButton.interactable = false;
+		}
+	}
+
+
+
 
 	// End Tzahi
 

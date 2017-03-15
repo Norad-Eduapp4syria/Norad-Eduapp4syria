@@ -26,6 +26,8 @@ public class UIPauseController : MonoBehaviour {
 
 	void OnEnable()
 	{
+		transform.SetAsLastSibling ();
+
 		ChangeMusicButtonColor ();
 		ChangeSoundButtonColor ();
 	}

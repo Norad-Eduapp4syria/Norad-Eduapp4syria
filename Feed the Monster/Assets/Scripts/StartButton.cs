@@ -259,6 +259,7 @@ public class StartButton : MonoBehaviour
 			GOScore.transform.localPosition = GOScore.transform.localPosition + transform.localPosition;
 
 			UIScoreAnimationController c = GOScore.GetComponent<UIScoreAnimationController>();
+			c.gameObject.AddComponent<DestroyAfter> ().After = 1.4f;
 			c.Play (score);
 		}
 	}

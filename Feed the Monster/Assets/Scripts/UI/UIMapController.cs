@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class UIMapController : MonoBehaviour {
-	public Text ScoreText;
+//	public Text ScoreText;
 	public Button btnCollection;
 	public ScrollRect mapScroll;
 
@@ -25,8 +25,24 @@ public class UIMapController : MonoBehaviour {
 
 	void OnEnable()
 	{
+		GameplayController.Instance.ReaplaceBackground_SelectMonster = true;
+		
+		updatePosition ();
 
-		int sumAllLevelsScore = 0;
+		Invoke("ShowStatusPopup", 2f);
+
+		Analitics.Instance.treckScreen ("Map");
+	}
+
+
+	void OnDisable() {
+		TutorialController.Instance.EndTutorial ();
+		CancelInvoke ();
+	}
+
+	public void updatePosition()
+	{
+//		int sumAllLevelsScore = 0;
 		int highestLevelOpenIndex;
 		int lastPlayingLevelIndex;
 
@@ -34,31 +50,21 @@ public class UIMapController : MonoBehaviour {
 		lastPlayingLevelIndex = UserInfo.Instance.GetLastPlayingLevel ();
 		TutorialController.Instance.EndTutorial (); //Jonathan??
 
-/*
-		if (UIController.Instance.DEBUG_OPEN_ALL_LEVELS_PLAYERPREFS) {
-//			highestLevelOpenIndex = GameplayController.Instance.Levels.Length - 1;
-			highestLevelOpenIndex = GameplayController.Instance.NumOfLevels - 1;
-		}
-*/
-
 		SnapTo (GameObject.Find ("Pin - Level " + lastPlayingLevelIndex).transform);
 
-		for (int i = highestLevelOpenIndex; i >= 0; i--) {
-			sumAllLevelsScore += UserInfo.Instance.GetLevelScore (i);
-		}
+//		for (int i = highestLevelOpenIndex; i >= 0; i--) {
+//			sumAllLevelsScore += UserInfo.Instance.GetLevelScore (i);
+//		}
 
 		if (highestLevelOpenIndex == 0) {
 			var curPin = GameObject.Find ("Pin - Level 0").transform;
-			TutorialController.Instance.PointAt (curPin.localPosition + new Vector3 (0, 30, 0), curPin.parent);
+			TutorialController.Instance.PointAt (curPin.localPosition + new Vector3 (0, 30, 0), curPin.parent, true);
 		}
 
-		ScoreText.text = sumAllLevelsScore.ToString ();
-		btnCollection.interactable = UserInfo.Instance.CollectionLength > 0;
-
-		Invoke("ShowStatusPopup", 0.8f);
-
-		Analitics.Instance.treckScreen ("Map");
+//		ScoreText.text = sumAllLevelsScore.ToString ();
+//		btnCollection.interactable = UserInfo.Instance.CollectionLength > 0;
 	}
+
 
 	private void SnapTo(Transform target)
 	{
@@ -75,8 +81,6 @@ public class UIMapController : MonoBehaviour {
 			- (Vector2)mapScroll.transform.InverseTransformPoint(target.position);*/
 	}
 
-
-
 	void ShowStatusPopup()
 	{
 		if(!isStatusPopupShow)
@@ -91,13 +95,13 @@ public class UIMapController : MonoBehaviour {
 				isStatusPopupShow = true;
 			}
 		}
+	}
 
-		if (TutorialController.Instance.GetIsInMinigameTutorial ()) {
-			Button[] stations = GameObject.Find ("Stations").GetComponentsInChildren<Button> ();
-			foreach (Monster friend in UserInfo.Instance.CollectedFriends) {
-				friend.EmotionType = MonsterEmotionTypes.Afraid;
-			}
-			TutorialController.Instance.PointAt (btnCollection.transform.position, this.transform);
-		}
+
+	public void OnSELClick()
+	{
+		Analitics.Instance.treckEvent (AnaliticsCategory.Sel, AnaliticsAction.Open, "Map");
+
+		UIController.Instance.ShowPanel (UIController.Instance.MiniGamePopup);
 	}
 }

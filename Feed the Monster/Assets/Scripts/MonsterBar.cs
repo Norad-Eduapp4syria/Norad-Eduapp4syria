@@ -21,7 +21,7 @@ public class MonsterBar : MonoBehaviour {
 	public onMonsterChangeDelegate onMonsterLocated;
 	public onMonsterChangeDelegate onMonsterDrag;
 
-
+	[HideInInspector]
 	public int NumMonsters;
 
 	public Button ButtonPrevious;
@@ -32,12 +32,11 @@ public class MonsterBar : MonoBehaviour {
 	public Image Icon_gage_2;
 	public Image Icon_gage_3;
 
-
-
-
+	[HideInInspector]
+	public MonsterType DefaultMonster = MonsterType.NONE;
 
 	float spacing;
-	int currentIndex = 0;
+	//int currentIndex = 0;
 	Transform Content;
 	Transform selectedMonster = null;
 
@@ -48,28 +47,45 @@ public class MonsterBar : MonoBehaviour {
 
 
 
-	public int CurrentMonsterIndex
+	public void JumpToMonsterIndex(int newIndex)
+	{
+		currentMonsterIndex = newIndex;
+		Invoke("jumpToNewPosition", 0.001f);
+	}
+
+
+	public int currentMonsterIndex
 	{
 		get {
-			return currentIndex;
+			return UserInfo.Instance.GetLastMonsterIndex ();
+//			return currentIndex;
 		}
 
-		set{ 
-			currentIndex = value;
-			Invoke("jumpToNewPosition", 0.001f);
+		set { 
+			UserInfo.Instance.SetLastMonsterIndex (value);
+//			currentIndex = value;
+		}
+	}
+
+
+
+	public Transform currentMonster
+	{
+		get { 
+			return Content.GetChild (currentMonsterIndex);
 		}
 	}
 
 	void jumpToNewPosition()
 	{
-		Transform t = Content.GetChild (currentIndex);
+		Transform t = Content.GetChild (currentMonsterIndex);
 		toX = Content.transform.position.x - t.position.x;
 
 		Vector2 newPos = new Vector2 (toX, Content.position.y);
 		Content.position = newPos;
 
 		isDrag = false;
-		updateButtons ();
+		updateButtons (false);
 	}
 
 
@@ -97,11 +113,18 @@ public class MonsterBar : MonoBehaviour {
 				}
 
 				float dis1 = Vector2.Distance (selectedMonster.localScale, transform.localScale);
-				float dis2 = Vector2.Distance (selectedMonster.position, selectedMonster.GetComponent<MonsterPosition> ().GameScreen);
+				if (IsMiniGame) {
+					if (dis1 < 0.001f) {
+						isLocated = true;
+						selectedMonster = null;
+					}
+				} else {
+					float dis2 = Vector2.Distance (selectedMonster.position, selectedMonster.GetComponent<MonsterPosition> ().GameScreen);
 
-				if (dis1 < 0.001f && dis2 < 0.001f) {
-					isLocated = true;
-					selectedMonster = null;
+					if (dis1 < 0.001f && dis2 < 0.001f) {
+						isLocated = true;
+						selectedMonster = null;
+					}
 				}
 			}
 			return;
@@ -112,17 +135,20 @@ public class MonsterBar : MonoBehaviour {
 		if (isDrag == false && Content.transform.position.x != toX) {
 			Vector2 newPos = new Vector2 (toX, Content.position.y);
 			Content.position = Vector3.MoveTowards (Content.position, newPos, Time.deltaTime * 20);
+			float dis = Vector2.Distance (Content.position, newPos);
+			if (dis < 0.001f) {
+				Content.position = newPos;
 
-			if (Vector2.Distance (Content.position, newPos) < 0.001f) {
-				if (onMonsterLocated != null) {
-					Monster m = Content.GetChild (currentIndex).GetComponent<MonsterSpritesController> ().monster;
+				if (onMonsterLocated != null && isLocatedCalled == false) {
+					isLocatedCalled = true;
+					Monster m = Content.GetChild (currentMonsterIndex).GetComponent<MonsterSpritesController> ().monster;
 					onMonsterLocated (m);
 				}
 			}
 		}
 	}
 
-
+	bool isLocatedCalled = false;
 	bool IsMiniGame = false;
 
 
@@ -170,12 +196,18 @@ public class MonsterBar : MonoBehaviour {
 				updateMonsterEmotion (IsMiniGame, newMonster, monster);
 
 				numReady++;
+
+				if (DefaultMonster != MonsterType.NONE && DefaultMonster == monster.MonsterType) {
+					DefaultMonster = MonsterType.NONE;
+					currentMonsterIndex = monsterIndex;
+				}
+
 			}
 		}
 		NumMonsters = numReady;
 
 		if (onMonsterLocated != null) {
-			Monster m = Content.GetChild (currentIndex).GetComponent<MonsterSpritesController> ().monster;
+			Monster m = Content.GetChild (currentMonsterIndex).GetComponent<MonsterSpritesController> ().monster;
 			onMonsterLocated (m);
 		}
 
@@ -193,10 +225,17 @@ public class MonsterBar : MonoBehaviour {
 			}
 
 			if (animController != null) {
-				if (isMiniGame == false || monster.EmotionType == MonsterEmotionTypes.Happy) {
+				if (isMiniGame == false) {
+					animController.SetBool ("IsMiniGame", false);
 					animController.SetBool ("IsSad", false);
 				} else {
-					animController.SetBool ("IsSad", true);
+					animController.SetBool ("IsMiniGame", true);
+
+					if (monster.EmotionType == MonsterEmotionTypes.Happy || monster.EmotionType == MonsterEmotionTypes.NONE || monster.IsReady == false) {
+						animController.SetBool ("IsSad", false);
+					} else {
+						animController.SetBool ("IsSad", true);
+					}
 				}
 			}
 		}
@@ -204,7 +243,7 @@ public class MonsterBar : MonoBehaviour {
 
 
 	public void Select() {
-		selectedMonster = Content.GetChild (currentIndex);
+		selectedMonster = Content.GetChild (currentMonsterIndex);
 		selectedMonster.transform.parent = null;
 		for (int i = 0; i < Content.childCount; i++) {
 			Destroy (Content.GetChild (i).gameObject);
@@ -217,6 +256,9 @@ public class MonsterBar : MonoBehaviour {
 
 
 	public void Clean() {
+		if (Content == null) {
+			return;
+		}
 		for (int i = 0; i < Content.childCount; i++) {
 			Destroy (Content.GetChild (i).gameObject);
 		}
@@ -224,42 +266,54 @@ public class MonsterBar : MonoBehaviour {
 
 	public void MoveToPrevious()
 	{
-		if(currentIndex - 1 >= 0)
+		if(currentMonsterIndex - 1 >= 0)
 		{
 			if (onMonsterDrag != null) {
 				onMonsterDrag (null);
 			}
 
-			currentIndex--;
+			currentMonsterIndex--;
 
 			setNewIndexPosition ();
 		}
+		isLocatedCalled = false;
 	}
 
 	public void MoveToNext()
 	{
-		if(currentIndex + 1 < Content.childCount)
+		if(currentMonsterIndex + 1 < Content.childCount)
 		{
 			if (onMonsterDrag != null) {
 				onMonsterDrag (null);
 			}
-			currentIndex++;
+			currentMonsterIndex++;
 			setNewIndexPosition ();
 		}
+		isLocatedCalled = false;
 	}
 
 	void setNewIndexPosition()
 	{
-		Transform t = Content.GetChild (currentIndex);
+		Transform t = Content.GetChild (currentMonsterIndex);
 		toX = Content.transform.position.x - t.position.x;
 		isDrag = false;
-		updateButtons ();
+		updateButtons (false);
+	}
+
+	public void updateButtons(bool immediately )
+	{
+
+		if (immediately == true) {
+			updateButtons ();
+		} else {
+			Invoke ("updateButtons", 0.05f);
+		}
 	}
 
 	public void updateButtons()
 	{
 		if (ButtonNext != null) {
-			if (currentIndex < (Content.childCount - 1)) {
+			if (currentMonsterIndex < (Content.childCount - 1)) {
 				ButtonNext.interactable = true;
 			} else {
 				ButtonNext.interactable = false;
@@ -276,7 +330,7 @@ public class MonsterBar : MonoBehaviour {
 
 		if (ButtonPrevious != null) {
 
-			if (currentIndex > 0) {
+			if (currentMonsterIndex > 0) {
 				ButtonPrevious.interactable  = true;
 			} else {
 				ButtonPrevious.interactable  = false;
@@ -295,7 +349,7 @@ public class MonsterBar : MonoBehaviour {
 	void updateMonsterSlider()
 	{
 		if (MonsterGageSlider != null) {
-			Monster monster = Content.GetChild (currentIndex).GetComponent<MonsterSpritesController> ().monster;
+			Monster monster = Content.GetChild (currentMonsterIndex).GetComponent<MonsterSpritesController> ().monster;
 
 			if (monster != null) {
 		
@@ -325,6 +379,7 @@ public class MonsterBar : MonoBehaviour {
 	{
 		if (isTouchAllow) {
 			isDrag = true;
+			isLocatedCalled = false;
 			if (onMonsterDrag != null) {
 				onMonsterDrag (null);
 			}
@@ -343,7 +398,7 @@ public class MonsterBar : MonoBehaviour {
 			for (int i = 0; i < Content.childCount; i++) {
 				float dist = Vector3.Distance (Content.GetChild (i).transform.position, transform.position);
 
-				if (i == currentIndex) {
+				if (i == currentMonsterIndex) {
 					dist = dist * 1.5f;
 				}
 
@@ -354,16 +409,16 @@ public class MonsterBar : MonoBehaviour {
 				}
 			}
 
-			float currDist = Vector3.Distance (Content.GetChild (currentIndex).transform.position, transform.position);
+			float currDist = Vector3.Distance (Content.GetChild (currentMonsterIndex).transform.position, transform.position);
 
 			if (minDistance < currDist * 4.0f) {
 
 				Transform t = Content.GetChild (minIndex);
 				toX = Content.transform.position.x - t.position.x;
 
-				currentIndex = minIndex;
+				currentMonsterIndex = minIndex;
 
-				updateButtons ();
+				updateButtons (false);
 			}
 		}
 	}

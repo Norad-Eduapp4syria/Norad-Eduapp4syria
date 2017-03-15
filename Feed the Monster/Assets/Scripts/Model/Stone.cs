@@ -13,9 +13,6 @@ public class Stone {
 	[XmlAttribute("bonusScore")]
 	public string bonusScore;
 
-	[XmlAttribute("size")]
-	public int size;
-
 	[XmlAttribute("delayIn")]
 	public float delayIn;
 
@@ -27,6 +24,15 @@ public class Stone {
 
 	[XmlAttribute("loop")]
 	public bool loop;
+
+	[XmlAttribute("hideAfter")]
+	public float hideAfter;
+
+	[XmlAttribute("hideAfterBlinks")]
+	public int hideAfterBlinks;
+
+	[XmlAttribute("chanceToShow")]
+	public float chanceToShow;
 
 	[XmlText()]
 	public string value;
@@ -87,9 +93,21 @@ public class Stone {
 	public static Stone CreateBooster(Stone origStone)
 	{
 		Stone stone = new Stone();
-		stone.spawnId = "";
 		stone.value = BoosterController.letterName;
+
+		stone.speed = origStone.speed;
+		stone.delayIn = origStone.delayIn;
+		stone.delayRepet = origStone.delayRepet;
+		stone.loop = origStone.loop;
+		stone.spawnId = origStone.spawnId;
 		stone.bonusScore = origStone.bonusScore;
+
+		stone.hideAfter = origStone.hideAfter;
+		stone.hideAfterBlinks = origStone.hideAfterBlinks;
+
+
+
+
 		return stone;
 	}
 

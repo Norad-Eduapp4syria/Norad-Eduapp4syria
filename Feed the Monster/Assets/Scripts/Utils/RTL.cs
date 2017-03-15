@@ -33,6 +33,12 @@ public class RTL {
 		return newText;
 	}
 
+	public static string Clean(string text)
+	{
+		return text.Replace(RTL.connector.ToString(), "");
+	}
+
+
 	static string replaceLamAlef(string text)
 	{
 		if (RTL.letterReaplace != null) {

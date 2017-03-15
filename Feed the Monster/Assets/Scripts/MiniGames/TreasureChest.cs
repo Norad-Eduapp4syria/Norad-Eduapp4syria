@@ -179,6 +179,7 @@ public class TreasureChest : MonoBehaviour {
 			GOScore.transform.position = transform.position;
 		}
 		UIScoreAnimationController c = GOScore.GetComponent<UIScoreAnimationController>();
+		c.gameObject.AddComponent<DestroyAfter> ().After = 1.4f;
 		c.Play (score);
 	}
 }

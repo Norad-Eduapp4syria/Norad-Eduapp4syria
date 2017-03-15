@@ -16,12 +16,16 @@ public class PauseMaker : MonoBehaviour {
 	void OnEnable()
 	{
 		//GameplayController.Instance.IsPause = true;
-		GameplayController.Instance.IsPausePopup = true;
+		if (GameplayController.Instance != null) {
+			GameplayController.Instance.IsPausePopup = true;
+		}
 	}
 
 	void OnDisable()
 	{
 //		GameplayController.Instance.IsPause = false;
-		GameplayController.Instance.IsPausePopup = false;
+		if (GameplayController.Instance != null) {
+			GameplayController.Instance.IsPausePopup = false;
+		}
 	}
 }

@@ -10,7 +10,11 @@ public enum AnaliticsAction
 	SegmentSuccess,
 	SegmentFail,
 
-	SelectMonster
+	SelectMonster,
+
+	Start,
+	End,
+	Open
 
 
 

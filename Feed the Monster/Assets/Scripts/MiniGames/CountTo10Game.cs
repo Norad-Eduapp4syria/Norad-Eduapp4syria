@@ -41,13 +41,6 @@ public class CountTo10Game : BaseMiniGame {
 	public void ApproveDigit(CountTo10Letter letter)
 	{
 		if (letter.value == "" + CurrentDigit) {
-			if (UserInfo.Instance.GetHadMinigameTutorial () == 0) {
-				TutorialController.Instance.SetIsInMinigameTutorial (false);
-//				if (TutorialController.Instance.getClone () != null) {
-//					Destroy (TutorialController.Instance.getClone ().gameObject);
-//				}
-				UserInfo.Instance.SetHadMinigameTutorial (1);
-			}
 			TutorialController.Instance.EndTutorial ();	
 			//Jonathan
 			AudioController.Instance.PlaySound ( SoundCorrectAnswers[UnityEngine.Random.Range(0, SoundCorrectAnswers.Length)] );		
@@ -75,7 +68,6 @@ public class CountTo10Game : BaseMiniGame {
 
 
 			if (CurrentDigit >= 11) {
-				TutorialController.Instance.SetIsInMinigameTutorial (false);
 				Complete ();
 			} else {
 				EnableCurrentDigit ();

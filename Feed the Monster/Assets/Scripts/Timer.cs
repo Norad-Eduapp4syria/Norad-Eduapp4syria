@@ -36,7 +36,9 @@ public class Timer : MonoBehaviour {
 
 	void Awake()
 	{
-		Instance = this;
+		if (Instance == null) {
+			Instance = this;
+		}
 	}
 
 	// Use this for initialization
@@ -48,7 +50,7 @@ public class Timer : MonoBehaviour {
 	void Update () {
 		mLastTimeNotPaused += Time.deltaTime;
 
-		if (GameplayController.Instance.IsPause || GameplayController.Instance.IsPausePopup)
+		if (GameplayController.Instance == null || GameplayController.Instance.IsPause || GameplayController.Instance.IsPausePopup)
 			return;
 
 		for (int i=0; i<mCommands.Count; i++) {

@@ -10,19 +10,17 @@ public class UILevelWinStarsDisplay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	void OnDisable(){
 
 	}
-		
-
 
 	void OnEnable(){
 		float[] delays = new float[]{ .6f, .75f, 1f };
@@ -33,9 +31,11 @@ public class UILevelWinStarsDisplay : MonoBehaviour {
 		Color fullColor = new Color (1, 1, 1, 1);
 		Color emptyColor = new Color (0.0f, 0.0f, 0.0f, 0.7f);
 
- 		StarImage1.color = GameplayController.Instance.CurrentLevelStars >= 1 ? fullColor : emptyColor;
-		StarImage2.color = GameplayController.Instance.CurrentLevelStars >= 2 ? fullColor : emptyColor;
-		StarImage3.color = GameplayController.Instance.CurrentLevelStars >= 3 ? fullColor : emptyColor;
+		int stars = GameplayController.Instance.CurrentLevelStars;
+
+		StarImage1.color = stars >= 1 ? fullColor : emptyColor;
+		StarImage2.color = stars >= 2 ? fullColor : emptyColor;
+		StarImage3.color = stars >= 3 ? fullColor : emptyColor;
 	}
 
 	IEnumerator PopInStar(Transform transform, float delay = 0){

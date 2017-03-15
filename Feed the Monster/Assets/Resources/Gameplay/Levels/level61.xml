@@ -1,145 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	monsterInputType="Letter" 
-	HideCallout="0"
+	monsterInputType="Word"
 	CollectableMonster=""
-	SegmentTime="7"
-	ReplaceLerrtrTimes="0"
-	ReplaceLerrtrStartTime="3"
-	ReplaceLerrtrDelay="3"
+	SegmentTime="12"
+	HideCallout="1"
+	LettersGroup="5"
+	StoneType="2"
 >
-<!---
-XMLLevel
-**************************
-monsterInputType: type of pazle (Letter, LetterInWord, Word)
-CollectableMonster: Monster type (Green, White, Blue, Pink)
-LevelTemplete: backgrund type(LevelTempleteBlueSky, LevelTempleteNight, LevelTempletePinkSky, LevelTempleteYellowSky)
-
-SegmentTime: time for each Segment in seconds
-ReplaceLerrtrTimes: num of reaplace letter locations
-ReplaceLerrtrStartTime: start reaplace letter locations after ? seconds
-ReplaceLerrtrDelay: reaplace letter locations evry ? seconds
-
-Segment
-**************************
-spawnIds: put letters only  in locations from the list (split by comma)
-
-string
-**************************
-content can be any letter or one of the boosters:
-	FreezeTime: freeze segment timer for 5 seconds
-	FireWrongLetter: blow an wrong letter
-	LoseSegment: lose current segment 
-	MagnetLetter: Magnet same letter or next letter to the draged letter
-	StopAutoMove: stop reaplace letter locations in the current segment
-	IgnorWrongLetter: 
-
--->
-  <Segments>
-    <Segment spawnIds="" SegmentTime="7" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
-    	<!-- Puzzle One -->
-    	<MonsterRequiredLetters>
-    		<string>ﺀ</string>
-    	</MonsterRequiredLetters>
-    	<MonsterAllLetters>
-    	</MonsterAllLetters>
-    	<Stones>
-    		<string spawnId="11">ﺀ</string>
-    		<string spawnId="22">ﺀ</string>
-    		<string spawnId="14">ﻏ</string>
-			<string spawnId="19">ﻏ</string>
-			<string spawnId="16">ﻋ</string>
-			<string spawnId="17">ﻋ</string>
-			<string spawnId="18">ﻛ</string>
-			<string spawnId="15">ﻛ</string>
-			<string spawnId="21">ﻩ</string>
-			<string spawnId="12">ﻩ</string>
-			<string spawnId="27">MonsterBooster</string>
-    	</Stones>
-	</Segment>
-	<Segment spawnIds="11,12,14,15,18,19,21,22,25,28,16" SegmentTime="7" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+	<Segments>
+		<Segment spawnIds="" SegmentTime="12">
+			<!-- Puzzle One -->
+			<MonsterRequiredLetters>
+				<string>مُجْـ</string>
+				<string>ـتَـ</string>
+				<string>ـهِد</string>
+			</MonsterRequiredLetters>
+			<MonsterAllLetters>
+			</MonsterAllLetters>
+			<Stones>
+				<string spawnId="58">مُجْـ</string>
+				<string spawnId="6">ـتَـ</string>
+				<string spawnId="62">ـهِد</string>
+				<string spawnId="63">ـهار</string>
+				<string spawnId="7">ـحا</string>
+				<string spawnId="64">ما</string>
+				<string spawnId="93">ShowCallout</string>
+				<string spawnId="94" bonusScore="275" >BonusLetter</string>
+			</Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="12">
 		<!-- Puzzle Two -->
 		<MonsterRequiredLetters>
-			<string>ﺙ</string>
+			<string>نَـ</string>
+			<string>ـهار</string>
 		</MonsterRequiredLetters>
-	  	<MonsterAllLetters>
-	  	</MonsterAllLetters>
-	  	<Stones>
-        	<string>ﺙ</string>
-        	<string>ﺙ</string>
-        	<string>ت</string>
-			<string>ت</string>
-			<string>ب</string>
-			<string>ب</string>
-			<string>ن</string>
-			<string>ن</string>
-			<string>تا</string>
-			<string>تا</string>
-			<string>MonsterBooster</string>
-      	</Stones>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string spawnId="93">نَـ</string>
+			<string spawnId="70">ـهار</string>
+			<string spawnId="60">رِغ</string>
+			<string spawnId="71">ـفاف</string>
+			<string spawnId="94">ـلَم</string>
+		</Stones>
     </Segment>
-	<Segment spawnIds="" SegmentTime="7" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
+	<Segment spawnIds="" SegmentTime="12">
 		<!-- Puzzle Three -->
-      	<MonsterRequiredLetters>
-			<string>ﻅ</string>
-	  	</MonsterRequiredLetters>
-	  	<MonsterAllLetters>
-	  	</MonsterAllLetters>
-	  	<Stones>
-			<string spawnId="24">ﻅ</string>
-	        <string spawnId="29">ﻅ</string>
-	        <string spawnId="34">ﻁ</string>
-			<string spawnId="31">ﻁ</string>
-			<string spawnId="26">ﺥ</string>
-			<string spawnId="27">ﺥ</string>
-			<string spawnId="14">ﻍ</string>
-			<string spawnId="18">ﻍ</string>
-			<string spawnId="15">طو</string>
-			<string spawnId="19">طو</string>
-			<string spawnId="11">MonsterBooster</string>
-      	</Stones>
-	</Segment>
-	<Segment spawnIds="21,24,22,29,16,17,14,15,11,12,27" SegmentTime="7" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
-		<!-- Puzzle Four -->
-      	<MonsterRequiredLetters>
-			<string>ﻱ</string>
-	  	</MonsterRequiredLetters>
-	  	<MonsterAllLetters>
-	  	</MonsterAllLetters>
-	  	<Stones>
-	        <string>ﻱ</string>
-	        <string>ﻱ</string>
-	        <string>عا</string>
-			<string>عا</string>
-			<string>ﻊ</string>
-			<string>ﻊ</string>
-			<string>ﻉ</string>
-			<string>ﻉ</string>
-			<string>م</string>
-			<string>م</string>
-			<string>MonsterBooster</string>
-      	</Stones>
+		<MonsterRequiredLetters>
+			<string>نَـ</string>
+			<string>ـوا</string>
+			<string>فِذ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string spawnId="5">نَـ</string>
+			<string spawnId="86">ـوا</string>
+			<string spawnId="23">فِذ</string>
+			<string spawnId="87">ـفاف</string>
+			<string spawnId="4">ما</string>
+			<string spawnId="91">بَهْـ</string>
+			<string spawnId="92">ShowCallout</string>
+			<string spawnId="20" bonusScore="275" >BonusLetter</string>	
+		</Stones>
     </Segment>
-	<Segment spawnIds="" SegmentTime="7" ShuterShowTime_Green="1.5" ShuterShowTime_Orange="1.5" ShuterShowTime_Red="1.5">
-		<!-- Puzzle Five -->
-      	<MonsterRequiredLetters>
-			<string>ﻅ</string>
-	  	</MonsterRequiredLetters>
-	  	<MonsterAllLetters>
-	  	</MonsterAllLetters>
-	  	<Stones>
-	        <string spawnId="24">ﻅ</string>
-	        <string spawnId="12">ﻅ</string>
-	        <string spawnId="29">ﻁ</string>
-			<string spawnId="11">ﻁ</string>
-			<string spawnId="25">ﺥ</string>
-			<string spawnId="15">ﺥ</string>
-			<string spawnId="28">ﻍ</string>
-			<string spawnId="14">ﻍ</string>
-			<string spawnId="18">طو</string>
-			<string spawnId="19">طو</string>
-	        <string spawnId="27">MonsterBooster</string>
-      	</Stones>
+	<Segment spawnIds="" SegmentTime="12">
+		<!-- Puzzle Four -->
+		<MonsterRequiredLetters>
+			<string>ضِفْـ</string>
+			<string>ـدَع</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string spawnId="93">ضِفْـ</string>
+			<string spawnId="70">ـدَع</string>
+			<string spawnId="60">ـجَع</string>
+			<string spawnId="71">مَخْـ</string>
+			<string spawnId="94">صُنْـ</string>
+		</Stones>
 	</Segment>
+	<Segment spawnIds="" SegmentTime="12">
+		<!-- Puzzle Five -->
+		<MonsterRequiredLetters>
+			<string>دَغْـ</string>
+			<string>ـدَ</string>
+			<string>غَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string spawnId="63">دَغْـ</string>
+			<string spawnId="62">ـدَ</string>
+			<string spawnId="58">غَ</string>
+			<string spawnId="79">هِر</string>
+			<string spawnId="45">ـدَع</string>
+			<string spawnId="64">رِغ</string>
+			<string spawnId="36">ShowCallout</string>
+			<string spawnId="78" bonusScore="275" >BonusLetter</string>
+		</Stones>
+    </Segment>
   </Segments>
 </XMLLevel>

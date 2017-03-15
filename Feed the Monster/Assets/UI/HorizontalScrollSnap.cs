@@ -21,7 +21,7 @@ public class HorizontalScrollSnap : MonoBehaviour, IBeginDragHandler, IEndDragHa
 	private Vector3 _lerp_target;
 	private bool _lerp;
 
-	private int _containerSize;
+//	private int _containerSize;
 	private int _itemSize;
 
 	[Tooltip("The gameobject that contains toggles which suggest pagination. (optional)")]
@@ -63,7 +63,7 @@ public class HorizontalScrollSnap : MonoBehaviour, IBeginDragHandler, IEndDragHa
 
 		_scroll_rect.horizontalNormalizedPosition = (float)(_startingScreen - 1) / (float)(_screens - 1);
 
-		_containerSize = (int)_screensContainer.gameObject.GetComponent<RectTransform>().offsetMax.x;
+//		_containerSize = (int)_screensContainer.gameObject.GetComponent<RectTransform>().offsetMax.x;
 		_itemSize = (int)_screensContainer.transform.GetChild(0).gameObject.GetComponent<RectTransform>().rect.width;
 
 		ChangeBulletsInfo(CurrentScreen());

@@ -12,15 +12,11 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   booster: 0
-  SpritesheetName: Green
-  MonsterType: 2
+  MonsterType: 4
+  MiniGame: 3
+  AssetId: 2
   MonsterPrefab: {fileID: 104358, guid: 03e9a56b26fe48e4c972d83b53c7d4f1, type: 2}
-  GageCost: 70170000282300001027000010270000
-  PlayGameObjects:
-  - {fileID: 1000011678460616, guid: 5a269c7040c64b44f97ffbb2f5634294, type: 2}
-  - {fileID: 1000013189668680, guid: 129e6832b449d4c408c6c05c4b32c35c, type: 2}
-  - {fileID: 1000010308551404, guid: 39d39372ea2b77d419d8cabec3a6bf6f, type: 2}
-  - {fileID: 1000013981977264, guid: 36e2b01b23ffb944599547dcfd2b5cbc, type: 2}
+  GageCost: 2823000050460000c05d0000c05d0000
   IdleStates: 0200000003000000
   EatStates: 02000000
   NoEatStates: 04000000

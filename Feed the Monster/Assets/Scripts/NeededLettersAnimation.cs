@@ -117,7 +117,7 @@ public class NeededLettersAnimation  {
 	string StringWithBoldTags(string str)
 	{
 		return str;
-		return "<b>" + str + "</b>";
+//		return "<b>" + str + "</b>";
 	}
 
 	string StringWithColorTags(string str, Color color)

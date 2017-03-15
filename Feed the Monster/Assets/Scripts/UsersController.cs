@@ -7,8 +7,32 @@ public class UsersController : MonoBehaviour
 	public static UsersController Instance;
 
 
-	public int CurrentUserId;
+	public Sprite[] ProfileSprites;
 
+
+	int currentProfileId = -1;
+
+
+	public int CurrentProfileId
+	{
+		set {
+			currentProfileId = value;
+			UserInfo.Instance.SetLastProfileId (currentProfileId);
+		}
+		get {
+			if (currentProfileId == -1) {
+				currentProfileId = UserInfo.Instance.GetLastProfileId ();
+			}
+			return currentProfileId;
+		}
+	}
+
+	public Sprite CurrentProfileSprite
+	{
+		get {
+			return ProfileSprites[CurrentProfileId];
+		}
+	}
 
 
 
@@ -21,7 +45,8 @@ public class UsersController : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-		CurrentUserId = 0;
+		if (CurrentProfileId > 0) {
+		}
 	}
 	
 	// Update is called once per frame

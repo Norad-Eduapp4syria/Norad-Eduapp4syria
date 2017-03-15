@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 
@@ -7,7 +8,9 @@ public static class GameplaySettings {
 	
 	public const float CountdownDefault = 10f;
 
-	public const float CountdownWarningMonsterRatio = .5f;
+	public const float ShowTimeupSeconds = 1.6f;
+
+//	public const float CountdownWarningMonsterRatio = .5f;
 
 	public const float CountdownWarningLetterRatio = .5f;
 
@@ -76,11 +79,12 @@ public static class GameplaySettings {
 	public static int TreasureChest_ScoreMin = 500;
 	public static int TreasureChest_ScoreMax = 1500;
 
-	public static float TreasureChest_ChanceToShow = 0.2f;
+	public static float TreasureChest_ChanceToShow = 0.15f;
 
 
 
 	public static int MiniGame_SuccessScore = 500;
 
+	public static Vector2 DragSpacious = new Vector2 (-30f, 30f);
 
 }

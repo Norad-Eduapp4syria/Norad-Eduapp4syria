@@ -12,35 +12,29 @@ public class UIStatusController : MonoBehaviour {
 	public Sprite Icon_Angry;
 	public Sprite Icon_Bored;
 	public Sprite Icon_Sad;
-	public Sprite Icon_Hungry;
-	public Sprite Icon_Afraid;
+//	public Sprite Icon_Hungry;
+//	public Sprite Icon_Afraid;
 
 
 	public Sprite Title_Angry;
 	public Sprite Title_Bored;
 	public Sprite Title_Sad;
-	public Sprite Title_Hungry;
-	public Sprite Title_Afraid;
+//	public Sprite Title_Hungry;
+//	public Sprite Title_Afraid;
 
 	public AudioClip Sound_Angry;
 	public AudioClip Sound_Bored;
 	public AudioClip Sound_Sad;
-	public AudioClip Sound_Hungry;
-	public AudioClip Sound_Afraid;
+//	public AudioClip Sound_Hungry;
+//	public AudioClip Sound_Afraid;
 
 
-	public GameObject SadMonster_m1e2;
-	public GameObject SadMonster_m1e3;
 	public GameObject SadMonster_m1e4;
-
-
-	public GameObject SadMonster_m2e2;
-	public GameObject SadMonster_m2e3;
 	public GameObject SadMonster_m2e4;
-
-	public GameObject SadMonster_m3e2;
-	public GameObject SadMonster_m3e3;
 	public GameObject SadMonster_m3e4;
+	public GameObject SadMonster_m4e4;
+	public GameObject SadMonster_m5e4;
+	public GameObject SadMonster_m6e4;
 
 
 	public GameObject ButtonOK;
@@ -64,9 +58,6 @@ public class UIStatusController : MonoBehaviour {
 
 	void OnEnable()
 	{
-		if (TutorialController.Instance.GetIsInMinigameTutorial ()) { //Jonathan
-			TutorialController.Instance.PointAt(ButtonOK.transform.position, this.transform);
-		}
 		if (SadMonster != null) {
 			Destroy (SadMonster);
 		}
@@ -82,6 +73,7 @@ public class UIStatusController : MonoBehaviour {
 		switch (CurrentMonster.EmotionType) {
 
 		case MonsterEmotionTypes.Happy:
+		case MonsterEmotionTypes.NONE:
 			break;
 		case MonsterEmotionTypes.Angry:
 			UpdateTitle (Title_Angry);
@@ -98,16 +90,16 @@ public class UIStatusController : MonoBehaviour {
 			UpdateIcon (Icon_Sad);
 			AudioController.Instance.PlaySound (Sound_Sad);
 			break;
-		case MonsterEmotionTypes.Hungry:
-			UpdateTitle (Title_Hungry);
-			UpdateIcon (Icon_Hungry);
-			AudioController.Instance.PlaySound (Sound_Hungry);
-			break;
-		case MonsterEmotionTypes.Afraid:
-			UpdateTitle (Title_Afraid);
-			UpdateIcon (Icon_Afraid);
-			AudioController.Instance.PlaySound (Sound_Afraid);
-			break;
+//		case MonsterEmotionTypes.Hungry:
+//			UpdateTitle (Title_Hungry);
+//			UpdateIcon (Icon_Hungry);
+//			AudioController.Instance.PlaySound (Sound_Hungry);
+//			break;
+//		case MonsterEmotionTypes.Afraid:
+//			UpdateTitle (Title_Afraid);
+//			UpdateIcon (Icon_Afraid);
+//			AudioController.Instance.PlaySound (Sound_Afraid);
+//			break;
 		}
 		UpdateMonster ();
 	}
@@ -132,37 +124,31 @@ public class UIStatusController : MonoBehaviour {
 	GameObject SadMonster;
 	void UpdateMonster()
 	{
+		if (MonsterHolder == null) {
+			return;
+		}
+
 		GameObject go = null;
-		if (CurrentMonster.MonsterType == MonsterType.Magnet) {
-			if (CurrentMonster.Gage == 1) {
-				go = SadMonster_m1e2;
-			} else if (CurrentMonster.Gage == 2) {
-				go = SadMonster_m1e3;
-			} else if (CurrentMonster.Gage == 3) {
-				go = SadMonster_m1e4;
-			} else  {
-				go = SadMonster_m1e4;
-			}
-		} else if (CurrentMonster.MonsterType == MonsterType.Ice) {
-			if (CurrentMonster.Gage == 1) {
-				go = SadMonster_m2e2;
-			} else if (CurrentMonster.Gage == 2) {
-				go = SadMonster_m2e3;
-			} else if (CurrentMonster.Gage == 3) {
-				go = SadMonster_m2e4;
-			} else  {
-				go = SadMonster_m2e4;
-			}
-		} else if (CurrentMonster.MonsterType == MonsterType.Hypnosis) {
-			if (CurrentMonster.Gage == 1) {
-				go = SadMonster_m3e2;
-			} else if (CurrentMonster.Gage == 2) {
-				go = SadMonster_m3e3;
-			} else if (CurrentMonster.Gage == 3) {
-				go = SadMonster_m3e4;
-			} else  {
-				go = SadMonster_m3e4;
-			}
+
+		switch (CurrentMonster.MonsterType) {
+		case MonsterType.Magnet:
+			go = SadMonster_m1e4;
+			break;
+		case MonsterType.Ice:
+			go = SadMonster_m2e4;
+			break;
+		case MonsterType.Hypnosis:
+			go = SadMonster_m3e4;
+			break;
+		case MonsterType.Fire:
+			go = SadMonster_m4e4;
+			break;
+		case MonsterType.Larva:
+			go = SadMonster_m5e4;
+			break;
+		case MonsterType.Knight:
+			go = SadMonster_m6e4;
+			break;
 		}
 
 		if (go != null) {
@@ -176,6 +162,9 @@ public class UIStatusController : MonoBehaviour {
 
 	public void OnOKClick()
 	{
+		Analitics.Instance.treckEvent (AnaliticsCategory.Sel, AnaliticsAction.Open, "Status Popup");
+
+		MonsterBar.Instance.DefaultMonster = CurrentMonster.MonsterType;
 		UIController.Instance.ShowPanel (UIController.Instance.MiniGamePopup);
 		UIController.Instance.ClosePopup (UIController.Instance.MonsterStatusPopup);
 	}

@@ -27,13 +27,25 @@ public class TR_Shape : MonoBehaviour
 	[HideInInspector]
 	public bool completed;
 
+	UIPopInOut popOut;
+
 	// Use this for initialization
 	void Start ()
 	{
+
+	}
+
+
+
+	public void init() {
 		if (paths.Count != 0) {
 			Invoke ("EnableTracingHand", 0.2f);
 			ShowPathNumbers (0);
 		}
+		popOut = gameObject.AddComponent<UIPopInOut> ();
+		popOut.PopIn ();
+
+		Analitics.Instance.treckScreen (AnaliticsCategory.TracingGame + " " + gameObject.name);
 	}
 
 	/// <summary>
@@ -44,11 +56,10 @@ public class TR_Shape : MonoBehaviour
 		if (clip == null) {
 			return;
 		}
-		AudioController.Instance.PlaySound (clip);
-//				AudioSources.instance.audioSources [1].Stop ();
-//				AudioSources.instance.audioSources [1].clip = clip;
-//				AudioSources.instance.audioSources [1].Play ();
+		if (AudioController.Instance != null) {
+			AudioController.Instance.PlaySound (clip);
 		}
+	}
 
 	/// <summary>
 	/// Show the numbers of the path .
@@ -155,4 +166,13 @@ public class TR_Shape : MonoBehaviour
 	{
 		return name.Split ('-') [0];
 	}
+
+
+	public void hide() {
+		if (popOut != null) {
+			popOut.PopOut ();
+		}
+	}
+
+
 }

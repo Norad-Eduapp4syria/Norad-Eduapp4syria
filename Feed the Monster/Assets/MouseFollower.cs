@@ -4,6 +4,8 @@ using System.Collections;
 public class MouseFollower : MonoBehaviour {
 	// Use this for initialization
 
+	[Range(0.1f,5f)]
+	public float HideAfter = 1f;
 
 	float Counter;
 
@@ -19,7 +21,7 @@ public class MouseFollower : MonoBehaviour {
 
 		Rect rect = GameObject.Find ("Canvas").GetComponent<RectTransform> ().rect;
 
-		if (GameplayController.Instance.IsPause || GameplayController.Instance.IsPausePopup) {
+		if (GameplayController.Instance && (GameplayController.Instance.IsPause || GameplayController.Instance.IsPausePopup)) {
 			newPosition = transform.position;
 			newPosition.z = -11;
 		} else {
@@ -37,7 +39,7 @@ public class MouseFollower : MonoBehaviour {
 				Counter += Time.deltaTime;
 			}
 
-			if (Counter >= 1f) {
+			if (Counter >= HideAfter) {
 				newPosition.z = -11;
 			}
 		}

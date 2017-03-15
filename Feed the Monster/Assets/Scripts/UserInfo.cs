@@ -8,54 +8,163 @@ public class UserInfo : MonoBehaviour {
 	public static UserInfo Instance;
 	public Monster[] StartMonsters;
 
+
+	bool isInited = false;
+	bool isMusic;
+	bool isSound;
+	int lastProfileId = -1;
+
+
 	enum Keys
 	{
+		LevelScore,
+		LevelStars,
+		LevelCount,
+
 		LetterGroup,
+		MonsterLevelFaled,
+		MonsterLastUsed,
+
+		MonsterEmotionType,
+		LevelOpenIndex,
+		Monster,
+		MonsterReady,
+		MonsterGage,
+		MonsterGageValue,
+		LastPlayingLevel,
+		LastMonsterIndex,
+		LastPettingZoneTutorial,
+
 	}
 
+	string getPrefsKey(Keys key, string val)
+	{
+		string str = getPrefsKey(key, -1);
+		if (!string.IsNullOrEmpty (val)) {
+			str += "_" + val; 
+		}
+		return str;
+	}
 
 	string getPrefsKey(Keys key)
 	{
-		string str = "U" + UsersController.Instance.CurrentUserId + "_";
-
-		switch (key) {
-		case Keys.LetterGroup:
-			return str + "LastLetterGroup";
-		}
-		return null;
+		return getPrefsKey (key, -1);
 	}
 
+	string getPrefsKey(Keys key, int profileId)
+	{
+		string str = "U_";
+		if (profileId > -1) {
+			str += profileId;
+		} else {
+			str += UsersController.Instance.CurrentProfileId;
+		}
+		str += "_";
 
+		switch (key) {
+
+		case Keys.LevelScore:
+			return str + "LevelScore";
+		case Keys.LevelStars:
+			return str + "LevelStars";
+		case Keys.LevelCount:
+			return str + "LevelCount";
+		case Keys.MonsterLevelFaled:
+			return str + "MonsterLevelFaled";
+		case Keys.MonsterLastUsed:
+			return str + "MonsterLastUsed";
+		case Keys.LetterGroup:
+			return str + "LastLetterGroup";
+		case Keys.MonsterEmotionType:
+			return str + "MonsterEmotionType";
+		case Keys.LevelOpenIndex:
+			return str + "LevelOpenIndex";
+		case Keys.Monster:
+			return str + "Monster";
+		case Keys.MonsterReady:
+			return str + "MonsterReady";
+		case Keys.MonsterGage:
+			return str + "MonsterGage";
+		case Keys.MonsterGageValue:
+			return str + "MonsterGageValue";
+		case Keys.LastPlayingLevel:
+			return str + "LastPlayingLevel";
+		case Keys.LastPettingZoneTutorial:
+			return str + "LastPettingZoneTutorial";
+		}
+		return str;
+	}
 
 	// Use this for initialization
 	void Awake () {
 		Instance = this;
-		AddFirstFriendsToCollection(StartMonsters);
+		IsMusicEnable ();
+		IsSoundEnable ();
+		isInited = true;
 	}
-	
+
+	void Start () {
+		AddFirstFriendsToCollection();
+	}
+
 	// Update is called once per frame
 	void Update () {
 	
 	}
 
-	public void SetLevelScoreIfNewRecord (int levelIndex, int score) {
-		int currentLevelScore = GetLevelScore (levelIndex);
-		PlayerPrefs.SetInt ("LevelScore" + levelIndex, Mathf.Max(currentLevelScore, score));
-	}
-	public int GetLevelScore(int levelIndex)
+	public void Save()
 	{
-		return PlayerPrefs.GetInt ("LevelScore" + levelIndex, 0);
+		PlayerPrefs.Save ();
+	}
+
+	public void SetMusic(bool enable)
+	{
+		isMusic = enable;
+		PlayerPrefs.SetInt ("MusicEnable", enable ? 1 : 0);
+	}
+
+	public bool IsMusicEnable()
+	{
+		if (!isInited) {
+			isMusic = (PlayerPrefs.GetInt ("MusicEnable", 1) == 1);
+		}
+		return isMusic;
+	}
+
+	public void SetSound(bool enable)
+	{
+		isSound = enable;
+		PlayerPrefs.SetInt ("SoundEnable", enable ? 1 : 0);
+	}
+	public bool IsSoundEnable()
+	{
+		if (!isInited) {
+			isSound = (PlayerPrefs.GetInt ("SoundEnable", 1) == 1);
+		}
+		return isSound;
+	}
+
+	public void SetLastProfileId(int profileId)
+	{
+		lastProfileId = profileId;
+		PlayerPrefs.SetInt ("LastProfileId", lastProfileId);
+	}
+	public int GetLastProfileId()
+	{
+		if (lastProfileId == -1) {
+			lastProfileId = PlayerPrefs.GetInt ("LastProfileId", -1);
+		}
+		return lastProfileId;
 	}
 
 	public void SetLevelStarsIfNewRecord (int levelIndex, int stars) {
 		int currentLevelScore = GetLevelStars (levelIndex);
-		PlayerPrefs.SetInt ("LevelStars" + levelIndex, Mathf.Max(currentLevelScore, stars));
+		PlayerPrefs.SetInt (getPrefsKey(Keys.LevelStars, levelIndex.ToString()), Mathf.Max(currentLevelScore, stars));
 	}
 	public int GetLevelStars(int levelIndex)
 	{
-		return PlayerPrefs.GetInt ("LevelStars" + levelIndex, 0);
+		return PlayerPrefs.GetInt (getPrefsKey(Keys.LevelStars, levelIndex.ToString()), 0);
 	}
-
 
 	public int SetMonsterLevelFaled(Monster monster)
 	{
@@ -66,31 +175,32 @@ public class UserInfo : MonoBehaviour {
 
 	public void SetMonsterLevelFaled(Monster monster, int num)
 	{
-		PlayerPrefs.SetInt ("MonsterLevelFaled_" + ((int)monster.MonsterType).ToString (), num);
+		if (monster.MiniGame == MiniGameController.GameType.None) {
+			return;
+		}
+		PlayerPrefs.SetInt (getPrefsKey(Keys.MonsterLevelFaled, ((int)monster.MonsterType).ToString ()), num);
 	}
 
 	public int GetMonsterLevelFaled(Monster monster)
 	{
-		return PlayerPrefs.GetInt ("MonsterLevelFaled_" + ((int)monster.MonsterType).ToString (), 0);
+		return PlayerPrefs.GetInt (getPrefsKey(Keys.MonsterLevelFaled, ((int)monster.MonsterType).ToString ()), 0);
 	}
 		
 	public int SetMonsterLastUsed(Monster monster)
 	{
-		PlayerPrefs.SetString ("MonsterLastUsed_" + ((int)monster.MonsterType).ToString (), System.DateTime.Now.Date.Ticks.ToString());
+		PlayerPrefs.SetString (getPrefsKey(Keys.MonsterLastUsed, ((int)monster.MonsterType).ToString ()), System.DateTime.Now.Date.Ticks.ToString());
 		return GetMonsterLastUsed (monster);
 	}
 
+//	public int GetToLevelCount()
+//	{
+//		return PlayerPrefs.GetInt (getPrefsKey(Keys.LevelCount), 0);
+//	}
 
-	public int GetToLevelCount()
-	{
-		return PlayerPrefs.GetInt ("LevelCount", 0);
-	}
-
-	public void SetToLevelCount(int count)
-	{
-		PlayerPrefs.SetInt("LevelCount", count);
-	}
-
+//	public void SetToLevelCount(int count)
+//	{
+//		PlayerPrefs.SetInt(getPrefsKey(Keys.LevelCount), count);
+//	}
 
 	/*
 	 * return diff days
@@ -98,9 +208,7 @@ public class UserInfo : MonoBehaviour {
 	 */
 	public int GetMonsterLastUsed(Monster monster)
 	{
-		long l = long.Parse(PlayerPrefs.GetString ("MonsterLastUsed_" + ((int)monster.MonsterType).ToString (), System.DateTime.Now.Date.Ticks.ToString()));
-
-//		Debug.Log ("*** l: " + l.ToString ());
+		long l = long.Parse(PlayerPrefs.GetString (getPrefsKey(Keys.MonsterLastUsed, ((int)monster.MonsterType).ToString ()), System.DateTime.Now.Date.Ticks.ToString()));
 
 		DateTime now = DateTime.Now.Date;
 		DateTime lastused = new DateTime(l);
@@ -108,78 +216,68 @@ public class UserInfo : MonoBehaviour {
 		return (int)((now - lastused).TotalDays);
 	}
 
-
-
-
-
 	public MonsterEmotionTypes getEmotionType (Monster monster)
 	{
-		return (MonsterEmotionTypes)Enum.Parse(typeof(MonsterEmotionTypes), PlayerPrefs.GetInt ("MonsterEmotionType_" + ((int)monster.MonsterType).ToString (), 0).ToString());
+		int type = PlayerPrefs.GetInt (getPrefsKey(Keys.MonsterEmotionType, ((int)monster.MonsterType).ToString ()), 0);
+
+		return (MonsterEmotionTypes)Enum.Parse(typeof(MonsterEmotionTypes), type.ToString());
 	}
-
-
 
 	public void SetEmotionType (Monster monster, MonsterEmotionTypes EmotionType)
 	{
-		PlayerPrefs.SetInt ("MonsterEmotionType_" + ((int)monster.MonsterType), (int)EmotionType);
+
+		if (EmotionType == MonsterEmotionTypes.NONE) {
+			return;
+		}
+
+		PlayerPrefs.SetInt (
+			getPrefsKey(
+				Keys.MonsterEmotionType,
+				((int)monster.MonsterType).ToString()
+			)
+		, (int)EmotionType
+		);
 	}
 
-
-
-
-
-	public void SetMusic(bool enable)
-	{
-		PlayerPrefs.SetInt ("MusicEnable", enable ? 1 : 0);
-	}
-
-	public bool IsMusicEnable()
-	{
-		return PlayerPrefs.GetInt ("MusicEnable", 1) == 1;
-	}
-
-	public void SetSound(bool enable)
-	{
-		PlayerPrefs.SetInt ("SoundEnable", enable ? 1 : 0);
-	}
-
-	public bool IsSoundEnable()
-	{
-		return PlayerPrefs.GetInt ("SoundEnable", 1) == 1;
-	}
-
-	public int CollectionLength{
+	public int CollectionLength {
 		get {
 			return CollectedFriends.Length;
-
-//			return CountCollectedFriends ();
 		}
 	}
 
-
-
-
-
 	public void SetHighestOpenLevel(int levelIndex)
 	{
-		if(levelIndex > PlayerPrefs.GetInt("LevelOpenIndex", 0))
-			PlayerPrefs.SetInt ("LevelOpenIndex", levelIndex);
+		if (levelIndex > PlayerPrefs.GetInt (getPrefsKey (Keys.LevelOpenIndex), 0)) {
+			PlayerPrefs.SetInt (getPrefsKey (Keys.LevelOpenIndex), levelIndex);
+		}
 	}
 
 	public int GetHighestOpenLevel()
 	{
-		return PlayerPrefs.GetInt ("LevelOpenIndex", 0);
+		return PlayerPrefs.GetInt (getPrefsKey(Keys.LevelOpenIndex), 0);
 	}
 
-
-
-	public void AddFirstFriendsToCollection(Monster[] monsters)
+	public int GetHighestOpenLevel(int profileId)
 	{
-		foreach(Monster monstser in monsters) {
+		return PlayerPrefs.GetInt (getPrefsKey(Keys.LevelOpenIndex, profileId), 0);
+	}
+
+	public void AddFirstFriendsToCollection()
+	{
+		if (UIController.Instance.DEBUG_ADD_ALL_MONSTERS == true) {
+			foreach (MonsterType type in Enum.GetValues(typeof(MonsterType)))
+			{
+				PlayerPrefs.SetString (getPrefsKey(Keys.Monster, ((int)type).ToString ()), type.ToString());
+			}
+		}
+
+		foreach(Monster monster in StartMonsters) {
 			// no one shuld start ready
-			monstser.IsReady = false;
-			AddFriendToCollection (monstser);
-			SetMonsterStatus (monstser);
+			Monster mo = Instantiate (monster);
+
+			mo.IsReady = false;
+			AddFriendToCollection (mo);
+			SetMonsterStatus (mo);
 		}
 	}
 
@@ -188,22 +286,17 @@ public class UserInfo : MonoBehaviour {
 		if (HasCollectedFriend (monster)) {
 			return;
 		}
-		PlayerPrefs.SetString ("Monster" + ((int)monster.MonsterType).ToString (), monster.name);
+		PlayerPrefs.SetString (getPrefsKey(Keys.Monster, ((int)monster.MonsterType).ToString ()), monster.name);
 	}
-
 
 	public bool HasCollectedFriend(Monster monster)
 	{
-		string collectedMonsterType = PlayerPrefs.GetString ("Monster" + ((int)monster.MonsterType).ToString (), "");
+		string collectedMonsterType = PlayerPrefs.GetString (getPrefsKey(Keys.Monster, ((int)monster.MonsterType).ToString ()), "");
 		if(collectedMonsterType == monster.name) {
 			return true;
 		}
 		return false;
 	}
-
-
-
-
 
 	public Monster[] CollectedFriends { 
 		get {
@@ -211,19 +304,21 @@ public class UserInfo : MonoBehaviour {
 
 			foreach (MonsterType monsterType in Enum.GetValues(typeof(MonsterType))) {
 
-				if (PlayerPrefs.HasKey ("Monster" + ((int)monsterType).ToString ())) {
+				if (monsterType!= MonsterType.NONE && PlayerPrefs.HasKey (getPrefsKey(Keys.Monster, ((int)monsterType).ToString ()))) {
 					string collectedMonsterType = monsterType.ToString ();
 					if (collectedMonsterType.Length > 0) {
 						Monster monster = Resources.Load ("Gameplay/Monsters/" + collectedMonsterType) as Monster;
-						monster.Gage = UserInfo.Instance.GetMonsterGage (monster);
-						monster.GageValue = UserInfo.Instance.GetMonsterGageValue (monster);
-						monster.IsReady = UserInfo.Instance.GetMonsterStatus (monster);
-
-						monster.LastUse = UserInfo.Instance.GetMonsterLastUsed (monster);
-						monster.LevelFaled = UserInfo.Instance.GetMonsterLevelFaled (monster);
-						monster.EmotionType = UserInfo.Instance.getEmotionType (monster);
-
-						monsters.Add (monster);
+						if (monster != null) {
+							monster.reset ();
+							monster.IsReady = UserInfo.Instance.GetMonsterStatus (monster);
+//							monster.Gage = UserInfo.Instance.GetMonsterGage (monster);
+//							monster.GageValue = UserInfo.Instance.GetMonsterGageValue (monster);
+							monster.LastUse = UserInfo.Instance.GetMonsterLastUsed (monster);
+							monster.LevelFaled = UserInfo.Instance.GetMonsterLevelFaled (monster);
+//							monster.EmotionType = UserInfo.Instance.getEmotionType (monster);
+							monster.updateEmotionType();
+							monsters.Add (monster);
+						}
 					}
 				}
 			}
@@ -231,60 +326,55 @@ public class UserInfo : MonoBehaviour {
 		}
 	}
 
-
 	// Start Tzahi
 
 	public bool GetMonsterStatus(Monster monster)
 	{
-		int status = PlayerPrefs.GetInt ("MonsterReady_" + ((int)monster.MonsterType).ToString (), 0);
+		string key = getPrefsKey (Keys.MonsterReady, ((int)monster.MonsterType).ToString ());
+
+		int status = 0;
+
+		if (PlayerPrefs.HasKey (key)) {
+			status = PlayerPrefs.GetInt (key, 0);
+		}
 
 		return (status == 1) ? true : false;
 	}
 
 	public void SetMonsterStatus(Monster monster)
 	{
-		PlayerPrefs.SetInt("MonsterReady_" + ((int)monster.MonsterType).ToString(), (monster.IsReady == true) ? 1 : 0);
+		string key = getPrefsKey (Keys.MonsterReady, ((int)monster.MonsterType).ToString ());
+		PlayerPrefs.SetInt(key, (monster.IsReady == true) ? 1 : 0);
 	}
 
 	public int GetMonsterGage(Monster monster)
 	{
-		return PlayerPrefs.GetInt("MonsterGage_" + ((int)monster.MonsterType).ToString(), 0);
+		return PlayerPrefs.GetInt(getPrefsKey(Keys.MonsterGage, ((int)monster.MonsterType).ToString()), 0);
 	}
 
 	public void SetMonsterGage(Monster monster)
 	{
-		PlayerPrefs.SetInt("MonsterGage_" + ((int)monster.MonsterType).ToString(), monster.Gage);
+		PlayerPrefs.SetInt(getPrefsKey(Keys.MonsterGage, ((int)monster.MonsterType).ToString()), monster.Gage);
 	}
 
 	public float GetMonsterGageValue(Monster monster)
 	{
-		return PlayerPrefs.GetFloat("MonsterGageValue_" + ((int)monster.MonsterType).ToString(), 0f);
+		return PlayerPrefs.GetFloat(getPrefsKey(Keys.MonsterGageValue, ((int)monster.MonsterType).ToString()), 0f);
 	}
 
 	public void SetMonsterGageValue(Monster monster)
 	{
-		PlayerPrefs.SetFloat("MonsterGageValue_" + ((int)monster.MonsterType).ToString(), monster.GageValue);
+		PlayerPrefs.SetFloat(getPrefsKey(Keys.MonsterGageValue, ((int)monster.MonsterType).ToString()), monster.GageValue);
 	}
 
 	public int GetLastPlayingLevel()
 	{
-		return PlayerPrefs.GetInt("LastPlayingLevel", 0);
+		return PlayerPrefs.GetInt(getPrefsKey(Keys.LastPlayingLevel), 0);
 	}
-
 	public void SetLastPlayingLevel(int levelId)
 	{
-		PlayerPrefs.SetInt("LastPlayingLevel", levelId);
+		PlayerPrefs.SetInt(getPrefsKey(Keys.LastPlayingLevel), levelId);
 	}
-
-	public void SetHadMinigameTutorial(int hadMinigameTutorial)
-	{
-		PlayerPrefs.SetInt ("HadMinigameTutorial", hadMinigameTutorial);
-	}
-	public int GetHadMinigameTutorial()
-	{
-		return PlayerPrefs.GetInt ("HadMinigameTutorial");
-	}
-
 
 	public void SetLastLetterGroup (int letterGroup) {
 		int currentGroup = GetLastLetterGroup ();
@@ -295,7 +385,24 @@ public class UserInfo : MonoBehaviour {
 		return PlayerPrefs.GetInt (getPrefsKey(Keys.LetterGroup), 1);
 	}
 
+	public int GetLastMonsterIndex ()
+	{
+		return PlayerPrefs.GetInt(getPrefsKey(Keys.LastMonsterIndex), 0);
+	}
+	public void SetLastMonsterIndex (int monsterIndex)
+	{
+		PlayerPrefs.SetInt(getPrefsKey(Keys.LastMonsterIndex), monsterIndex);
+	}
 
+
+	public int GetLastPettingZoneTutorial ()
+	{
+		return PlayerPrefs.GetInt(getPrefsKey(Keys.LastPettingZoneTutorial), -1);
+	}
+	public void SetLastPettingZoneTutorial (int monsterIndex)
+	{
+		PlayerPrefs.SetInt(getPrefsKey(Keys.LastPettingZoneTutorial), monsterIndex);
+	}
 
 	// End Tzahi
 

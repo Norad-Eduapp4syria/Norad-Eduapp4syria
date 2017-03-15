@@ -53,11 +53,7 @@ public class UIDiscoverNewMonsterController : MonoBehaviour {
 			
 			Monster friend = GameplayController.Instance.CurrentLevel.CollectableMonster;
 
-
-
-
-
-			GameObject orig = friend.PlayGameObjects[0];
+			GameObject orig = friend.firstPlayGO;
 			if (orig != null) {
 				GameObject newMonsterGO = Instantiate (orig, new Vector3 (), Quaternion.identity) as GameObject;
 
@@ -84,7 +80,7 @@ public class UIDiscoverNewMonsterController : MonoBehaviour {
 			UserInfo.Instance.AddFriendToCollection (friend);
 			AudioController.Instance.PlaySound (MonsterDiscoveredSound);
 
-			Analitics.Instance.treckScreen ("New Monster " + friend.MonsterType.ToString());
+			Analitics.Instance.treckScreen ("New Monster " + friend.MonsterType.ToString()   + " Profile: " + UsersController.Instance.CurrentProfileId );
 		}
 	}
 
@@ -95,6 +91,7 @@ public class UIDiscoverNewMonsterController : MonoBehaviour {
 
 	public void OkClick()
 	{
+		GameplayController.Instance.ReaplaceBackground_SelectMonster = false;
 		if (mNextPanelToShow.gameObject != null) {
 			if (mNextPanelToShow.gameObject == UIController.Instance.GamePanel) {
 				UIController.Instance.GoToLevel (mNextPanelToShow.levelIndex);

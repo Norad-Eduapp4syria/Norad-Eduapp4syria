@@ -23,10 +23,16 @@ public class UIScoreAnimationController : MonoBehaviour {
 
 	public void ShowBgEffect()
 	{
-		AudioController.Instance.PlaySound ( SoundSwish, .5f );
 		//ScoreBg.color = Color.white;
-		GameplayController.Instance.FlushLevelScore ();
 		Particles.Play ();
+
+		if (GameplayController.Instance != null) {
+			GameplayController.Instance.FlushLevelScore ();
+		}
+
+		if (AudioController.Instance != null) {
+			AudioController.Instance.PlaySound (SoundSwish, .5f);
+		}
 	}
 
 	public void EndAnimation()

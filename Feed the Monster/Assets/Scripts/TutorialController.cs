@@ -39,10 +39,10 @@ public class TutorialController : MonoBehaviour {
 
 //	Animator animController;
 
-	public Image MapBlocker;
-	bool IsInMinigameTutorial = false;
-	public bool GetIsInMinigameTutorial() { return IsInMinigameTutorial; }
-	public void SetIsInMinigameTutorial(bool newValue) { IsInMinigameTutorial = newValue; MapBlocker.gameObject.SetActive(TutorialController.Instance.GetIsInMinigameTutorial()); }
+//	public Image MapBlocker;
+//	bool IsInMinigameTutorial = false;
+//	public bool GetIsInMinigameTutorial() { return IsInMinigameTutorial; }
+//	public void SetIsInMinigameTutorial(bool newValue) { IsInMinigameTutorial = newValue; MapBlocker.gameObject.SetActive(TutorialController.Instance.GetIsInMinigameTutorial()); }
 
 //	private bool draggingStone = false;
 
@@ -117,19 +117,17 @@ public class TutorialController : MonoBehaviour {
 		
 
 
-
-
 	public void StartTutorial() {
 		//initialLocation = new Vector3(findCorrectLetters()[0].transform.position.x, findCorrectLetters()[0].transform.position.y, findCorrectLetters()[0].transform.position.z);
 //		State = TutorialState.InGame;
 		PanelTutorial.SetActive (true);
 		//tutorialHandImage.transform.SetParent(GameplayController.Instance.MonsterHoleButton.transform.parent);
-		tutorialHandImage.transform.position = GameplayController.Instance.MonsterHoleButton.transform.position;
+//		tutorialHandImage.transform.position = GameplayController.Instance.MonsterHoleButton.transform.position;
+//		tutorialHandImage.transform.position = getMonsterPosition();
 		tutorialHandImage.gameObject.SetActive (true);
 
 		//runningTutorial = FeedLetters (2.5f);
 		//StartCoroutine (runningTutorial);
-
 
 		if (currentTutorial != null) {
 			Destroy (currentTutorial);
@@ -167,40 +165,16 @@ public class TutorialController : MonoBehaviour {
 		} else if (gameType == MiniGameController.GameType.MonsterPetting) {
 //			runningTutorial = PetMinigameMonster (2f);
 //			StartCoroutine (runningTutorial);
-			currentTutorial.InitPettingMonster();
+//			currentTutorial.InitPettingMonster();
 		}
-
-		//GameplayController.Instance.IsInteractable = false; /*Jonathan*/
 	}
 
-	public void EndTutorial(){
-/*
-		if (State != TutorialState.Inactive) {
-		
-			GameplayController.Instance.IsInteractable = true;
-
-			LetterTouchController[] ltrs = PanelTutorial.transform.GetComponentsInChildren<LetterTouchController>();
-			foreach (LetterTouchController l in ltrs) {
-				Destroy (l.gameObject);
-			}
-
-			firstLetter = null;
-
-			if (runningTutorial != null) {
-				if (GetIsInMinigameTutorial () && clone != null)
-					Destroy (clone.gameObject);
-				StopCoroutine (runningTutorial);
-			}
-			runningTutorial = null;
-			PanelTutorial.SetActive (false);
-		}
-		State = TutorialState.Inactive;
-*/
 
 
-		tutorialHandImage.transform.SetParent (null);
-		tutorialHandImage.gameObject.SetActive (false);
-
+	public void StartTutorial(GameObject go) {
+		PanelTutorial.SetActive (true);
+		tutorialHandImage.transform.position = GameplayController.Instance.MonsterHoleButton.transform.position;
+		tutorialHandImage.gameObject.SetActive (true);
 
 
 		if (currentTutorial != null) {
@@ -208,10 +182,25 @@ public class TutorialController : MonoBehaviour {
 			currentTutorial = null;
 		}
 
+		currentTutorial = gameObject.AddComponent<Tutorial> ();
+		currentTutorial.tutorialHandImage = tutorialHandImage;
 
+		currentTutorial.InitPettingMonster(go);
 	}
 
-	public void PointAt(Vector3 point, Transform parent = null){
+
+	public void EndTutorial() {
+		if (tutorialHandImage) {
+			tutorialHandImage.transform.SetParent (null);
+			tutorialHandImage.gameObject.SetActive (false);
+		}
+		if (currentTutorial != null) {
+			Destroy (currentTutorial);
+			currentTutorial = null;
+		}
+	}
+
+	public void PointAt(Vector3 point, Transform parent = null, bool startPointing = false){
 //		State = TutorialState.Pointing;
 		tutorialHandImage.gameObject.SetActive (true);
 		if (parent == null) {
@@ -222,6 +211,20 @@ public class TutorialController : MonoBehaviour {
 		tutorialHandImage.transform.localPosition = point;
 //		pointAnimationEnd = pointAnimationStart = point;
 //		pointLocation = point;
+
+
+
+
+
+		if (startPointing) {
+			if (currentTutorial != null) {
+				Destroy (currentTutorial);
+				currentTutorial = null;
+			}
+			currentTutorial = gameObject.AddComponent<Tutorial> ();
+			currentTutorial.tutorialHandImage = tutorialHandImage;
+			currentTutorial.PointAt (point, parent);
+		}
 	}
 
 /*

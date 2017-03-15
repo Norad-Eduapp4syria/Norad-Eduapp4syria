@@ -6,12 +6,16 @@ using System.Collections;
 
 public class UIMiniGame : MonoBehaviour
 ,IBeginDragHandler, IDragHandler, IEndDragHandler
+,IPointerClickHandler
 
 {
 	public static UIMiniGame Instance;
 
 	public GameObject CheatButton;
 	public MonsterBar monsterBar;
+
+
+	public GameObject ButtonBack;
 	public GameObject ButtonPrevious;
 	public GameObject ButtonNext;
 
@@ -22,11 +26,11 @@ public class UIMiniGame : MonoBehaviour
 	public Sprite Icon_Angry;
 	public Sprite Icon_Bored;
 	public Sprite Icon_Sad;
-	public Sprite Icon_Hungry;
-	public Sprite Icon_Afraid;
+//	public Sprite Icon_Hungry;
+//	public Sprite Icon_Afraid;
 
 	public GameObject PanelEndGame;
-	public GameObject background;
+	public string background = "BG_Collection";
 
 
 	bool selected = false;
@@ -63,6 +67,8 @@ public class UIMiniGame : MonoBehaviour
 	void  OnDisable()
 	{
 		GameplayController.Instance.DestroyBackground();
+		MiniGameController.Instance.hideAllGames ();;
+
 		monsterBar.onMonsterLocated -= onMonsterLocated;
 		monsterBar.onMonsterDrag -= onMonsterDrag;
 	}
@@ -74,14 +80,8 @@ public class UIMiniGame : MonoBehaviour
 		}
 		lastMonsterIndex = -1;
 		init ();
-		if (TutorialController.Instance.GetIsInMinigameTutorial ()) {
-			Invoke ("PointAtCallout", 0.7f);
-		}
 	}
-	public void PointAtCallout() {
-		TutorialController.Instance.PointAt (StatusBubble.transform.position + new Vector3(0, 180, 0), this.transform);
-		//TutorialController.Instance.PointAt (getMonsterMouth (), this.transform);
-	}
+
 	public Vector2 getMonsterMouth()
 	{
 		Transform to = GameObject.Find ("monster").transform.Find ("Mouth");
@@ -110,11 +110,14 @@ public class UIMiniGame : MonoBehaviour
 	{
 		selected = false;
 		isDraged = false;
-		if (initBackground) {
+		if (initBackground && GameplayController.Instance != null) {
 			GameplayController.Instance.LoadBackground (background);
 		}
 		if (MiniGameController.Instance) {
 			MiniGameController.Instance.hideAllGames ();
+		}
+		if (StatusBubble != null) {
+			StatusBubble.SetActive (false);
 		}
 
 		monsterBar.ButtonPrevious = ButtonPrevious.GetComponent<Button> ();
@@ -125,16 +128,26 @@ public class UIMiniGame : MonoBehaviour
 
 		monsterBar.Init (true);
 		if (lastMonsterIndex > -1) {
-			monsterBar.CurrentMonsterIndex = lastMonsterIndex;
+			monsterBar.JumpToMonsterIndex(lastMonsterIndex);
 		}
 		updateButtons ();
 	}
 
 
+
+	public void SetMonsterReady()
+	{
+		if (UIController.Instance.DEBUG_OPEN_ALL_LEVELS_PLAYERPREFS) {
+			currentMonster.IsReady = true;
+		}
+	}
+
+
 	public void Done() {
-		if (selected) {
+		if (selected || currentMonster == null || !currentMonster.IsReady || currentMonster.MiniGame == MiniGameController.GameType.None) {
 			return;
 		}
+
 		selected = true;
 		monsterBar.Select ();
 
@@ -193,6 +206,14 @@ public class UIMiniGame : MonoBehaviour
 		monsterBar.OnEndDrag ();
 	}
 
+	public void OnPointerClick (PointerEventData eventData)
+	{
+		if (!isDraged) {
+			Done ();
+		}
+	}
+
+
 
 	Vector2 convertMousePosition()
 	{
@@ -205,13 +226,9 @@ public class UIMiniGame : MonoBehaviour
 
 	void GotoMiniGame() {
 		MiniGameController.Instance.StartRandomGame (currentMonster);
-		lastMonsterIndex = monsterBar.CurrentMonsterIndex;
+		lastMonsterIndex = monsterBar.currentMonsterIndex;
 		// UIController.Instance.ShowPanelWithoutTransitionEffect (UIController.Instance.GamePanel);
 	}
-
-
-
-
 
 	void onMonsterDrag(Monster monster)
 	{
@@ -224,15 +241,20 @@ public class UIMiniGame : MonoBehaviour
 	void onMonsterLocated(Monster monster)
 	{
 		currentMonster = monster;
-		showStatusIcon (monster);
+
+		if (monster.IsReady) {
+			showStatusIcon (monster);
+		}
 	}
 
 
 	public void showStatusIcon(Monster monster)
 	{
+		
 		switch (monster.EmotionType) {
 
 		case MonsterEmotionTypes.Happy:
+		case MonsterEmotionTypes.NONE:
 			StatusBubble.SetActive (false);
 //			StatusBubble.GetComponent<UIPopupPanel> ().PopOut ();
 			break;
@@ -248,14 +270,14 @@ public class UIMiniGame : MonoBehaviour
 			StatusBubble.SetActive (true);
 			StatusIcon.sprite = Icon_Sad;
 			break;
-		case MonsterEmotionTypes.Hungry:
-			StatusBubble.SetActive (true);
-			StatusIcon.sprite = Icon_Hungry;
-			break;
-		case MonsterEmotionTypes.Afraid:
-			StatusBubble.SetActive (true);
-			StatusIcon.sprite = Icon_Afraid;
-			break;
+//		case MonsterEmotionTypes.Hungry:
+//			StatusBubble.SetActive (true);
+//			StatusIcon.sprite = Icon_Hungry;
+//			break;
+//		case MonsterEmotionTypes.Afraid:
+//			StatusBubble.SetActive (true);
+//			StatusIcon.sprite = Icon_Afraid;
+//			break;
 		}
 	}
 
@@ -264,14 +286,26 @@ public class UIMiniGame : MonoBehaviour
 		if(PanelEndGame != null) {
 			PanelEndGame.SetActive (true);
 		}
+
+		if (ButtonBack != null) {
+			UIPopupPanel popupPanel = this.gameObject.GetComponent<UIPopupPanel> ();
+			if (popupPanel != null) {
+				popupPanel.PopOutAny (ButtonBack.transform);
+			}
+		}
+
+
+
+
 	}
 
 
-	MonsterType CenterMonsterType;
+//	MonsterType CenterMonsterType;
 	public void setCurrentMonster (MonsterType monsterType)
 	{
-		CenterMonsterType = monsterType;
+//		CenterMonsterType = monsterType;
 	}
 
 
 }
+

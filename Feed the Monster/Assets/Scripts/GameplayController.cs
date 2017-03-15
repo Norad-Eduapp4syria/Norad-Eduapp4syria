@@ -8,29 +8,53 @@ using UnityEngine.EventSystems;
 using System.Text;
 
 public class GameplayController : MonoBehaviour {
-//	[System.Serializable]
+
+	public static GameplayController Instance;
+	//	[System.Serializable]
 //	public struct LetterRecognitionStrcut{
 //		public string Letter;
 //		public string Variants; // seperated with commas
 //	}
 
-	public struct GameplayPositionStruct{
+	public struct GameplayPositionStruct {
 		public int LevelIndex;
 		public int SegmentIndex;
 		public int LevelScore;
 		public Booster SelectedBooster;
 
-		public int SucsessSegment;
+
+		public bool[] SucsessSegments;
+
+		public bool AllowMaxStars;
+
+		public int SucsessSegment
+		{
+			get
+			{
+				int count = 0;
+				if (SucsessSegments != null) {
+					foreach (bool sucsess in SucsessSegments) {
+						if (sucsess) {
+							count++;
+						}
+					}
+				}
+				return count;
+			}
+		}
+
 
 		public int LevelStars
 		{
 			get
 			{
-				if 		  (SucsessSegment >= 5) {
+				int count = SucsessSegment;
+
+				if 		  (count >= 5 && AllowMaxStars == true) {
 					return 3;
-				} else if (SucsessSegment >= 3) {
+				} else if (count >= 3) {
 					return 2;
-				} else if (SucsessSegment >= 2) {
+				} else if (count >= 2) {
 					return 1;
 				}
 				return 0;
@@ -38,48 +62,50 @@ public class GameplayController : MonoBehaviour {
 		}
 	}
 
-	public TextAsset RecognitionVariantsText;
-
-	public MonsterCalloutController CurrentActive;
 
 	public enum GameState {
 		None,
 		LoadLevel,
 		LoadSegment, 
-		MemorizingSegment, // Traffic light
 		ThoughtBubbleAnimation,
-		ShowNeededInputAnimation,
-		LettersPopupAnimation,
 		SegmentIdle, //Playing the game!!
 		CollectLetters,
 		LetterComingToMonster,
 		EatingLetter,
-		ReactingToLetter,
-		DisplayBadLetter,
-		LettersDestroyAnimation,
 		SegmentWinAnimation,
 		SegmentLoseAnimation,
 		LevelWinAnimation,
-		LevelLoseAnimation,
+//		LevelLoseAnimation,
 		EndSegment
+
+		//		MemorizingSegment, // Traffic light
+		//		ShowNeededInputAnimation,
+		//		LettersPopupAnimation,
+		//		ReactingToLetter,
+		//		DisplayBadLetter,
+		//		LettersDestroyAnimation,
+
 	}
 
+//	public TextAsset RecognitionVariantsText;
+
+	[HideInInspector]
+	public MonsterCalloutController CurrentActive;
 
 
 //	[SerializeField]
-	public Recognition[] Recognitions;
+//	public Recognition[] Recognitions;
 
 //	public LetterRecognitionStrcut[] UTF8Recognitions;
 
 	public GameObject CheatButton;
 
 	public int NumOfLevels;
-//	public Level[] LevelTempletes;
+	public Level DefaultLevelTempletes;
 
-//	public GameObject LetterPrefab;
-	public GameObject LetterPrefab;
-	public GameObject LetterPrefab_1;
-	public GameObject LetterPrefab_2;
+
+	public GameObject[] LetterPrefab_1;
+	public GameObject[] LetterPrefab_2;
 
 
 
@@ -89,7 +115,6 @@ public class GameplayController : MonoBehaviour {
 	public GameObject MonsterPanel;
 
 	public GameObject BoosterPrefab;
-//	public SpriteRenderer GameBackgroundSpriteRenderer;
 	public Material MouseTrailMaterial;
 	public Text LevelScoreText;
 	public UISegmentsDisplay SegmentsDisplay;
@@ -99,33 +124,52 @@ public class GameplayController : MonoBehaviour {
 	public float CountdownCounter { get; set; }
 	public float ShowupBetweenLetterDelay;
 
+	[HideInInspector]
 	public bool IsPause;
+
+	[HideInInspector]
 	public bool IsPausePopup { get; set; }
 
 	public bool IsInteractable = true;
 
 	public Button MonsterHoleButton;
 
-	public static GameplayController Instance;
-
 	public GameState State { get; private set; }
 	public GameState PreviousState { get; private set; }
 
-	GameplayPositionStruct mGameplayPosition;
 
-	public IceBoosterGaugeController FreezeGauge;
 
-//	public GameBackgroundController GameBackground;
 
 	public GameObject FeedbackGO;
 
 	public GameObject LevelBackground;
 
 	public StartButton startButton;
+
+	[HideInInspector]
 	public Vector2 LauncherPoint;
 
-	public GameObject treasureChest;
-	public bool ReaplaceBackground { get; set; }
+
+	public GameObject BonusGameHolder;
+//	public GameObject treasureChestPrefabs;
+	public GameObject bonusPuzzlePrefabs;
+
+
+
+	[HideInInspector]
+	public bool ReaplaceBackground;
+
+	bool _reaplaceBackground_SelectMonster = true;
+	public bool ReaplaceBackground_SelectMonster { 
+
+		set {
+			_reaplaceBackground_SelectMonster = value;
+		}
+		get { 
+			return _reaplaceBackground_SelectMonster;
+		}
+	}
+
 
 	public AudioClip SoundTimeup;
 	public AudioClip SoundMargeLetters;
@@ -135,14 +179,27 @@ public class GameplayController : MonoBehaviour {
 
 
 
+	public string[] backgrounds;
+
+
+	[HideInInspector]
+	public float segmentTime;
+
+	bool isTimeup;
+
+	GameplayPositionStruct mGameplayPosition;
+
+	GameObject ltrPrefab = null;
+
 	Level[] _levels;
-	bool impatient = false;
+//	bool impatient = false;
 	int ShowTreasureChestInSegment = -1;
 	float _currentLevelScoreToFlush;
-	public float segmentTime;
 
 	int mTargetScore;
 
+	TreasureChest treasureChestPopup;
+	BonusPuzzle bonusPuzzlePopup;
 
 
 	public float calcSpeed(float mainSpeed)
@@ -153,7 +210,6 @@ public class GameplayController : MonoBehaviour {
 		return mainSpeed;
 	}
 
-
 	public int AddLevelScoreToFlush
 	{
 		get { return (int)_currentLevelScoreToFlush; }
@@ -163,12 +219,13 @@ public class GameplayController : MonoBehaviour {
 			_currentLevelScoreToFlush += toadd;
 		}
 	}
-	public int IncreaseLevelScore(int value)
+	public int IncreaseLevelScore(int value, bool addFactor = true)
 	{
 		float toadd = value;
 
-		toadd += (((float)value) * (GameplaySettings.LevelScoreFactor * (this.CurrentLevelIndex + 1)));
-
+		if (addFactor == true) {
+			toadd += (((float)value) * (GameplaySettings.LevelScoreFactor * (this.CurrentLevelIndex + 1)));
+		}
 		mGameplayPosition.LevelScore += (int)toadd;
 
 		//LevelScoreText.text = mGameplayPosition.LevelScore.ToString ();
@@ -227,14 +284,6 @@ public class GameplayController : MonoBehaviour {
 			return;
 
 
-//		if (CountdownCounter >= GameplaySettings.Countdown * GameplaySettings.CountdownWarningMonsterRatio) {
-		if (CountdownCounter >= segmentTime * GameplaySettings.CountdownWarningMonsterRatio) {
-			if (!impatient)
-				CurrentActive.SetMonsterState (MonsterCalloutController.MonsterState.Impatient);
-			impatient = true;
-		} else
-			impatient = false;
-
 		LetterController[] letters = AllLetters;
 //		MonsterCalloutController monster = Component.FindObjectOfType<MonsterCalloutController> ();
 
@@ -282,6 +331,8 @@ public class GameplayController : MonoBehaviour {
 			Timer.Instance.Remove (Countdown );
 //			AudioController.Instance.PlaySound (SoundTimeup, .5f);
 
+			this.mGameplayPosition.AllowMaxStars = false;
+
 			if(isSegmentComplete == true) {
 				GameplayController.Instance.SegmentWin();
 				Invoke ("OnEatAnimationEnd", 1.0f);
@@ -291,6 +342,10 @@ public class GameplayController : MonoBehaviour {
 			}
 		} else {
 			// use for freeze timer booster
+			if (segmentTime - CountdownCounter <= GameplaySettings.ShowTimeupSeconds && !isTimeup) {
+				isTimeup = true;
+				AudioController.Instance.PlaySound (SoundTimeup, true);
+			}
 			if (isFreezeTimer == false) {
 				CountdownCounter += Time.deltaTime;
 				// start added by Tzahi
@@ -354,7 +409,8 @@ public class GameplayController : MonoBehaviour {
 	}
 
 	void OnDisable() {
-		DestroyTreasureChestPopup ();
+//		DestroyTreasureChestPopup ();
+		DestroyBonusPuzzlePopup ();
 	}
 
 	// Use this for initialization
@@ -371,11 +427,8 @@ public class GameplayController : MonoBehaviour {
 
 	void Init()
 	{
-		
 		StartCoroutine(XMLTool.LoadLevelsXML());
-
 		StartCoroutine(XMLTool.LoadLettersXML());
-	
 //		UIController.Instance.SplashScreenStartButton.gameObject.SetActive(true);
 	}
 
@@ -417,15 +470,18 @@ public class GameplayController : MonoBehaviour {
 		mGameplayPosition.LevelScore = 0;
 		mGameplayPosition.LevelIndex = levelIndex;
 		mGameplayPosition.SegmentIndex = -1;
-		mGameplayPosition.SucsessSegment = 0;
+//		mGameplayPosition.SucsessSegment = 0;
+		mGameplayPosition.SucsessSegments = new bool[5];
+
+		mGameplayPosition.AllowMaxStars = true;
 
 		LevelScoreText.text = "0";
 
 		SetSegmentToShowTreasureChest ();
 
-		if(ReaplaceBackground) {
+		if(ReaplaceBackground_SelectMonster) {
 			LoadBackground ();
-			ReaplaceBackground = false;
+			ReaplaceBackground_SelectMonster = false;
 		}
 		UpdateLauncherPoint ();
 		UpdateCurrentMonster ();
@@ -441,19 +497,13 @@ public class GameplayController : MonoBehaviour {
 			UIController.Instance. ShowPopup(UIController.Instance.SelectFriendPopup);
 		} */
 
-		if (LetterPrefab_1 != null && LetterPrefab_2 != null) {
-			int ind = Random.Range (1, 3);
-			if (ind == 1) {
-				ltrPrefab = LetterPrefab_1;
-			} else {
-				ltrPrefab = LetterPrefab_2;
-			}
-		}
-		if (ltrPrefab == null) {
-			ltrPrefab = LetterPrefab;
+		if (CurrentLevel.StoneType == 2) {
+			ltrPrefab = LetterPrefab_2 [Random.Range (0, LetterPrefab_2.Length)];
+		} else {
+			ltrPrefab = LetterPrefab_1 [Random.Range (0, LetterPrefab_1.Length)];
 		}
 
-		Analitics.Instance.treckScreen ("Level - " + (levelIndex + 1));
+		Analitics.Instance.treckScreen ("Level " + (levelIndex + 1) + " - Profile: " + UsersController.Instance.CurrentProfileId);
 	}
 
 
@@ -478,20 +528,27 @@ public class GameplayController : MonoBehaviour {
 		}
 	}
 
-	public void LoadBackground(GameObject background = null)
+
+
+	public void LoadBackground(GameObject background)
 	{
 		DestroyBackground ();
+		LevelBackground = Instantiate (background);
+		LevelBackground.name = "LevelBackground";
+	}
+
+	public void LoadBackground(string background = "")
+	{
 
 		GameObject go;
-		if (background != null) {
-			go = background;
+		if (background != "") {
+//			go = background;
+			go = Resources.Load ("Gameplay/Background/" + background) as GameObject;
 		} else {
-			string fileName = "BG_" + Random.Range (2, 13);
-			go = Resources.Load ("Gameplay/Background/" + fileName) as GameObject;
+			string fileName = backgrounds [Random.Range (0, backgrounds.Length)];
+			go = Resources.Load ("Gameplay/Background/" + fileName ) as GameObject;
 		}
-
-		LevelBackground = Instantiate (go);
-		LevelBackground.name = "LevelBackground";
+		LoadBackground (go);
 	}
 
 
@@ -519,8 +576,10 @@ public class GameplayController : MonoBehaviour {
 
 		toDoMagnet = false;
 		isFreezeTimer = false;
-		mIsLetterDrag = false;
+//		mIsLetterDrag = false;
 		isSegmentComplete = false;
+		isTimeup = false;
+
 		updateSegmentTime ();
 
 		Tutorial.EndTutorial ();
@@ -530,7 +589,8 @@ public class GameplayController : MonoBehaviour {
 			Destroy (fb.gameObject);
 		}
 
-		if (addTreasureChest ()) {
+//		if (addTreasureChest ()) {
+		if (AddBonusPuzzle ()) {
 			IsPause = true;
 		} else {
 			LoadSegment();
@@ -538,8 +598,16 @@ public class GameplayController : MonoBehaviour {
 	}
 
 
+	void StartTutorial()
+	{
+		Tutorial.StartTutorial ();
+
+	}
+
 	public void LoadSegment ()
 	{
+		DestroyBonusPuzzlePopup ();
+
 		if (
 			(CurrentLevelIndex == TutorialSettings.TutorialLetterLevel && mGameplayPosition.SegmentIndex < 1)
 			||
@@ -549,7 +617,8 @@ public class GameplayController : MonoBehaviour {
 			||
 			(CurrentLevelIndex == TutorialSettings.TutorialSwipeLevel && mGameplayPosition.SegmentIndex < 1)
 		) {
-			Tutorial.StartTutorial();
+
+			Invoke("StartTutorial", 0.5f);
 		}
 
 		SetState(GameState.LoadSegment);
@@ -565,12 +634,31 @@ public class GameplayController : MonoBehaviour {
 	}
 
 
-	TreasureChest treasureChestPopup;
+	void DestroyBonusPuzzlePopup()
+	{
+		if (bonusPuzzlePopup != null) {
+			Destroy (bonusPuzzlePopup.gameObject);
+		}
+		bonusPuzzlePopup = null;
+	}
 
+	bool AddBonusPuzzle()
+	{
+		DestroyBonusPuzzlePopup ();
+
+		if (ShowTreasureChestInSegment > -1 && ShowTreasureChestInSegment == mGameplayPosition.SegmentIndex) {
+			GameObject go = Instantiate (bonusPuzzlePrefabs, BonusGameHolder.transform) as GameObject;
+			bonusPuzzlePopup = go.GetComponent<BonusPuzzle> ();
+			bonusPuzzlePopup.onDone = LoadSegment;
+			return true;
+		}
+		return false;
+	}
+/*
 	void DestroyTreasureChestPopup()
 	{
 		if (treasureChestPopup != null) {
-			Destroy (treasureChestPopup);
+			Destroy (treasureChestPopup.gameObject);
 		}
 		treasureChestPopup = null;
 	}
@@ -580,18 +668,18 @@ public class GameplayController : MonoBehaviour {
 		DestroyTreasureChestPopup ();
 
 		if (ShowTreasureChestInSegment > -1 && ShowTreasureChestInSegment == mGameplayPosition.SegmentIndex) {
-			GameObject go = Instantiate (treasureChest, UIController.Instance.GamePanel.transform) as GameObject;
-			TreasureChest trc = go.GetComponent<TreasureChest> ();
-			trc.onDone = LoadSegment;
+			GameObject go = Instantiate (treasureChestPrefabs, BonusGameHolder.transform) as GameObject;
+			treasureChestPopup = go.GetComponent<TreasureChest> ();
+			treasureChestPopup.onDone = LoadSegment;
 
 			if(CurrentLevelIndex == 1) {
-				trc.addTutorial ();
+				treasureChestPopup.addTutorial ();
 			}
 			return true;
 		}
 		return false;
 	}
-
+*/
 
 
 	void StartSegment()
@@ -629,12 +717,14 @@ public class GameplayController : MonoBehaviour {
 		}
 
 		for ( int i=CurrentSegment.Stones.Length-1; i>=0; i--) {
-			//int rndLocationIndex = Random.Range (0, locations.Count);
-			//location = locations [rndLocationIndex];
+			Stone stone = CurrentSegment.Stones[i];
+			if (stone.chanceToShow != 0f && stone.chanceToShow < 100f) {
+				if (stone.chanceToShow > (UnityEngine.Random.value * 100f)) {
+					continue;				
+				}
+			}
 
 			int rndLocationIndex;
-			Stone stone = CurrentSegment.Stones[i];
-
 			location = null;
 
 			if (stone.spawnIds.Length > 0) {
@@ -673,7 +763,7 @@ public class GameplayController : MonoBehaviour {
 		}
 	}
 
-	GameObject ltrPrefab = null;
+
 
 	void createLetter(Stone stone, GameObject location)
 	{
@@ -801,6 +891,34 @@ public class GameplayController : MonoBehaviour {
 
 	AudioSource SoundScoreCountSRC;
 
+
+/*
+	IEnumerator updateScore(int fromS)
+	{
+		if (SoundScoreCountSRC == null) {
+			SoundScoreCountSRC = AudioController.Instance.PlaySound (SoundScoreCount, 0.15f, 1f, false);
+			SoundScoreCountSRC.loop = true;
+		}
+		while (fromS < mGameplayPosition.LevelScore)
+		{
+			yield return new WaitForSeconds (0.01f);
+			fromS += 10;
+			LevelScoreText.text = (fromS).ToString ();
+		}
+		LevelScoreText.text = mGameplayPosition.LevelScore.ToString();
+
+		SoundScoreCountSRC.loop = false;
+		while (SoundScoreCountSRC.isPlaying) {
+			yield return new WaitForSeconds (0.01f);
+		}
+
+//		SoundScoreCountSRC.Stop ();
+		Destroy (SoundScoreCountSRC.gameObject);
+		SoundScoreCountSRC = null;
+
+		yield return true;
+	}
+*/
 	void Update () {
 
 		if (!IsPause && !IsPausePopup) {
@@ -811,6 +929,11 @@ public class GameplayController : MonoBehaviour {
 		}
 
 		int fromS = int.Parse (LevelScoreText.text);
+/*
+		if (fromS < mGameplayPosition.LevelScore) {
+			StartCoroutine (updateScore (fromS));
+		}
+*/
 
 		if (fromS < mGameplayPosition.LevelScore) {
 			fromS += 10;
@@ -822,16 +945,22 @@ public class GameplayController : MonoBehaviour {
 				}
 			}
 		} else {
+			
 			if(SoundScoreCountSRC != null) {
-				SoundScoreCountSRC.Stop ();
-				Destroy (SoundScoreCountSRC.gameObject);
-				SoundScoreCountSRC = null;
-			}
+				SoundScoreCountSRC.loop = false;
 
+				if (!SoundScoreCountSRC.isPlaying) {
+					SoundScoreCountSRC.Stop ();
+					Destroy (SoundScoreCountSRC.gameObject);
+					SoundScoreCountSRC = null;
+				}
+			}
 			fromS = mGameplayPosition.LevelScore;
 
 		}
 		LevelScoreText.text = (fromS).ToString ();
+
+
 
 		if (IsPause || IsPausePopup || !IsInteractable)
 			return;
@@ -839,28 +968,41 @@ public class GameplayController : MonoBehaviour {
 		if (Input.GetMouseButtonUp (0)) {
 			MonsterCalloutController monster = Component.FindObjectOfType<MonsterCalloutController> ();
 
-			if (monster != null) {
+			if (monster != null && State == GameState.SegmentIdle) {
 				// start added by tzahi
 				bool isMouseOver = false;
-				RectTransform re = (RectTransform)monster.transform;
+				RaycastHit2D hit = Physics2D.GetRayIntersection (Camera.main.ScreenPointToRay (Input.mousePosition));
 
-				if (RectTransformUtility.RectangleContainsScreenPoint ((RectTransform)MonsterHoleButton.transform, Input.mousePosition, canvasCamera))
+//				if (RectTransformUtility.RectangleContainsScreenPoint ((RectTransform)MonsterHoleButton.transform, Input.mousePosition, canvasCamera))
+				if (hit.transform != null &&  hit.transform.tag == "Monster")
 				{
 					isMouseOver = true;
 				}
 				// end added by tzahi
 
-				if (monster != null && (monster.IsMouseOver || isMouseOver) && State == GameState.SegmentIdle) {
+				if ((monster.IsMouseOver || isMouseOver)) {
 					CollectLettersToMonster (monster);
 //					UnSelectAllLetters ();
 					UnOverAllMonsters ();
 					return;
 				}
 			}
-			UnSelectAllLetters ();
-			UnOverAllMonsters ();
+/*
+			LoadLevel,
+			LoadSegment, 
+			ThoughtBubbleAnimation,
+			SegmentIdle, //Playing the game!!
+			SegmentWinAnimation,
+			SegmentLoseAnimation,
+			LevelWinAnimation,
+			//		LevelLoseAnimation,
+			EndSegment
+*/
+			if (State != GameState.CollectLetters && State != GameState.LetterComingToMonster && State != GameState.EatingLetter) {
+				UnSelectAllLetters ();
+				UnOverAllMonsters ();
+			}
 		}
-
 	}
 
 	public void CollectLettersToMonster(MonsterCalloutController monster = null)
@@ -910,6 +1052,9 @@ public class GameplayController : MonoBehaviour {
 
 		LetterController[] letters = AllLetters;
 
+
+		mGameplayPosition.SucsessSegments[mGameplayPosition.SegmentIndex] = true;
+
 		foreach (string requiredLetter in CurrentSegment.MonsterRequiredLetters) {
 			foreach (LetterController letter in letters) {
 				if (letter.stone == null)
@@ -926,7 +1071,7 @@ public class GameplayController : MonoBehaviour {
 			}
 		}
 
-		mGameplayPosition.SucsessSegment++;
+//		mGameplayPosition.SucsessSegment++;
 		SegmentWin (); // win cuz needed letter cannot be found anymore.
 		return true;
 	}
@@ -1005,6 +1150,9 @@ public class GameplayController : MonoBehaviour {
 
 		//Invoke ("EndSegmentLoseAnimation", 1.5f);
 //		Invoke ("OnEatAnimationEnd", 1.5f);
+
+
+		mGameplayPosition.AllowMaxStars = false;
 	}
 
 	void ShowSegmentWinAnimation()
@@ -1089,7 +1237,7 @@ public class GameplayController : MonoBehaviour {
 
 		int stars = mGameplayPosition.LevelStars;
 
-		UserInfo.Instance.SetLevelScoreIfNewRecord(CurrentLevelIndex, CurrentLevelScore);
+//		UserInfo.Instance.SetLevelScoreIfNewRecord(CurrentLevelIndex, CurrentLevelScore);
 		UserInfo.Instance.SetLevelStarsIfNewRecord(CurrentLevelIndex, stars);
 
 		CurrentMonster.setLevelComplite (stars);
@@ -1175,7 +1323,9 @@ public class GameplayController : MonoBehaviour {
 
 	public void ClearGameplay()
 	{
-		DestroyTreasureChestPopup ();
+//		DestroyTreasureChestPopup ();
+		DestroyBonusPuzzlePopup ();
+
 		TutorialController.Instance.EndTutorial ();
 		if (CurrentActive != null) {
 			CurrentActive.SetMonsterState (MonsterCalloutController.MonsterState.Idle);
@@ -1184,7 +1334,9 @@ public class GameplayController : MonoBehaviour {
 		CancelInvoke ();
 		DestroyLetters ();
 		DestroyMonsters ();
-		FreezeGauge.gameObject.SetActive (false);
+
+		FreezeGauge.stopFrezz ();
+//		FreezeGauge.gameObject.SetActive (false);
 		Timer.Instance.Remove (Countdown);
 	}
 
@@ -1212,22 +1364,25 @@ public class GameplayController : MonoBehaviour {
 			LetterController stone = (sender as LetterController);
 			if (stone.State == LetterController.LetterState.Selected) {
 				CurrentActive.SetMonsterState (MonsterCalloutController.MonsterState.Eating);
-			} else
+			} else {
 				CurrentActive.SetMonsterState (MonsterCalloutController.MonsterState.Idle);
+			}
 		}
 	}
-
 
 /*
 * Tzahi - start
 */
 	public Camera canvasCamera;
+
+	public IceBoosterGaugeController FreezeGauge;
 	public Slider timerSlider;
 	public GameObject timerTicks1;
 	public GameObject timerTicks2;
 //	Queue<int> letterReplacedQueue = new Queue<int>();
-	bool mIsLetterDrag = false;
+//	bool mIsLetterDrag = false;
 	public bool isSegmentComplete = false;
+
 
 
 	public void OnEatAnimationEnd()
@@ -1237,6 +1392,8 @@ public class GameplayController : MonoBehaviour {
 			||
 			State == GameState.SegmentLoseAnimation
 		) {
+
+			CurrentActive.OnEatDone ();
 
 			Invoke ("EndSegment", 0.6f);
 //			EndSegment ();
@@ -1258,12 +1415,12 @@ public class GameplayController : MonoBehaviour {
 
 	public void onBeginDragLetter(LetterController dragedLetter)
 	{
-		mIsLetterDrag = true;
+//		mIsLetterDrag = true;
 	}
 
 	public void onEndDragLetter(LetterController dragedLetter)
 	{
-		mIsLetterDrag = false;
+//		mIsLetterDrag = false;
 	}
 
 	public void onDragLetter(LetterController dragedLetter)
@@ -1311,7 +1468,7 @@ public class GameplayController : MonoBehaviour {
 
 						MonsterCalloutController monster = Component.FindObjectOfType<MonsterCalloutController> ();
 						if (monster != null) {
-							monster.EatBooster ((BoosterController)dragedLetter);
+							monster.EatBooster ((BoosterController)dragedLetter, null);
 						}
 
 						Destroy (dragedLetter.gameObject);
@@ -1321,7 +1478,7 @@ public class GameplayController : MonoBehaviour {
 					if (letter.stone.value == BoosterController.letterName) {
 						MonsterCalloutController monster = Component.FindObjectOfType<MonsterCalloutController> ();
 						if (monster != null) {
-							monster.EatBooster ((BoosterController)letter);
+							monster.EatBooster ((BoosterController)letter, dragedLetter);
 						}
 					
 					} else if (CurrentLevel.monsterInputType == MonsterInputType.Letter || CurrentLevel.monsterInputType == MonsterInputType.LetterInWord || CurrentLevel.monsterInputType == MonsterInputType.SoundLetter) {
@@ -1424,87 +1581,6 @@ public class GameplayController : MonoBehaviour {
 	{
 		cancelDrag ();
 	}
-/*
-	void reaplceRandomLetters()
-	{
-		int trys = 0;
-		LetterController letter1 = null;
-		LetterController letter2 = null;
-
-		List<GameObject> locations = new List<GameObject>( LettersLocations);
-		List<int> SpawnIds = new List<int>();
-
-		foreach (LetterController letter in AllLetters) {
-			if (letter.State == LetterController.LetterState.Idle && letter.stone != null && (letter.stone.spawnId == null || letter.stone.spawnId.Length == 0)) {
-				letter1 = letter;
-				break;
-			}
-		}
-
-		GameObject location2 = null;
-
-		if (letter1 != null) {
-			trys = 0;
-
-			if (CurrentSegment.SpawnIds.Length > 0) {
-				SpawnIds = new List<int> (System.Array.ConvertAll<string, int> (CurrentSegment.SpawnIds.Trim ().Split (','), int.Parse));
-			} else {
-
-			}
-
-			if (SpawnIds.Contains (letter1.spawnId)) {
-				SpawnIds.Remove (letter1.spawnId);
-			}
-
-			if (SpawnIds.Count > 0) {
-				while (trys < SpawnIds.Count) {
-					int ind = Random.Range (0, SpawnIds.Count);
-
-					foreach (LetterController letter in AllLetters) {
-						if (SpawnIds [ind] == letter.spawnId) {
-							letter2 = letter;
-							break;
-						}
-					}
-
-					if (letter2 == null) {
-						location2 = getLocationBySpawnId (locations, SpawnIds [ind]);
-						break;
-					} else if (letter1 != letter2 && letter2.State == LetterController.LetterState.Idle && letter2.stone != null && (letter2.stone.spawnId == null || letter2.stone.spawnId.Length == 0)) {
-						location2 = getLocationBySpawnId (locations, letter2.spawnId);
-						break;
-					}
-					letter2 = null;
-				}
-			} else {
-				while(letter1 == null || trys < 10)
-				{
-					LetterController letter = AllLetters [Random.Range (0, AllLetters.Length)];
-					if (letter != letter1 && letter.State == LetterController.LetterState.Idle) {
-						letter2 = letter;
-						break;
-					}
-					trys++;
-				}
-			}
-			if (letter1 != null && letter2 != null) {
-				Vector3 p1 = letter1.transform.position;
-				int l1 = letter1.spawnId;
-
-				Vector3 p2 = letter2.transform.position;
-				int l2 = letter2.spawnId;
-
-				letter1.setNewPosition (p2, l2);
-				letter2.setNewPosition (p1, l1);
-			} else if (letter1 != null && location2 != null) {
-				Vector3 p2 = location2.transform.position;
-				int l2 = location2.GetComponent<LetterSpawn>().id;
-
-				letter1.setNewPosition (p2, l2);
-			}
-		}
-	}
-*/
 
 	public void onStatusCheatClick()
 	{
@@ -1534,46 +1610,86 @@ public class GameplayController : MonoBehaviour {
 		}
 	}
 
-	public void DoFireBooster(BoosterController booster)
+	public void DoFireBooster(BoosterController booster, LetterController dragedLetter)
 	{
 		foreach (LetterController letter in AllLetters) {
-			if (letter != booster && IsDistractor (letter)) {
+			if (letter != booster && letter != dragedLetter && IsDistractor (letter) && letter.State == LetterController.LetterState.Idle) {
 				GameObject fire = GameObject.Instantiate (booster.Model.EffectOnLetterPrefab, letter.transform.position, Quaternion.identity) as GameObject;
 				fire.transform.SetParent (letter.transform.parent);
 				fire.transform.localPosition = new Vector3(letter.transform.localPosition.x, letter.transform.localPosition.y, letter.transform.localPosition.z - 1);
-				letter.DisapearLost (1f);
+				fire.transform.localScale = fire.transform.localScale * letter.transform.localScale.x;
+				letter.DisapearLost (0f);
+				Destroy(letter.gameObject);
 				break;
 			}
 		}
 	}
 
-	public void DoFreezeBooster(){
-		FreezeGauge.gameObject.SetActive (true);
-		//CountdownCounter -= GameplaySettings.FreezeDuration;
-
-
-
-		isFreezeTimer = true;
-	}
-
-	public void DoMagnetBooster()
-	{
-		toDoMagnet = true;
-	}
-
-	public void SlowMovmentBooster(BoosterController booster)
-	{
-		slowBoosterDuration = GameplaySettings.BoosterSlowMovementDuration;
-	}
-
-	public void ShowCalloutBooster(BoosterController booster)
-	{
-		CurrentActive.reshowCallout ();
-	}
-
-	public void ShieldBooster(BoosterController booster)
+	public void ShieldBooster(BoosterController booster, LetterController dragedLetter)
 	{
 		shildBoosterDuration = GameplaySettings.BoosterShowCalloutTimes;
+		addBoosterEfect (booster, shildBoosterDuration, dragedLetter);
+	}
+
+	public void SlowMovmentBooster(BoosterController booster, LetterController dragedLetter)
+	{
+		slowBoosterDuration = GameplaySettings.BoosterSlowMovementDuration;
+		addBoosterEfect (booster, slowBoosterDuration, dragedLetter);
+	}
+
+	public void DoMagnetBooster(BoosterController booster, LetterController dragedLetter)
+	{
+		toDoMagnet = true;
+		addBoosterEfect (booster, 0, dragedLetter);
+	}
+
+	public void ShowCalloutBooster(BoosterController booster, LetterController dragedLetter)
+	{
+		CurrentActive.reshowCallout ();
+		addBoosterEfect (booster, 0,  dragedLetter);
+	}
+
+
+	void addBoosterEfect(BoosterController booster, float destroyAfter, LetterController dragedLetter)
+	{
+		if (booster != null && booster.Model != null && booster.Model.EffectOnLetterPrefab != null) {
+
+			LetterController ltr = null;
+			if (dragedLetter != null) {
+				ltr = dragedLetter;
+			} else {
+				foreach (LetterController letter in AllLetters) {
+					if (letter != booster && letter.isDragable) {
+						ltr = letter;
+						break;
+					}
+				}
+			}
+
+			if (ltr != null) {
+				GameObject shild = GameObject.Instantiate (booster.Model.EffectOnLetterPrefab, ltr.transform.position, Quaternion.identity) as GameObject;
+				shild.transform.SetParent (ltr.transform);
+				shild.transform.localPosition = new Vector3 (0, 0, 0);
+				shild.transform.localScale = shild.transform.localScale * ltr.transform.localScale.x;
+
+				if (destroyAfter > 0) {
+					DestroyAfter ds = shild.AddComponent<DestroyAfter> ();
+					ds.After = destroyAfter;
+				}
+			}
+		}
+
+	}
+
+
+
+	public void DoFreezeBooster() {
+		FreezeGauge.startFrezz ();
+
+//		FreezeGauge.gameObject.SetActive (true);
+//		CountdownCounter -= GameplaySettings.FreezeDuration;
+
+//		isFreezeTimer = true;
 	}
 
 
@@ -1586,10 +1702,25 @@ public class GameplayController : MonoBehaviour {
 			bonus = GameplaySettings.BonusLetterBoosterScore;
 		}
 		bonus = IncreaseLevelScore (bonus);
-		booster.addScorebubble (booster.transform, bonus);
+		booster.addScorebubble (booster.transform.parent, bonus);
 	}
 	#endregion
 
+	public Vector2 getMonsterHandPosition() { 
+		Transform to = GameObject.Find ("monster").transform.Find ("Hand");
+		Vector2 toPos = GameplayController.Instance.MonsterHoleButton.transform.position;
+		if (to != null) {
+			toPos = new Vector2 (to.position.x * 100f, to.position.y * 100f);
+			Canvas c = UIController.Instance.GamePanel.GetComponentInParent<Canvas> ();
+			RectTransform CanvasRect = c.GetComponent<RectTransform> ();
+			Vector2 ViewportPosition = Camera.main.ScreenToViewportPoint (Camera.main.WorldToScreenPoint (to.position));
+			toPos = new Vector2 (
+				((ViewportPosition.x * CanvasRect.sizeDelta.x) - (CanvasRect.sizeDelta.x * 0.5f)),
+				((ViewportPosition.y * CanvasRect.sizeDelta.y) - (CanvasRect.sizeDelta.y * 0.5f))
+			);
+		}
+		return toPos;
+	}
 
 /*
 * Tzahi - End

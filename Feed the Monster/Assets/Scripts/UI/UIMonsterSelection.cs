@@ -18,6 +18,8 @@ public class UIMonsterSelection : MonoBehaviour
 	public MonsterSelectionTouchController TouchController;
 
 
+	Monster selectedMonster = null;
+
 	bool selected = false;
 	bool isDraged = false;
 
@@ -51,8 +53,17 @@ public class UIMonsterSelection : MonoBehaviour
 	}
 
 
-	void OnEnable(){
-		GameplayController.Instance.LoadBackground ();
+	void OnEnable() {
+		selectedMonster = null;
+		if(GameplayController.Instance.ReaplaceBackground_SelectMonster == true)
+		{
+			GameplayController.Instance.LoadBackground ();
+			GameplayController.Instance.ReaplaceBackground_SelectMonster = false;
+		}
+
+//		if (UIController.Instance.LastPanel != UIController.Instance.DiscoverNewFriendsPanel) {
+//			GameplayController.Instance.ReaplaceBackground_SelectMonster = true;
+//		}
 
 		monsterBar.ButtonPrevious = ButtonPrevious.GetComponent<Button> ();
 		monsterBar.ButtonNext = ButtonNext.GetComponent<Button> ();
@@ -66,20 +77,22 @@ public class UIMonsterSelection : MonoBehaviour
 		updateButtons ();
 		AudioController.Instance.PlaySound (InstructionSound);
 
-		//Jonathan
-		if (GameplayController.Instance.CurrentLevelIndex == 0) {
 
+		Invoke ("addTutorialHandPosition", 0.5f);
+
+/*
+//Jonathan
+		if (GameplayController.Instance.CurrentLevelIndex == 0) {
 			GameObject go;
 			Vector2 point = new Vector2(0, -140);
 			go = GameObject.Find ("Button - Ok");
 			if (go != null) {
 				point = go.transform.localPosition + new Vector3 (0, 100, 0);
 			} else {
-			
 			}
-			TutorialController.Instance.PointAt (point);
 		}
 		//End Jonathan
+*/
 
 
 		if (TouchController != null) {
@@ -92,6 +105,39 @@ public class UIMonsterSelection : MonoBehaviour
 		Analitics.Instance.treckScreen ("Monster Select");
 	}
 
+	public void addTutorialHandPosition()
+	{
+		if (GameplayController.Instance.CurrentLevelIndex == 0) {
+
+			Transform to = monsterBar.currentMonster.Find ("Hand");
+			Vector2 toPos = new Vector2 (0, -140);
+			if (to == null) {
+				GameObject go;
+				go = GameObject.Find ("Button - Ok");
+				if (go != null) {
+					toPos = go.transform.localPosition + new Vector3 (0, 100);
+				} else {
+
+				}
+			} else {
+				toPos = new Vector2 (to.position.x * 100f, to.position.y * 100f);
+
+				Canvas c = GetComponentInParent<Canvas> ();
+				RectTransform CanvasRect = c.GetComponent<RectTransform> ();
+				Vector2 ViewportPosition = Camera.main.ScreenToViewportPoint (Camera.main.WorldToScreenPoint (to.position));
+
+				toPos = new Vector2 (
+					((ViewportPosition.x * CanvasRect.sizeDelta.x) - (CanvasRect.sizeDelta.x * 0.5f)),
+					((ViewportPosition.y * CanvasRect.sizeDelta.y) - (CanvasRect.sizeDelta.y * 0.5f))
+				);
+			}
+			TutorialController.Instance.PointAt (toPos, null, true);
+		}
+	}
+
+
+
+
 	public void Done(){
 		if (selected)
 			return;
@@ -100,6 +146,20 @@ public class UIMonsterSelection : MonoBehaviour
 
 		Invoke ("GotoGame", 1f);
 		GetComponent<UIPopupPanel> ().PopOut ();
+
+		if (GameplayController.Instance.CurrentLevelIndex == 0) {
+			TutorialController.Instance.EndTutorial ();
+		}
+		if (selectedMonster != null) {
+			Analitics.Instance.treckEvent (
+				AnaliticsCategory.GamePlay,
+				AnaliticsAction.SelectMonster +
+				" " + selectedMonster.name +
+				" Evolve_" + (selectedMonster.Gage + 1),
+				"Level_" + (GameplayController.Instance.CurrentLevelIndex + 1),
+				(long)selectedMonster.MonsterType
+			);
+		}
 	}
 
 	void OnDisable(){
@@ -109,8 +169,6 @@ public class UIMonsterSelection : MonoBehaviour
 		monsterBar.Clean ();
 		monsterBar.onMonsterLocated -= onMonsterLocated;
 //		monsterBar.onMonsterDrag -= onMonsterDrag;
-
-
 
 		if (TouchController != null) {
 			TouchController.onBeginDrag -= OnBeginDrag;
@@ -122,6 +180,12 @@ public class UIMonsterSelection : MonoBehaviour
 
 	void GotoGame(){
 		UIController.Instance.ShowPanelWithoutTransitionEffect (UIController.Instance.GamePanel);
+
+		if (GameplayController.Instance.CurrentLevelIndex == 0) {
+			TutorialController.Instance.EndTutorial ();
+		}
+
+
 	}
 
 	void updateButtons () {
@@ -139,11 +203,17 @@ public class UIMonsterSelection : MonoBehaviour
 	public void PreviousMonsterClick()
 	{
 		monsterBar.MoveToPrevious ();
+		if (GameplayController.Instance.CurrentLevelIndex == 0) {
+			TutorialController.Instance.EndTutorial ();
+		}
 	}
 
 	public void NextMonsterClick()
 	{
 		monsterBar.MoveToNext ();
+		if (GameplayController.Instance.CurrentLevelIndex == 0) {
+			TutorialController.Instance.EndTutorial ();
+		}
 	}
 
 
@@ -159,6 +229,9 @@ public class UIMonsterSelection : MonoBehaviour
 		monsterBar.OnBeginDrag();
 */
 		Invoke ("setDrag", 0.025f);
+		if (GameplayController.Instance.CurrentLevelIndex == 0) {
+			TutorialController.Instance.EndTutorial ();
+		}
 	}
 
 	void setDrag()
@@ -212,7 +285,9 @@ public class UIMonsterSelection : MonoBehaviour
 
 	void onMonsterLocated(Monster monster)
 	{
-		Analitics.Instance.treckEvent (AnaliticsCategory.GamePlay, AnaliticsAction.SelectMonster, monster.name, (long)monster.MonsterType);
+		selectedMonster = monster;
+		addTutorialHandPosition ();
+
 	}
 
 

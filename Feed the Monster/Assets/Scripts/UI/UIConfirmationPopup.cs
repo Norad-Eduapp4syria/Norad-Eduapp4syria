@@ -7,6 +7,9 @@ public class UIConfirmationPopup : MonoBehaviour {
 	// Use this for initialization
 
 
+	public delegate void ConfirmDelegate();
+	public ConfirmDelegate onConfirm;
+
 	public AudioClip sndRUShure;
 
 	void OnEnable(){
@@ -25,9 +28,16 @@ public class UIConfirmationPopup : MonoBehaviour {
 
 	public void Confirm(){
 		UIController.Instance.ClosePopup (gameObject);
-		UIController.Instance.ShowPanel (mNextPanelToShow);
+		if (mNextPanelToShow != null) {
+			UIController.Instance.ShowPanel (mNextPanelToShow);
+		}
+		if (onConfirm != null) {
+			onConfirm();
+			onConfirm = null;
+		}
+
 	}
-	public void Cancel(){
+	public void Cancel() {
 		UIController.Instance.ClosePopup (gameObject);
 	}
 }

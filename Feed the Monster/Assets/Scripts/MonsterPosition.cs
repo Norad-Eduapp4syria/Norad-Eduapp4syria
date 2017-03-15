@@ -8,21 +8,18 @@ public class MonsterPosition : MonoBehaviour {
 	public Vector2 GameScreen = new Vector2 (0f, 0f);
 	public Vector2 MiniGameScreen = new Vector2 (0f, 0f);
 
-
 	bool needUpdate = false;
 	Vector2 toPos;
 
+	void Start () {
+	}
+
 	// Update is called once per frame
 	void Update () {
-
 		if (needUpdate == true) {
 			MoveTo();
 		}
 	}
-
-
-
-
 
 	public void setNewMonsterPosition()
 	{
@@ -39,9 +36,14 @@ public class MonsterPosition : MonoBehaviour {
 		}
 	}
 
-	public void setGamePosition()
+	public void setGamePosition(bool inAnimated = false)
 	{
-		transform.position = GameScreen;
+		if (inAnimated) {
+			toPos = GameScreen;
+			needUpdate = true;
+		} else {
+			transform.position = GameScreen;
+		}
 	}
 
 	public void setMiniGamePosition()

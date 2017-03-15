@@ -81,7 +81,7 @@ public static class ArabicBaseForm {
 
 	public static string GetConnectedForm(string word){
 		string result = "";
-		LetterForm form;
+//		LetterForm form;
 		for (int i = word.Length - 1; i >= 0; i--) {
 			if (i == word.Length - 1)
 				result += GetLetterForm (word [i], LetterForm.Final);

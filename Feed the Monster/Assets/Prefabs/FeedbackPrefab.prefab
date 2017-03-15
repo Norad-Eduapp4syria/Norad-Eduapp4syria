@@ -16,12 +16,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 224000013728044344}
-  - 222: {fileID: 222000010528610584}
-  - 114: {fileID: 114000011240109658}
-  - 114: {fileID: 114000013527805782}
+  - component: {fileID: 224000013728044344}
+  - component: {fileID: 222000010528610584}
+  - component: {fileID: 114000011240109658}
+  - component: {fileID: 114000013527805782}
   m_Layer: 5
   m_Name: FeedbackPrefab
   m_TagString: Untagged
@@ -67,6 +67,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4997b9073d8bf5a4b8b2d65badce4af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Feedbacks:
+  - {fileID: 1000013436767692, guid: d0339ac22ee2a3a45bb58b6e637a9cdd, type: 2}
+  - {fileID: 1000013467231258, guid: b37072ef35f2150488e8d690e94d7c8b, type: 2}
+  - {fileID: 1000010964956894, guid: b195aa63d9edc934a87878be2a39e5f3, type: 2}
+  - {fileID: 1000010811484226, guid: c923ada01520cdf40915540508d333c8, type: 2}
+  - {fileID: 1000011194100780, guid: 0445cc290222e87498c75379b41d9c95, type: 2}
 --- !u!222 &222000010528610584
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -82,10 +88,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 130}

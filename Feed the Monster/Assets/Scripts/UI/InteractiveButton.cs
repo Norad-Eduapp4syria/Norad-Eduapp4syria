@@ -5,8 +5,12 @@ using UnityEngine.EventSystems;
 
 public class InteractiveButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler, IPointerClickHandler {
 
+
+	Button btn;
+
 	// Use this for initialization
 	void Start () {
+		btn = gameObject.GetComponent<Button> ();
 	}
 	
 	// Update is called once per frame
@@ -28,7 +32,9 @@ public class InteractiveButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
 	public event PointerEventDataDelegate onPointerDown;
 	public void OnPointerDown (PointerEventData eventData)
 	{
-		transform.localScale = new Vector3 (.9f, .9f, .9f);
+		if (btn.interactable) {
+			transform.localScale = new Vector3 (.9f, .9f, .9f);
+		}
 	}
 
 	#endregion
@@ -55,7 +61,9 @@ public class InteractiveButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
 	public void OnPointerClick (PointerEventData eventData)
 	{
-		AudioController.Instance.PlaySound (UIController.Instance.ClickSound);
+		if (btn.IsInteractable()) {
+			AudioController.Instance.PlaySound (UIController.Instance.ClickSound);
+		}
 	}
 
 	#endregion

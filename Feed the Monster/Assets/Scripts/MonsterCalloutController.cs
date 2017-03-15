@@ -11,7 +11,6 @@ public class MonsterCalloutController : MonoBehaviour {
 	public enum MonsterState
 	{
 		Idle,
-		Impatient,
 		Happy,
 		Sad,
 		Eating,
@@ -96,6 +95,7 @@ public class MonsterCalloutController : MonoBehaviour {
 			animController.SetInteger ("EmotionState", 0);
 		}
 		bubbleImage = GetComponentInChildren<Image> ();
+		getCanvasGroup.interactable = false;
 
 //		if (ShowPartical != null) {
 //			ShowPartical.SetActive (false);
@@ -104,7 +104,18 @@ public class MonsterCalloutController : MonoBehaviour {
 			HidePartical.SetActive (false);
 		}
 	}
+
+	public void OnEatDone()
+	{
+		if (animController) {
+			animController.SetInteger ("EatState", 0);
+		}
 	
+	}
+
+
+
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -119,6 +130,8 @@ public class MonsterCalloutController : MonoBehaviour {
 			}
 		}
 		if (monsterState == MonsterState.Finished) {
+			getCanvasGroup.interactable = false;
+
 			if (bubbleImage) {
 				bubbleImage.color = Color.Lerp (bubbleImage.color, new Color (1, 1, 1, 0), Time.deltaTime * 5);
 			}
@@ -131,7 +144,7 @@ public class MonsterCalloutController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (monsterState != MonsterState.Eating && monsterState != MonsterState.Impatient  && monsterState != MonsterState.Finished ) {
+		if (monsterState != MonsterState.Eating && monsterState != MonsterState.Finished ) {
 			idleStateTimer += Time.deltaTime; // count back to idle mode
 		}
 		
@@ -185,7 +198,6 @@ public class MonsterCalloutController : MonoBehaviour {
 		// Added by Tzahi
 		transform.localPosition = new Vector2();
 
-
 		holeButtonController = location.GetComponent<HoleButtonController>();
 		holeButtonController.onPointerEnter += OnPointerEnter;
 		holeButtonController.onPointerDown += OnPointerDown;
@@ -211,6 +223,7 @@ public class MonsterCalloutController : MonoBehaviour {
 		{
 			return;
 		}
+		PlayCalloutSound ();
 	}
 
 	public void PlayCalloutSound(){
@@ -219,12 +232,14 @@ public class MonsterCalloutController : MonoBehaviour {
 		AudioClip voice;
 		string word = "";
 
+		getCanvasGroup.interactable = true;
+
 		switch (GameplayController.Instance.CurrentLevel.monsterInputType) {
 		case MonsterInputType.Letter:
 		case MonsterInputType.SoundLetter:
-			url = "Sounds/Voice/Letters/" + GameplayController.Instance.CurrentSegment.MonsterRequiredLetters [0];
+			url = "Sounds/Voice/Letters/" + RTL.Clean(GameplayController.Instance.CurrentSegment.MonsterRequiredLetters [0]);
 			voice = Resources.Load (url) as AudioClip;
-			var ss = Resources.Load (url);
+//			var ss = Resources.Load (url);
 
 			if (voice != null) {
 				AudioController.Instance.PlaySound (voice, 1, monster.Pitch);
@@ -235,7 +250,7 @@ public class MonsterCalloutController : MonoBehaviour {
 
 		case MonsterInputType.LetterInWord:
 			//			voice = Resources.Load ("Sounds/Voice/Letters/" + Common.Instance.GetIsolatedForm(GameplayController.Instance.CurrentSegment.MonsterRequiredLetters[0])) as AudioClip;
-			fileName = ArabicBaseForm.Extract (GameplayController.Instance.CurrentSegment.MonsterRequiredLetters [0]);
+			fileName = ArabicBaseForm.Extract (RTL.Clean(GameplayController.Instance.CurrentSegment.MonsterRequiredLetters [0]));
 			url = "Sounds/Voice/Letters/" + fileName;
 			voice = Resources.Load (url) as AudioClip;
 			if (voice != null) {
@@ -250,7 +265,7 @@ public class MonsterCalloutController : MonoBehaviour {
 			foreach (string letter in GameplayController.Instance.CurrentSegment.MonsterRequiredLetters) {
 				word += letter;
 			}
-			url = "Sounds/Voice/Words/" + ArabicBaseForm.Extract (word);
+			url = "Sounds/Voice/Words/" + ArabicBaseForm.Extract (RTL.Clean(word));
 
 			voice = Resources.Load (url) as AudioClip;
 			if (voice != null) {
@@ -259,19 +274,6 @@ public class MonsterCalloutController : MonoBehaviour {
 				Debug.Log ("Sound is missing - '" + url + "'");
 			}	
 			break;
-/*
-		case MonsterInputType.SoundWord:
-			word = "";
-			foreach (string letter in GameplayController.Instance.CurrentSegment.MonsterRequiredLetters) {
-				word += letter;
-			}
-
-			voice = Resources.Load ("Sounds/Voice/Words/" + ArabicBaseForm.Extract(word)) as AudioClip;
-			if (voice != null)
-				AudioController.Instance.PlaySound(voice);
-
-			break;
-*/
 		}
 
 	}
@@ -429,7 +431,10 @@ public class MonsterCalloutController : MonoBehaviour {
 		idleStateTimer = 0;
 		if(animController == null) animController = GameObject.Find ("monster").GetComponentInChildren<Animator> ();		
 
-		animController.SetInteger ("IdleState", 7);
+/*
+ * what is it IdleState 7
+*/
+//		animController.SetInteger ("IdleState", 7);
 	}
 
 	public void CollectSelectedLetters()
@@ -455,12 +460,12 @@ public class MonsterCalloutController : MonoBehaviour {
 		}
 	}
 
-	public void EatBooster(BoosterController booster)
+	public void EatBooster(BoosterController booster, LetterController dragedLetter)
 	{
 //		Debug.Log ("EatBooster " + booster.Model.Type);
 		switch (booster.Model.Type) {
 			case Booster.BoosterType.FireWrongLetter:
-				GameplayController.Instance.DoFireBooster (booster);
+				GameplayController.Instance.DoFireBooster (booster, dragedLetter);
 				break;
 			case Booster.BoosterType.FreezeTime:
 				GameplayController.Instance.DoFreezeBooster ();
@@ -469,16 +474,16 @@ public class MonsterCalloutController : MonoBehaviour {
 				GameplayController.Instance.SegmentLose ();
 				break;
 			case Booster.BoosterType.MagnetLetter:
-				GameplayController.Instance.DoMagnetBooster();
+				GameplayController.Instance.DoMagnetBooster(booster, dragedLetter);
 				break;
 			case Booster.BoosterType.SlowMovment:
-				GameplayController.Instance.SlowMovmentBooster(booster);
+				GameplayController.Instance.SlowMovmentBooster(booster, dragedLetter);
 				break;
 			case Booster.BoosterType.ShowCallout:
-				GameplayController.Instance.ShowCalloutBooster(booster);
+				GameplayController.Instance.ShowCalloutBooster(booster, dragedLetter);
 				break;
 			case Booster.BoosterType.Shield:
-				GameplayController.Instance.ShieldBooster(booster);
+				GameplayController.Instance.ShieldBooster(booster, dragedLetter);
 				break;
 
 
@@ -527,8 +532,6 @@ public class MonsterCalloutController : MonoBehaviour {
 		if (animController.GetInteger ("EatState") != 1) {
 			return;
 		}
-
-
 		GameplayController.Instance.SetState(GameplayController.GameState.EatingLetter);
 		mCurrentLetterInMouth = letter;
 
@@ -541,7 +544,7 @@ public class MonsterCalloutController : MonoBehaviour {
 			SetMonsterState (MonsterState.Sad);
 			return; 
 */
-			EatBooster (letter as BoosterController);
+			EatBooster (letter as BoosterController, null);
 		}
 		else if (IsGoodLetter (letter)) {
 			EatGoodLetter (letter);
@@ -666,15 +669,21 @@ public class MonsterCalloutController : MonoBehaviour {
 		mCurrentLetterInMouth.Eaten();
 	}
 
+
+	void OnEnable(){
+//		getCanvasGroup.interactable = false;
+	}
+
 	void OnDisable()
 	{
 		CancelInvoke ();
 		Timer.Instance.Remove (ShowupLetter);
-		Timer.Instance.Remove (StartPlay );
+		Timer.Instance.Remove (StartPlay);
 		holeButtonController.onPointerEnter -= OnPointerEnter;
 		holeButtonController.onPointerDown -= OnPointerDown;
 		holeButtonController.onPointerExit -= OnPointerExit;
 		holeButtonController.onPointerUp -= OnPointerUp;
+		holeButtonController.onPointerClick -= HoleButtonController_onPointerClick;
 	}
 
 	public void SetMonsterState(MonsterState monsterState)
@@ -694,21 +703,14 @@ public class MonsterCalloutController : MonoBehaviour {
 
 		idleStateTimer = 0;
 
+
 		switch (monsterState) {
 		case MonsterState.Idle:
 			animController.SetInteger ("IdleState", 0);
 			animController.SetInteger ("EmotionState", 0);
 			animController.SetInteger ("EatState", 0);
 			break;
-		case MonsterState.Impatient:
-			AudioController.Instance.PlaySound (SoundAngry);
-			animController.SetInteger ("IdleState", 0);
-//			animController.SetInteger ("EmotionState", 1);
-			if (monster != null) {
-				int state = monster.ImpatientStates [UnityEngine.Random.Range (0, monster.ImpatientStates.Count)];
-				animController.SetInteger ("EmotionState", state);
-			}
-			break;
+
 		case MonsterState.Happy:
 			animController.SetInteger ("IdleState", 0);
 //			animController.SetInteger ("EmotionState", 2);
@@ -745,6 +747,11 @@ public class MonsterCalloutController : MonoBehaviour {
 				animController.SetInteger ("EatState", state);
 			}
 			break;
+		case MonsterState.Finished:
+//			animController.SetInteger ("EatState", 0);
+//			animController.SetInteger ("IdleState", 0);
+			break;
+
 		}
 	}
 
@@ -782,6 +789,8 @@ public class MonsterCalloutController : MonoBehaviour {
 		if (bubbleImage != null && bubbleImage.gameObject != null) {
 			if (GameplayController.Instance.CurrentLevel.hideCallout == 0) {
 				bubbleImage.gameObject.SetActive (false);
+				getCanvasGroup.interactable = false;
+
 			} else if (GameplayController.Instance.CurrentLevel.hideCallout > 0) {
 				StartCoroutine (Blink (GameplayController.Instance.CurrentLevel.hideCallout));
 			}
@@ -793,6 +802,7 @@ public class MonsterCalloutController : MonoBehaviour {
 	{
 		if (GameplayController.Instance.CurrentLevel.hideCallout > 0 && bubbleImage.gameObject.activeSelf == false) {
 			bubbleImage.gameObject.SetActive (true);
+			getCanvasGroup.interactable = true;
 			StartCoroutine (
 				Blink (
 					GameplaySettings.BoosterShowCalloutTimes
@@ -811,7 +821,7 @@ public class MonsterCalloutController : MonoBehaviour {
 
 		while(count < times) {
 			count++;
-			while (cg.alpha > minAlpha) {
+			while (getCanvasGroup.alpha > minAlpha) {
 				yield return new WaitForSeconds(0.01f);
 				getCanvasGroup.alpha = getCanvasGroup.alpha - i;
 			}
@@ -828,6 +838,7 @@ public class MonsterCalloutController : MonoBehaviour {
 		}
 
 		bubbleImage.gameObject.SetActive (false);
+		getCanvasGroup.interactable = false;
 		getCanvasGroup.alpha = 1;
 	}
 

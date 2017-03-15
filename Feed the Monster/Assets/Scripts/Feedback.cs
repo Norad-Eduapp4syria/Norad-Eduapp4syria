@@ -1,12 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Feedback : MonoBehaviour
 {
+	
+	public List<GameObject> Feedbacks;
+	static Dictionary<string , GameObject> feedbacks_d;
+
+
 	void Awake()
 	{
 		this.transform.localScale = Vector3.zero;
+
+
+		if(feedbacks_d == null) {
+			feedbacks_d = new Dictionary<string, GameObject> ();
+			foreach(GameObject f in Feedbacks) {
+				if (!feedbacks_d.ContainsKey (f.name)) {
+					feedbacks_d.Add (f.name, f);
+				}
+			}
+		}
 	}		
 
 
@@ -27,9 +43,16 @@ public class Feedback : MonoBehaviour
 
 	public void init(string fileName)
 	{
-		string path = "Gameplay/Feedbacks/Positive/" + fileName;
+//		string path = "Gameplay/Feedbacks/Positive/" + fileName;
+//		GameObject go = Resources.Load<GameObject> (path);
 
-		GameObject go = Resources.Load<GameObject> (path);
+		GameObject go = null;
+
+
+		if (feedbacks_d.ContainsKey (fileName)) {
+			go = feedbacks_d [fileName];
+		}
+
 		if (go != null) {
 			go = Instantiate (go, transform, false) as GameObject;
 			if (go != null) {
@@ -41,27 +64,7 @@ public class Feedback : MonoBehaviour
 	}
 
 	IEnumerator PopIn(Transform transform, float speed=2.0f){
-
-		/*
-
-		transform.localScale = new Vector3 (0, 0, 0);
-
-		float[] scales = new float[] { 1.1f, 0.9f, 1f, 1f, 1f, 1.2f, 0f }; 
-
-		foreach (float destScale in scales)
-		{
-			Vector3 startScale = transform.localScale;
-			Vector3 endScale = new Vector3(destScale, destScale, destScale);
-			for(float t=0; t<=1; t += speed * Time.deltaTime)
-			{
-				transform.localScale = Vector3.Lerp(startScale, endScale, t * t);
-				yield return null;
-			}
-			transform.localScale = endScale;
-		}
-*/
 		yield return new WaitForSeconds(2f);
-
 		Destroy (gameObject);
 	}
 

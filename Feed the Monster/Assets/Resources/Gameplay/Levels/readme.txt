@@ -28,9 +28,10 @@ content can be any letter or one of the boosters:
 	FireWrongLetter: blow an wrong letter
 	LoseSegment: lose current segment 
 	MagnetLetter: Magnet same letter or next letter to the draged letter
-	StopAutoMove: stop reaplace letter locations in the current segment
-	IgnorWrongLetter: 
-	BoosterBonus: 
+	SlowMovment: slow stone movement 
+	ShowCallout: show callout for ? seconds
+	BonusLetter: 
+	Shield:		
 
 spawnId
 bonusScore
@@ -38,3 +39,6 @@ delayIn
 delayRepet
 speed
 loop
+hideAfter: seconds to hide
+hideAfterBlinks: num of blinks before hide;
+	

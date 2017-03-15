@@ -5,11 +5,15 @@ using System.Collections;
 public class UIPopInOut : MonoBehaviour
 {
 	public bool doActiveOnDone = true;
+	public float delay = 0f;
 
+
+
+	float mInitScale;
 
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
@@ -18,23 +22,25 @@ public class UIPopInOut : MonoBehaviour
 
 
 	void OnEnable(){
-		StartCoroutine (PopInElement (transform));
+		PopIn ();
 	}
 
 
 	void OnDisable(){
-
+		transform.localScale = new Vector3(mInitScale, mInitScale, mInitScale);
 	}
 
 
 	public void PopOut()
 	{
+		mInitScale = transform.localScale.x;
 		StartCoroutine (PopOutElement (transform));
 	}
 
 
 	public void PopIn()
 	{
+		mInitScale = transform.localScale.x;
 		StartCoroutine (PopInElement (transform));
 	}
 
@@ -43,10 +49,11 @@ public class UIPopInOut : MonoBehaviour
 	IEnumerator PopInElement(Transform transform, float speed=5f){
 
 		transform.localScale = new Vector3 (0, 0, 0);
+		if (delay > 0) {
+			yield return new WaitForSeconds (delay);
+		}
 
-		yield return new WaitForSeconds (0);
-
-		float[] scales = new float[] { 0f, 1.1f, 0.9f, 1f };
+		float[] scales = new float[] { 0f, mInitScale * 1.1f, mInitScale * 0.9f, mInitScale * 1f };
 
 		foreach (float destScale in scales)
 		{
@@ -59,14 +66,15 @@ public class UIPopInOut : MonoBehaviour
 			}
 			transform.localScale = endScale;
 		}
+
 		yield return true;
 	}
 
 	IEnumerator PopOutElement(Transform transform, float speed=5.0f){
 
-		transform.localScale = new Vector3 (1, 1, 1);
+		transform.localScale = new Vector3 (mInitScale * 1, mInitScale * 1, mInitScale * 1);
 
-		float[] scales = new float[] { 0.9f, 1.1f, 0f }; 
+		float[] scales = new float[] { mInitScale * 0.9f, mInitScale * 1.1f, 0f }; 
 
 		foreach (float destScale in scales)
 		{
@@ -81,6 +89,7 @@ public class UIPopInOut : MonoBehaviour
 		}
 		if (doActiveOnDone) {
 			gameObject.SetActive (false);
+			transform.localScale = new Vector3(mInitScale, mInitScale, mInitScale);
 		}
 
 		yield return true;

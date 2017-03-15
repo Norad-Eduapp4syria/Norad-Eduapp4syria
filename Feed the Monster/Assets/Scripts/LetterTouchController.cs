@@ -6,41 +6,46 @@ public class LetterTouchController : MonoBehaviour
 ,IPointerDownHandler, IPointerEnterHandler
 ,IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
+	bool isDragBegin;
+	bool isPointerDown;
+
+
+	LetterController _letterController;
+
 	LetterController letterController
 	{
 		get { 
-			return gameObject.GetComponentInChildren<LetterController> ();
+			if (_letterController == null) {
+				_letterController = gameObject.GetComponentInChildren<LetterController> ();
+			}
+			return _letterController;
 		}
-
 	}
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 
 
 	public void OnPointerDown (PointerEventData eventData)
 	{
+		isPointerDown = true;
+
 		letterController.OnPointerDown (eventData);
+		letterController.OnBeginDrag (eventData);
 	}
 
 
 	public void OnPointerEnter (PointerEventData eventData)
 	{
-		letterController.OnPointerEnter (eventData);
+//		letterController.OnPointerEnter (eventData);
+
+		if (!isDragBegin && isPointerDown) {
+			letterController.OnDrag (eventData);
+		}
 	}
 
 
 	public void OnBeginDrag(PointerEventData eventData) 
 	{
-		letterController.OnBeginDrag (eventData);
+		isDragBegin = true;
+//		letterController.OnBeginDrag (eventData);
 	}
 
 	public void OnDrag(PointerEventData eventData)
@@ -50,13 +55,14 @@ public class LetterTouchController : MonoBehaviour
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
+		isDragBegin = false;
+		isPointerDown = false;
 		letterController.OnEndDrag (eventData);
 	}
 
 	public void OnDrop(PointerEventData eventData)
 	{
 		letterController.OnDrop (eventData);
-
 	}
 
 

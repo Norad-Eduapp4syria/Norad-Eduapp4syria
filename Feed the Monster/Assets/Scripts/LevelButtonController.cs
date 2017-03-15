@@ -31,10 +31,39 @@ public class LevelButtonController : MonoBehaviour {
 
 	void OnEnable()
 	{
+		UpdateView ();
+	}
+
+	void OnDisable() {
+		if (levelIndex >= highestOpenLevelIndex && isInited == false) {
+			stopAnimator ();
+		}
+	}
+
+	protected void Appear(){
+//		if (levelIndex >= highestOpenLevelIndex && isInited == false)
+		{
+			isInited = true;
+			startAnimator ();
+			Invoke ("stopAnimator", 0.5f);
+		}
+	}
+
+	void stopAnimator()
+	{
+		GetComponent<Animator> ().enabled = false;
+	}
+
+	void startAnimator()
+	{
+		GetComponent<Animator> ().enabled = true;
+	}
+
+	public void UpdateView()
+	{
 		highestOpenLevelIndex = UserInfo.Instance.GetHighestOpenLevel ();
 
 		levelIndex = int.Parse (gameObject.name.Replace ("Pin - Level ", ""));
-
 
 		if (levelIndex >= highestOpenLevelIndex) {
 			transform.localScale = new Vector3 (0.01f, 0.01f, 0.01f);
@@ -42,31 +71,25 @@ public class LevelButtonController : MonoBehaviour {
 
 		int levelOpen = UserInfo.Instance.GetHighestOpenLevel ();
 
-		if (levelOpen >= levelIndex)
-			Appear ();	
-		else
+		if (levelOpen >= levelIndex) {
+			Appear ();
+		} else {
 			Invoke ("Appear", .5f + (levelIndex - levelOpen) * .2f);
-		
+		}
+
 		if (UIController.Instance.DEBUG_OPEN_ALL_LEVELS_PLAYERPREFS) {
-		//	levelOpen = GameplayController.Instance.Levels.Length - 1;
+			//	levelOpen = GameplayController.Instance.Levels.Length - 1;
 			levelOpen = GameplayController.Instance.NumOfLevels - 1;
 		}
 		if (levelIndex <= levelOpen) {
 			GetComponent<Button> ().interactable = true;
 			string levelNumber = (levelIndex  +1).ToString();
 
-
 			Color fullColor = new Color (1, 1, 1, 1);
-			Color emptyColor = new Color (0.0f, 0.0f, 0.0f, 0.7f);
+//			Color emptyColor = new Color (0.0f, 0.0f, 0.0f, 0.7f);
 
 			// Added by Tzahi
 			int levelStars = UserInfo.Instance.GetLevelStars (levelIndex);
-/*
-			StarImage1.color = levelStars >= 1 ? fullColor : emptyColor;
-			StarImage3.color = levelStars >= 2 ? fullColor : emptyColor;
-			StarImage2.color = levelStars >= 3 ? fullColor : emptyColor;
-*/
-
 
 			if (levelStars >= 1) {
 				StarImage1.color = fullColor;
@@ -105,19 +128,7 @@ public class LevelButtonController : MonoBehaviour {
 			StarImage3.enabled = false;
 			LevelNumberText.enabled = false;
 		}
-	}
-
-	void OnDisable() {
-		if (levelIndex >= highestOpenLevelIndex && isInited == false) {
-			GetComponent<Animator> ().enabled = false;
-		}
-	}
-
-	protected void Appear(){
-		if (levelIndex >= highestOpenLevelIndex && isInited == false) {
-			isInited = true;
-			GetComponent<Animator> ().enabled = true;
-		}
+	
 	}
 
 

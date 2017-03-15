@@ -2,9 +2,11 @@
 
 public enum MonsterType
 {
+	NONE = 0,
 	Magnet = 1,
-	Ice = 2,
+	Fire = 2,
 	Hypnosis = 3,
-	Fire = 4
-
+	Ice = 4,
+	Larva = 5,
+	Knight = 6,
 }

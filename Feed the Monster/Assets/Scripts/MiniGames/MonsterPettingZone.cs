@@ -4,14 +4,35 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class MonsterPettingZone : MonoBehaviour,
-IBeginDragHandler, IDragHandler, IEndDragHandler {
+IBeginDragHandler, IDragHandler, IEndDragHandler,
+IPointerDownHandler, IPointerUpHandler
+{
 
-	private bool isPetting = false;
+	public enum TutorialType {
+		None,
+		Swipe,
+		Tap,
+	}
 
-	public float pettingValue = 1;
+
+	public bool isTapEnable;
+	public int tapValue = 1;
+
+	public bool isSwipeEnable;
+	public int swipeValue = 1;
+
+	public TutorialType tutorialType = TutorialType.Swipe;
 
 
-	Vector3 StartTouch;
+	[HideInInspector]
+	public bool isTutorial = false;
+
+
+//	bool isTap;
+	bool isSwipe;
+
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -24,36 +45,88 @@ IBeginDragHandler, IDragHandler, IEndDragHandler {
 	}
 
 	void OnEnable() {
-		isPetting = false;
+		isSwipe = false;
+		isTutorial = false;
+	}
+
+	void OnDisable() {
+		CancelInvoke ();
+	}
+
+	public void OnPointerDown (PointerEventData data)
+	{
+		if (!isTapEnable) {
+			return;
+		}
+	}
+
+	public void OnPointerUp (PointerEventData data)
+	{
+		if (!isTapEnable) {
+			return;
+		}
+		if (!isSwipe) {
+			MonsterPettingGame.Instance.SetEmotion (this, tapValue);
+			Invoke ("StopSwipe", 0.2f);
+
+			if (isTutorial) {
+				TutorialController.Instance.EndTutorial ();
+				isTutorial = false;
+			}
+		}
+	}
+
+	public void StopSwipe()
+	{
+		MonsterPettingGame.Instance.SetEmotion (this, 0);
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
-		StartTouch = Input.mousePosition;
-		isPetting = true;
+
 	}
+
 	public void OnDrag(PointerEventData eventData)
 	{
-		if (isPetting == true && !Vector3.Equals(StartTouch, Vector3.zero)) {
-			float diff = Mathf.Abs (Vector3.Distance (StartTouch, Input.mousePosition));
+		if (isSwipe) {
+			return;
+		}
 
-			if (diff > 50f) {
-				OnEndDrag (null);
-				GetComponentInParent<MonsterPettingGame> ().StartPetting();
-//				Debug.Log (diff.ToString() + " - I m happy");
-			} else {
-//				Debug.Log (diff.ToString() + " - I m sad");
+		if (isSwipeEnable) {
+			isSwipe = true;
+			MonsterPettingGame.Instance.SetEmotion (this, swipeValue);
+			if (isTutorial) {
+				TutorialController.Instance.EndTutorial ();
+				isTutorial = false;
 			}
 		}
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		StartTouch = Vector3.zero;
-		isPetting = false;
+		if (isSwipe) {
+			if (isSwipeEnable) {
+				StopSwipe ();
+			}
+			isSwipe = false;
+		}
 	}
 
+	public void startTutorial()
+	{
+		isTutorial = true;
+
+
+		if (tutorialType == TutorialType.Swipe) {
+			TutorialController.Instance.StartTutorial (gameObject);
+		} else if (tutorialType == TutorialType.Tap) {
+			TutorialController.Instance.PointAt (transform.localPosition, transform.parent, true);
+		}
+	}
+
+/*
 	public bool IsInObject (PointerEventData eventData) {
 		return RectTransformUtility.RectangleContainsScreenPoint ((RectTransform)transform, eventData.position, GameplayController.Instance.canvasCamera);
 	}
+*/
 }

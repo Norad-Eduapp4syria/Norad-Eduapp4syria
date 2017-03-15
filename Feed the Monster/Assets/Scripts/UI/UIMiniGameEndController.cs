@@ -4,37 +4,47 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class UIMiniGameEndController : MonoBehaviour {
-	public Text ScoreText;
+//	public Text ScoreText;
+//	public GameObject ScorePanel;
 
 	public Button MapButton;
 	public UICircularParticleSystem particles;
 
-	public Image Icon_gage_1;
-	public Image Icon_gage_2;
-	public Image Icon_gage_3;
+//	public Image Icon_gage_1;
+//	public Image Icon_gage_2;
+//	public Image Icon_gage_3;
 
-	public Sprite Icon_gage_on_1;
-	public Sprite Icon_gage_off_1;
+//	public Sprite Icon_gage_on_1;
+//	public Sprite Icon_gage_off_1;
 
-	public Sprite Icon_gage_on_2;
-	public Sprite Icon_gage_off_2;
+//	public Sprite Icon_gage_on_2;
+//	public Sprite Icon_gage_off_2;
 
-	public Sprite Icon_gage_on_3;
-	public Sprite Icon_gage_off_3;
+//	public Sprite Icon_gage_on_3;
+//	public Sprite Icon_gage_off_3;
 
 	public AudioClip GameWinMusic;
 	public AudioClip GameWonFanfare;
-	public AudioClip SoundEvolve;
+//	public AudioClip SoundEvolve;
 
 
-	public AudioClip SoundScoreCount;
-	public AudioClip SoundBarFull;
-	AudioSource SoundScoreCountSRC;
+//	public AudioClip SoundScoreCount;
+//	public AudioClip SoundBarFull;
 
-	bool isGageChanged = false;
-	bool isStatusPopupShow = false;
+//	public Slider MonsterGageSliderA;
+	public MonsterBar monsterBar;
 
+
+//	AudioSource SoundScoreCountSRC;
+
+//	bool isGageChanged = false;
+//	Sprite NextGageSprite;
+//	bool isStatusPopupShow = false;
 	Monster monster;
+	Queue statusQueue = new Queue();
+	UIFlashAnimation flashAnimation;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -50,9 +60,9 @@ public class UIMiniGameEndController : MonoBehaviour {
 
 	void OnEnable()
 	{
-		isStatusPopupShow = false;
-
-		hideGageIcons ();
+//		isStatusPopupShow = false;
+//		hideGageIcons ();
+//		MonsterGageSliderA.gameObject.SetActive (false);
 
 		GameObject go = GameObject.Find ("monster");
 		if(go != null) {
@@ -66,6 +76,7 @@ public class UIMiniGameEndController : MonoBehaviour {
 			Animator animController;
 			animController = go.GetComponentInChildren<Animator> ();
 			if (animController != null) {
+				animController.SetBool ("IsMiniGame", false);
 				animController.SetInteger ("IdleState", 0);
 				animController.SetInteger ("EmotionState", 2);
 				animController.SetInteger ("EatState", 0);
@@ -79,16 +90,7 @@ public class UIMiniGameEndController : MonoBehaviour {
 		AudioController.Instance.PlaySound (GameWonFanfare);
 		Invoke ("UnPauseMusic", 1.4f);
 
-//		if (GameplayController.Instance != null && GameplayController.Instance.CurrentActive != null) {
-//			GameplayController.Instance.CurrentActive.SetMonsterState (MonsterCalloutController.MonsterState.Happy);
-//		}
-
-		ScoreText.text = GameplaySettings.MiniGame_SuccessScore.ToString();
-
-		// this is to stop loop of happy / sad animations
-//		if (GameplayController.Instance != null && GameplayController.Instance.CurrentActive != null) {
-//			GameplayController.Instance.CurrentActive.SetMonsterState (MonsterCalloutController.MonsterState.Idle);
-//		}
+//		ScoreText.text = GameplaySettings.MiniGame_SuccessScore.ToString();
 
 		transform.localScale = new Vector3 (3.1f, 3.1f, 3.1f);
 		Camera.main.orthographicSize = 5f;
@@ -104,12 +106,14 @@ public class UIMiniGameEndController : MonoBehaviour {
 			Camera.main.transform.position = new Vector3 (0, 0, -10);
 			particles.enabled = false;
 		}
-
+/*
 		if(SoundScoreCountSRC != null) {
 			SoundScoreCountSRC.Stop ();
 			Destroy (SoundScoreCountSRC.gameObject);
 			SoundScoreCountSRC = null;
 		}
+*/
+		gameObject.SetActive (false);
 	}
 
 	// Start Tzahi
@@ -128,12 +132,6 @@ public class UIMiniGameEndController : MonoBehaviour {
 		GageZoomIn
 	}
 
-	Queue statusQueue = new Queue();
-
-	public Slider MonsterGageSliderA;
-	public Slider MonsterGageSliderB;
-	public MonsterBar monsterBar;
-	UIFlashAnimation flashAnimation;
 
 
 	void doStatusQueue(status s)
@@ -142,6 +140,7 @@ public class UIMiniGameEndController : MonoBehaviour {
 		case status.FirstZoomIn:
 			firstZoomIn ();
 			break;
+/*
 		case status.UpdateSlider:
 			UpdateNewSliderValue ();
 			break;
@@ -168,6 +167,7 @@ public class UIMiniGameEndController : MonoBehaviour {
 
 			gageZoomIn ();
 			break;
+*/
 		}
 
 	}
@@ -183,12 +183,12 @@ public class UIMiniGameEndController : MonoBehaviour {
 
 	void onFirstZoomInDone()
 	{
-		showSlider (true);
+//		showSlider (true);
 	}
 
-	Sprite NextGageSprite;
 
 
+/*
 	void hideGageIcons ()
 	{
 		Icon_gage_1.gameObject.SetActive (false);
@@ -219,7 +219,6 @@ public class UIMiniGameEndController : MonoBehaviour {
 			UpdateGageSprite ();
 
 			MonsterGageSliderA.value = monster.GageValue;
-			MonsterGageSliderB.value = monster.GageValue;
 			if (toAddGage) {
 				isGageChanged = monster.AddGageValue (GameplaySettings.MiniGame_SuccessScore);
 			}
@@ -233,19 +232,26 @@ public class UIMiniGameEndController : MonoBehaviour {
 	bool showHideSliders()
 	{
 		if (monster.IsReady) {
-			MonsterGageSliderA.gameObject.SetActive (false);
-			MonsterGageSliderB.gameObject.SetActive (false);
-		} else if (MonsterGageSliderA != null && MonsterGageSliderB != null) {
+			if (MonsterGageSliderA) {
+				MonsterGageSliderA.gameObject.SetActive (false);
+			}
+			if (ScorePanel) {
+				ScorePanel.gameObject.SetActive (false);
+			}
+
+		} else if (MonsterGageSliderA != null) {
 			MonsterGageSliderA.gameObject.SetActive (true);
-			MonsterGageSliderB.gameObject.SetActive (true);
+			if (ScorePanel) {
+				ScorePanel.gameObject.SetActive (true);
+			}
 			return true;
 		} else {
 			if (MonsterGageSliderA != null) {
 				MonsterGageSliderA.gameObject.SetActive (false);
 			}
-			if (MonsterGageSliderB != null) {
-				MonsterGageSliderB.gameObject.SetActive (false);
-			} 
+			if (ScorePanel) {
+				ScorePanel.gameObject.SetActive (false);
+			}
 		}
 		return false;
 	}
@@ -402,10 +408,10 @@ public class UIMiniGameEndController : MonoBehaviour {
 		if (!isStatusPopupShow) {
 
 			//			Monster monster = MiniGameController.Instance.getEmotionMonster ();
-			if (monster != null && monster.Gage > 0) {
+			if (monster != null && monster.IsReady) {
 				bool needToShow = false;
 				if (
-					monster.EmotionType != MonsterEmotionTypes.Happy
+					(monster.EmotionType != MonsterEmotionTypes.Happy && monster.EmotionType != MonsterEmotionTypes.NONE)
 					&&
 					(
 						!showenStatusPopup.ContainsKey (monster.MonsterType)
@@ -413,7 +419,7 @@ public class UIMiniGameEndController : MonoBehaviour {
 						showenStatusPopup [monster.MonsterType] == false
 					)) {
 					needToShow = true;
-				} else if(monster.EmotionType != MonsterEmotionTypes.Happy) {
+				} else if(monster.EmotionType != MonsterEmotionTypes.Happy && monster.EmotionType != MonsterEmotionTypes.NONE) {
 					float r = Random.value;
 					Debug.Log ("Random.value: " + r.ToString ());
 					if (r <= 0.2f) {
@@ -437,7 +443,7 @@ public class UIMiniGameEndController : MonoBehaviour {
 		isStatusPopupShow = true;
 	}
 
-
+*/
 	// End Tzahi
 
 }

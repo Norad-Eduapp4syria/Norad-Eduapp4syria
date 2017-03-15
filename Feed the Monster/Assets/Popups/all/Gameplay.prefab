@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4126723195874974}
+  - component: {fileID: 114153340976458478}
   - component: {fileID: 114546271614042174}
-  - component: {fileID: 114921043641457658}
   - component: {fileID: 114418645699438230}
   - component: {fileID: 114281610090402722}
   - component: {fileID: 114421758832971886}
@@ -143,6 +143,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartMonsters:
   - {fileID: 11400000, guid: 45c871bb794e6f744a9ddefbbde403ec, type: 2}
+--- !u!114 &114153340976458478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928527691161216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63212af595ff144d8e22645bd88095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProfileSprites:
+  - {fileID: 21300000, guid: 8701accd148c15e409eb70e48f08e364, type: 3}
+  - {fileID: 21300000, guid: bcb93c98d91bb514680ef2eff088c66d, type: 3}
+  - {fileID: 21300000, guid: ceab9806fa1c4d440a56d96a4c294ad8, type: 3}
+  - {fileID: 21300000, guid: 0fb578f472cf9d24fb758bd13532724d, type: 3}
 --- !u!114 &114238168962873016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,7 +196,6 @@ MonoBehaviour:
   tutorialHandImage: {fileID: 0}
   PanelTutorial: {fileID: 0}
   startButton: {fileID: 0}
-  MapBlocker: {fileID: 0}
 --- !u!114 &114418645699438230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,14 +207,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1726720a7580e234396474286824b7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugPanel: {fileID: 0}
-  IsDebugMode: 0
   SplashPanel: {fileID: 0}
   SplashScreenStartButton: {fileID: 0}
   MapPanel: {fileID: 0}
   GamePanel: {fileID: 0}
   SettingsPopup: {fileID: 0}
-  SelectFriendPopup: {fileID: 0}
+  SelectProfilePopup: {fileID: 0}
   MiniGamePopup: {fileID: 0}
   MonsterStatusPopup: {fileID: 0}
   DiscoverNewFriendsPanel: {fileID: 0}
@@ -207,14 +220,14 @@ MonoBehaviour:
   ConfirmationPopup: {fileID: 0}
   LoadingPopup: {fileID: 0}
   MonsterSelectionPanel: {fileID: 0}
-  MonsterCollectionPanel: {fileID: 0}
-  LoadingScreenPopup: {fileID: 0}
+  ParentsReportPanel: {fileID: 0}
   PuzzleCountdown: {fileID: 0}
   LevelEndPopup: {fileID: 0}
   ScreenTransitionEffect: {fileID: 0}
-  DEBUG_SET_MONSTER_SAD: 0
+  DEBUG_ADD_ALL_MONSTERS: 0
   DEBUG_CLEAR_PLAYERPREFS: 0
-  DEBUG_OPEN_ALL_LEVELS_PLAYERPREFS: 1
+  DEBUG_OPEN_ALL_LEVELS_PLAYERPREFS: 0
+  DEBUG_USU_ONLINE_XMLS: 0
   ClickSound: {fileID: 8300000, guid: 2851a9ddacf9d0045b8ca3a5f55b2213, type: 3}
 --- !u!114 &114421758832971886
 MonoBehaviour:
@@ -242,7 +255,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CountTo10: {fileID: 0}
   MonsterPetting: {fileID: 0}
-  TutorialMinigame: 0
+  LetterTracing: {fileID: 0}
+  MemoryGame: {fileID: 0}
+  GrayOutBackground: {fileID: 0}
 --- !u!114 &114546271614042174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,16 +269,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5c3e2e325e9904daac87ea59a49d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecognitionVariantsText: {fileID: 4900000, guid: 2b6bdabf6ebf3534cbe76a1b977eeb46,
-    type: 3}
   CurrentActive: {fileID: 0}
-  Recognitions: []
   CheatButton: {fileID: 0}
-  NumOfLevels: 72
-  LetterPrefab: {fileID: 169574, guid: 94c4c06c875f0ef43b250c910cfe89f5, type: 2}
-  LetterPrefab_1: {fileID: 169574, guid: db761986f06875345a29c14df0ff1e7a, type: 2}
-  LetterPrefab_2: {fileID: 169574, guid: 79547ec2f3cf84f4db6f750282d441d9, type: 2}
+  NumOfLevels: 77
+  DefaultLevelTempletes: {fileID: 11400000, guid: 912abc312cf981b46926d742a5f8a283,
+    type: 2}
+  LetterPrefab_1:
+  - {fileID: 169574, guid: db761986f06875345a29c14df0ff1e7a, type: 2}
+  - {fileID: 169574, guid: 79547ec2f3cf84f4db6f750282d441d9, type: 2}
+  LetterPrefab_2:
+  - {fileID: 169574, guid: 81654197b7a212d44af0a14326dbda4b, type: 2}
+  - {fileID: 169574, guid: 6b374927e11363b4e9a10d5f21f224f3, type: 2}
   LettersLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -329,38 +389,56 @@ MonoBehaviour:
   ShowupBetweenLetterDelay: 0.065
   IsPause: 0
   IsInteractable: 1
-  Debug_Run_Level_Index: -1
   MonsterHoleButton: {fileID: 0}
-  FreezeGauge: {fileID: 0}
   FeedbackGO: {fileID: 1000011689573808, guid: b4e98e76e22581f46b4f08b1f288b610, type: 2}
   LevelBackground: {fileID: 0}
   startButton: {fileID: 0}
   LauncherPoint: {x: 0, y: 0}
-  treasureChest: {fileID: 1000013533458360, guid: 3c40c509c0377474eab19c176fec2abf,
+  BonusGameHolder: {fileID: 0}
+  bonusPuzzlePrefabs: {fileID: 1562475538499348, guid: fefd469512373a24d93052916479ca95,
     type: 2}
-  SoundTimeup: {fileID: 8300000, guid: e962f764a657bc14981327b8c6ebd369, type: 3}
+  ReaplaceBackground: 0
+  ReaplaceBackground_SelectMonster: 1
+  SoundTimeup: {fileID: 8300000, guid: 3d02ce11f3cce7c459a2a24da083dacd, type: 3}
   SoundMargeLetters: {fileID: 8300000, guid: 513f4e2f338fe1a40a6a2bc306551207, type: 3}
   SoundCancelDrag: {fileID: 8300000, guid: 339289467ef0a0048be5271c9ff85d06, type: 3}
   SoundSpitsMeal: {fileID: 8300000, guid: f6684078673bd4d4185e3272ef567213, type: 3}
   SoundScoreCount: {fileID: 8300000, guid: e304589b7b107b349b203d699f2ca5d4, type: 3}
+  backgrounds:
+  - BG_2
+  - BG_3
+  - BG_28
+  - BG_5
+  - BG_6
+  - BG_7
+  - BG_8
+  - BG_9
+  - BG_10
+  - BG_11
+  - BG_12
+  - BG_13
+  - BG_14
+  - BG_15
+  - BG_16
+  - BG_17
+  - BG_18
+  - BG_19
+  - BG_20
+  - BG_21
+  - BG_22
+  - BG_23
+  - BG_24
+  - BG_25
+  - BG_26
+  - BG_27
   segmentTime: 0
   canvasCamera: {fileID: 0}
+  FreezeGauge: {fileID: 0}
   timerSlider: {fileID: 0}
   timerTicks1: {fileID: 0}
   timerTicks2: {fileID: 0}
   isSegmentComplete: 0
   isFreezeTimer: 0
---- !u!114 &114921043641457658
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928527691161216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1071e55c46d6e249a5004f8e4d4c8bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114946802678697564
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -78,7 +78,7 @@ public class XMLTool {
 		if(isLevelsFromNetwork) {
 			xmlLevel.LoadFromWebResponse (LevelId + 1, NetPath +  "/level" + LevelId.ToString () + ".xml", level);
 		} else {
-			xmlLevel.LoadFromResources (LevelId + 1, "Gameplay/Levels/level" + LevelId.ToString(), level);
+			xmlLevel.LoadFromResources2 (LevelId + 1, "Gameplay/Levels/level" + LevelId.ToString(), level);
 		}
 
 		if (TutorialSettings.TutorialLetterInWordLevel == 0 && level.monsterInputType == MonsterInputType.LetterInWord)

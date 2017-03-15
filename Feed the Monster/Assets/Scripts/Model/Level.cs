@@ -17,6 +17,8 @@ public class Level : ScriptableObject {
 
 	public float SegmentTime;
 
+	public int StoneType;
+
 	public Color ActiveTintColor;
 
 	public Color StoneLetterMainColorDefault;
@@ -29,11 +31,13 @@ public class Level : ScriptableObject {
 
 	public void LoadTemplete(Level templete)
 	{
-		ActiveTintColor = templete.ActiveTintColor;
-		StoneLetterMainColorDefault = templete.StoneLetterMainColorDefault;
-		StoneLetterMainColorSelected = templete.StoneLetterMainColorSelected;
-		StoneLetterMainOutlineColorDefault = templete.StoneLetterMainOutlineColorDefault;
-		StoneLetterMainOutlineColorSelected = templete.StoneLetterMainOutlineColorSelected;
+		if (templete != null) {
+			ActiveTintColor = templete.ActiveTintColor;
+			StoneLetterMainColorDefault = templete.StoneLetterMainColorDefault;
+			StoneLetterMainColorSelected = templete.StoneLetterMainColorSelected;
+			StoneLetterMainOutlineColorDefault = templete.StoneLetterMainOutlineColorDefault;
+			StoneLetterMainOutlineColorSelected = templete.StoneLetterMainOutlineColorSelected;
+		}
 	}
 
 

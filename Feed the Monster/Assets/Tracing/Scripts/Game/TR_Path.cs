@@ -95,11 +95,11 @@ public class TR_Path : MonoBehaviour
 			}
 			if (status) {
 				EnableStartCollider();
-				number.GetComponent<Animator>().SetBool("Select",true);
+//				number.GetComponent<Animator>().SetBool("Select",true);
 				tempColor.a = 1;
 			} else {
 				DisableStartCollider();
-				number.GetComponent<Animator>().SetBool("Select",false);
+//				number.GetComponent<Animator>().SetBool("Select",false);
 				tempColor.a = 0.3f;
 			}
 			number.GetComponent<Image> ().color = tempColor;

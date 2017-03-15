@@ -12,12 +12,25 @@ public class AudioController : MonoBehaviour {
 	private AudioClip CurrentMusic;
 	private float musicVolume = 0.7f;
 
-	private string[] positiveFeedbacks = new string[] {"amazing", "amazing work", "fantastic answer", "fantastic work", "fantastic1", "fantastic2", "fantastic3", "good answer", "good job", "good work",
-		"good1", "great1", "great2", "great3", "well done 1", "well done 2", "well done 3" };
-
-//	private string[] positiveFeedbacks = new string[] {"amazing work", "fantastic work", "fantastic1", "great1", "great2", "well done 1" };
-
-	
+	private string[] positiveFeedbacks = new string[] {
+		"amazing work",
+		"amazing",
+		"fantastic answer",
+		"fantastic work",
+		"fantastic1",
+		"fantastic2",
+		"fantastic3",
+		"good answer",
+		"good job",
+		"good work",
+		"good1",
+		"great1",
+		"great2",
+		"great3",
+		"well done 2",
+		"well done 3",
+	};
+	bool isChanged;
 
 	void Awake()
 	{
@@ -50,7 +63,8 @@ public class AudioController : MonoBehaviour {
 		MusicSource.Stop ();
 	}
 
-	public void ChangeMusic(AudioClip NewMusic, bool RestartMusic=false) {
+	public void ChangeMusic(AudioClip NewMusic, bool RestartMusic=false, float volume = 0.7f) {
+		musicVolume = volume;
 
 		if (NewMusic == Music) {
 			if (RestartMusic) {
@@ -73,7 +87,9 @@ public class AudioController : MonoBehaviour {
 
 	void Update(){
 		if (UserInfo.Instance.IsMusicEnable ()) {
-			if (musicFadeDirection < 0) {
+			if (musicFadeDirection == 0) {
+			
+			} else if (musicFadeDirection < 0) {
 				if (MusicSource.volume > 0)
 					MusicSource.volume -= Time.deltaTime / 1.5f;
 				else // faded out completely
@@ -139,6 +155,8 @@ public class AudioController : MonoBehaviour {
 		if (clip != null) {
 			PlaySound (clip, 1, 1);
 			return fileName;
+		} else {
+			Debug.Log ("Sound Clip: '" + path + "' is missing");
 		}
 		return string.Empty;
 	}

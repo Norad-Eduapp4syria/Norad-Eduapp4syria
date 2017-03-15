@@ -103,6 +103,7 @@ public class Tutorial : MonoBehaviour
 	public void InitGame()
 	{
 		State = TutorialController.TutorialState.InGame;
+		AudioController.Instance.PlaySound ( Resources.Load("Sounds/Voice/Instructions/feed the monster") as AudioClip ); 
 
 		StartCoroutine (FeedGameLetter (2.5f));
 	}
@@ -113,11 +114,6 @@ public class Tutorial : MonoBehaviour
 		StartCoroutine (FeedCountToTenGameLetters (2f));
 	}
 
-	public void InitPettingMonster()
-	{
-		State = TutorialController.TutorialState.InGame;
-		StartCoroutine (FeedPettingMonster (2f));
-	}
 
 	private IEnumerator FeedGameLetter(float delay = 0)
 	{
@@ -130,7 +126,9 @@ public class Tutorial : MonoBehaviour
 		//Jonathan
 		startButton = GameObject.Find("monster");
 		//PointAt(startButton.transform.position + new Vector3 (0, -40, 0), startButton.transform.parent);
-		PointAt(new Vector2(0, -140), startButton.transform.parent);
+//		PointAt(new Vector2(0, -140), startButton.transform.parent);
+		PointAt(GameplayController.Instance.getMonsterHandPosition(), startButton.transform.parent);
+
 		//
 		while (GameplayController.Instance.State != GameplayController.GameState.SegmentIdle)
 			yield return null;
@@ -138,7 +136,7 @@ public class Tutorial : MonoBehaviour
 		//tutorialHandImage.gameObject.SetActive(false);
 		tutorialHandImage.gameObject.GetComponent<UIPopInOut>().PopOut();
 		State = TutorialController.TutorialState.InGame;
-		AudioController.Instance.PlaySound ( Resources.Load("Sounds/Voice/Instructions/feed the monster") as AudioClip ); 
+//		AudioController.Instance.PlaySound ( Resources.Load("Sounds/Voice/Instructions/feed the monster") as AudioClip ); 
 		var lettersOriginal = findCorrectLetters();
 		letters = new LetterController[lettersOriginal.Length];
 		Transform curContainer;
@@ -167,7 +165,10 @@ public class Tutorial : MonoBehaviour
 			letters [l].gameObject.GetComponent<CanvasGroup> ().blocksRaycasts = false;
 			letters [l].gameObject.GetComponent<CanvasGroup> ().interactable = false;
 
-			letters[l].transform.position = lettersOriginal[l].mTargetPosition;
+			letters [l].ParticlesMergeAccept.SetActive (false);
+			letters [l].ParticlesMergeReject.SetActive (false);
+
+			letters [l].transform.position = lettersOriginal[l].mTargetPosition;
 			letters [l].enabled = false;
 		}
 		Vector3 startPos, handDest;
@@ -320,21 +321,26 @@ public class Tutorial : MonoBehaviour
 	}
 
 
+	public void InitPettingMonster(GameObject go)
+	{
+		State = TutorialController.TutorialState.InGame;
+		StartCoroutine (FeedPettingMonster (go, 2f));
+	}
 
-	private IEnumerator FeedPettingMonster(float delay = 0) {
+	private IEnumerator FeedPettingMonster(GameObject go, float delay = 0) {
 		//tutorialHandImage.gameObject.SetActive (false);
 		//tutorialHandImage.gameObject.GetComponent<UIPopInOut> ().PopOut ();
 		State = TutorialController.TutorialState.InGame;
 		yield return new WaitForSeconds (0.1f);
-		GameObject zone = null;
-		while (zone == null) {
-			zone = GameObject.Find ("Petting Zone");
-			yield return new WaitForSeconds (0.1f); //Jonathan - DANGEROUS
-		}
+		GameObject zone = go;
+//		while (zone == null) {
+//			zone = GameObject.Find ("Petting Zones");
+//			yield return new WaitForSeconds (0.1f); //Jonathan - DANGEROUS
+//		}
 		Rect zoneBounds = zone.GetComponent<RectTransform> ().rect;
-		float setY = getMonsterBody ().y ; //getMonsterMouth().y;
-		initialLocation = new Vector3(zoneBounds.xMin*0.75f, setY + 0.75f*(Random.value-0.5f)*setY, 0);
-		//initialLocation = new Vector3 (letterOriginal.transform.position.x, letterOriginal.transform.position.y, letterOriginal.transform.position.z);
+		float setY = getMonsterBody (go).y ; //getMonsterMouth().y;
+//		initialLocation = new Vector3(zoneBounds.xMin*0.75f, setY + 0.75f*(Random.value-0.5f)*setY, 0);
+		initialLocation = new Vector3(zone.transform.localPosition.x - ((zoneBounds.width / 2) * 0.9f), setY + (Random.value - 0.5f) * setY, 0);
 		tutorialHandImage.transform.position = initialLocation;
 		tutorialHandImage.gameObject.SetActive (true);
 		tutorialHandImage.transform.SetParent (zone.transform.parent.parent);
@@ -342,7 +348,8 @@ public class Tutorial : MonoBehaviour
 
 		Vector3 startPos, handDest;
 		startPos = tutorialHandImage.transform.position;
-		handDest = new Vector3(zoneBounds.xMax*0.75f, setY + 0.75f*(Random.value-0.5f)*setY, 0);
+//		handDest = new Vector3(zoneBounds.xMax*0.75f, setY + 0.75f*(Random.value-0.5f)*setY, 0);
+		handDest = new Vector3(zone.transform.localPosition.x + ((zoneBounds.width / 2) * 0.9f), setY + (Random.value - 0.5f) * setY, 0);
 		for (float t = 0; t <= 1; t += Time.deltaTime / 1.5f) {
 			tutorialHandImage.transform.position = Vector3.Lerp (startPos, handDest, t * MovingSpeedMultiplier);
 			if (Vector3.Distance (tutorialHandImage.transform.position, handDest) < 1f) {
@@ -353,7 +360,7 @@ public class Tutorial : MonoBehaviour
 		tutorialHandImage.transform.position = handDest;
 		//yield return new WaitForSeconds (0.125f);
 
-		yield return FeedPettingMonster (delay);
+		yield return FeedPettingMonster (go, delay);
 		tutorialHandImage.transform.position = handDest;
 	}
 
@@ -388,24 +395,29 @@ public class Tutorial : MonoBehaviour
 		return toPos;
 	}
 
-	public Vector2 getMonsterBody()
+	public Vector2 getMonsterBody(GameObject go = null)
 	{
-		Transform to = GameObject.Find ("monster").transform.Find ("Monster");
+		Transform to;
+		if (go != null) {
+			to = go.transform;
+		} else {
+			to = GameObject.Find ("monster").transform.Find ("Monster");
+		}
 		Vector2 toPos = new Vector2();
 		if (to == null) {
 			//to = EatingMonster.transform;
 			//toPos = EatingMonster.transform.position;
 		} else {
-			toPos = new Vector2 (to.position.x * 100f, to.position.y * 100f);
+			toPos = new Vector2 (to.position.x, to.position.y);
 
 			Canvas c = GameObject.Find("Panel - Mini Games").GetComponentInParent<Canvas> ();
 			RectTransform CanvasRect = c.GetComponent<RectTransform> ();
 			Vector2 ViewportPosition = Camera.main.ScreenToViewportPoint (Camera.main.WorldToScreenPoint(to.position));
 
-			toPos = new Vector2 (
-				((ViewportPosition.x * CanvasRect.sizeDelta.x) - (CanvasRect.sizeDelta.x * 0.5f)),
-				((ViewportPosition.y * CanvasRect.sizeDelta.y) - (CanvasRect.sizeDelta.y * 0.5f))
-			);
+//			toPos = new Vector2 (
+//				((ViewportPosition.x * CanvasRect.sizeDelta.x) - (CanvasRect.sizeDelta.x * 0.5f)),
+//				((ViewportPosition.y * CanvasRect.sizeDelta.y) - (CanvasRect.sizeDelta.y * 0.5f))
+//			);
 
 		}
 		return toPos;

@@ -41,27 +41,4 @@ public class Common : MonoBehaviour {
 		return temp;
 	}
 
-	public string GetIsolatedForm(string letter)
-	{
-		for (int i=0; i<GameplayController.Instance.Recognitions.Length; i++) {
-
-			Debug.Log (letter + " " + GameplayController.Instance.Recognitions[i].Letter);
-
-			if (letter.Trim()== GameplayController.Instance.Recognitions[i].Letter.Trim()) {
-				Debug.Log ("letter " + letter + " = recognition.Letter " + GameplayController.Instance.Recognitions[i].Letter);
-				return GameplayController.Instance.Recognitions[i].Letter;
-			}
-
-			string[] variants = GameplayController.Instance.Recognitions[i].Variants.Split (",".ToCharArray ());
-			foreach (string variant in variants) {
-				Debug.Log (letter  + " " + variant);
-				if (letter.Trim ().Equals(variant.Trim ())) {
-					Debug.Log ("letter " + letter + " = recognition.Letter " + GameplayController.Instance.Recognitions[i].Letter);
-					return GameplayController.Instance.Recognitions[i].Letter;
-				}
-			}
-		}
-		Debug.Log ("letter " + letter + " = null");
-		return null;
-	}
 }

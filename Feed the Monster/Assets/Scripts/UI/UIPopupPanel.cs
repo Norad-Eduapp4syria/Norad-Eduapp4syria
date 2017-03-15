@@ -97,10 +97,18 @@ public class UIPopupPanel : MonoBehaviour {
 
 	//Jonathan
 	public void PopInAny(Transform _transform, float delay = 0, float speed = 5f) {
+		if (_transform == null) {
+			return;
+		}
+
 		StartCoroutine (PopInElement (_transform, delay, speed));
 	}
 
 	public void PopOutAny(Transform _transform, float delay = 0, float speed = 5f) {
+		if (_transform == null) {
+			return;
+		}
+
 		StartCoroutine (PopOutElementAny (_transform, delay, speed));
 	}
 

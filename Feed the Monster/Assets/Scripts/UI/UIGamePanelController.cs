@@ -22,13 +22,17 @@ public class UIGamePanelController : MonoBehaviour {
 
 	void OnEnable(){
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
-		GameplayController.Instance.LoadLevel (GameplayController.Instance.CurrentLevelIndex);
+		if (GameplayController.Instance != null) {
+			GameplayController.Instance.LoadLevel (GameplayController.Instance.CurrentLevelIndex);
+		}
 	}
 
 	void OnDisable()
 	{
 		Screen.sleepTimeout = SleepTimeout.SystemSetting;
 		GameplayController.Instance.ClearGameplay ();
+
+
 	}
 
 }

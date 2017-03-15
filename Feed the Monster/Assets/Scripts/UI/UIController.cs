@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour {
 	public static UIController Instance;
 
-	public GameObject DebugPanel;
-	public bool IsDebugMode;
 
 
 	public GameObject SplashPanel;
@@ -14,7 +12,7 @@ public class UIController : MonoBehaviour {
 	public GameObject MapPanel;
 	public GameObject GamePanel;
 	public GameObject SettingsPopup;
-	public GameObject SelectFriendPopup;
+	public GameObject SelectProfilePopup;
 
 	public GameObject MiniGamePopup;
 	public GameObject MonsterStatusPopup;
@@ -24,26 +22,32 @@ public class UIController : MonoBehaviour {
 	public UIConfirmationPopup ConfirmationPopup;
 	public GameObject LoadingPopup;
 	public GameObject MonsterSelectionPanel;
-	public GameObject MonsterCollectionPanel;
-
-	public GameObject LoadingScreenPopup;
+	public GameObject ParentsReportPanel;
 
 	public Text PuzzleCountdown;
 
 	public GameObject LevelEndPopup;
 	public GameObject ScreenTransitionEffect;
 
-	public bool DEBUG_SET_MONSTER_SAD;
+	public bool DEBUG_ADD_ALL_MONSTERS;
 	public bool DEBUG_CLEAR_PLAYERPREFS;
 	public bool DEBUG_OPEN_ALL_LEVELS_PLAYERPREFS;
 	public bool DEBUG_USU_ONLINE_XMLS;
 
+	public AudioClip ClickSound;
 
+	GameObject mLastPanel;
 	GameObject mCurrentPanel;
 	GameObject mNextPanel;
 	GameObject mOpenPopup;
 
-	public AudioClip ClickSound;
+
+
+	public GameObject LastPanel {
+		get { 
+			return mLastPanel;
+		}
+	}
 
 	void Awake()
 	{
@@ -61,27 +65,22 @@ public class UIController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Init ();
+	}
 
-		if (DEBUG_SET_MONSTER_SAD) {
-			foreach (Monster friend in UserInfo.Instance.CollectedFriends) {
-				friend.EmotionType = MonsterEmotionTypes.Afraid;
-			}
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			//			Application.Quit(); 
 		}
 	}
+
 
 	void Init()
 	{
-		//HideAllPanels();
-
-		if (IsDebugMode) {
-			ShowPanel (DebugPanel);
-		} else {
-			ShowPanel (SplashPanel);
-			AudioController.Instance.PlayMusic (AudioController.Instance.Music);
-//			Invoke ("ShowMapPanel", 2);
-		}
+		ShowPanel (SplashPanel);
+		AudioController.Instance.PlayMusic (AudioController.Instance.Music);
+//		Invoke ("ShowMapPanel", 2);
 	}
-
 
 	void HideAllPanels()
 	{
@@ -96,10 +95,6 @@ public class UIController : MonoBehaviour {
 		ShowPanel (MapPanel);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	public void ShowPopup(GameObject popup)
 	{
@@ -147,6 +142,8 @@ public class UIController : MonoBehaviour {
 			mLoadingScreenRequired = false;
 			ShowPopup (LoadingPopup);
 		}
+
+		mLastPanel = mCurrentPanel;
 		mCurrentPanel = mNextPanel;
 		mCurrentPanel.SetActive (true);
 	}
@@ -172,15 +169,13 @@ public class UIController : MonoBehaviour {
 	public void ClosePopup(GameObject popup)
 	{
 		popup.SetActive (false);
-		if (popup == mOpenPopup)
+		if (popup == mOpenPopup) {
 			mOpenPopup = null;
+		}
 	}
 
 	public void LevelButtonClick(int levelIndex)
 	{
-		if (TutorialController.Instance.GetIsInMinigameTutorial ()) {
-			return;
-		}
 		GoToLevel (levelIndex);
 	}
 
@@ -232,8 +227,7 @@ public class UIController : MonoBehaviour {
 	{
 		bool isWin = GameplayController.Instance.CurrentLevelStars > 0;
 
-
-		GameplayController.Instance.ReaplaceBackground = true;
+//		GameplayController.Instance.ReaplaceBackground = true;
 
 //		if (isWin && GameplayController.Instance.CurrentLevel.CollectableMonster != null && !UserInfo.Instance.HasCollectedFriend(GameplayController.Instance.CurrentLevel.CollectableMonster.name) ) {
 		if (isWin && GameplayController.Instance.CurrentLevel.CollectableMonster != null && !UserInfo.Instance.HasCollectedFriend(GameplayController.Instance.CurrentLevel.CollectableMonster) ) {
@@ -250,10 +244,12 @@ public class UIController : MonoBehaviour {
 		GameplayController.Instance.CurrentLevelIndex = Mathf.Min(levelIndex, GameplayController.Instance.NumOfLevels - 1);
 
 		if (monsterSelection && UserInfo.Instance.CollectionLength > 0) {
+//			GameplayController.Instance.ReaplaceBackground = false;
 			ShowPanel (MonsterSelectionPanel);
 		} else {
-			if(TutorialController.Instance != null)
-				TutorialController.Instance.EndTutorial();
+			if (TutorialController.Instance != null) {
+				TutorialController.Instance.EndTutorial ();
+			}
 			ShowPanel (GamePanel);
 		}
 	}
@@ -261,6 +257,27 @@ public class UIController : MonoBehaviour {
 	public void SelectFriend(GameObject buttonSender)
 	{
 
+	}
+
+
+
+
+	public void OnChangeProfile(GameObject nextScreen)
+	{
+		/*
+		if (mCurrentPanel == MapPanel) {
+			UIMapController c = mCurrentPanel.GetComponent<UIMapController> ();
+			if(c != null) {
+				c.updatePosition (true);
+			}
+		}
+*/
+
+		if (nextScreen != null) {
+			ShowPanel (nextScreen);
+		} else if (mCurrentPanel == MapPanel) {
+			ShowMapPanel ();
+		}
 	}
 
 }

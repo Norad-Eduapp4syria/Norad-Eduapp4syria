@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   booster: 1
-  MonsterType: 4
-  MonsterPrefab: {fileID: 104358, guid: ac8b34086b6bd5840800f357ac505d9b, type: 2}
-  GageCost: 88130000401f00002823000028230000
-  PlayGameObjects:
-  - {fileID: 1922025372137170, guid: 7ed129b40ebb9084ab53cc1ea61d02a9, type: 2}
-  - {fileID: 1439676878416518, guid: 0119d5ca1c2abcf40934f4fcbe931758, type: 2}
-  - {fileID: 1808330172599284, guid: 16ddce181f050af40836b26f76b2acfa, type: 2}
-  - {fileID: 1000011970071462, guid: 84a873c236004ee48b895c0822125a5f, type: 2}
+  MonsterType: 2
+  MiniGame: 3
+  AssetId: 4
+  MonsterPrefab: {fileID: 1680185384771176, guid: 7d72ff03a0b2f5942b6e05fb03eaa210,
+    type: 2}
+  GageCost: 581b0000e02e0000803e0000803e0000
   IdleStates: 0200000003000000
   EatStates: 02000000
   NoEatStates: 04000000

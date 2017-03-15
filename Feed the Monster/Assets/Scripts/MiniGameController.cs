@@ -10,8 +10,10 @@ public class MiniGameController : MonoBehaviour
 	public BaseMiniGame CountTo10;
 	public BaseMiniGame MonsterPetting;
 	public BaseMiniGame LetterTracing;
+	public BaseMiniGame MemoryGame;
 
-	public GameType TutorialMinigame = GameType.CountTo10;
+	public GameObject GrayOutBackground;
+
 
 
 	BaseMiniGame currentGame;
@@ -22,10 +24,11 @@ public class MiniGameController : MonoBehaviour
 	}
 
 	public enum GameType {
-//		Nil,
+		None,
 		CountTo10,
 		MonsterPetting,
-		LetterTracing
+		LetterTracing,
+		MemoryGame
 	}
 
 
@@ -46,29 +49,21 @@ public class MiniGameController : MonoBehaviour
 
 	public void hideAllGames()
 	{
+		if (GrayOutBackground != null) {
+			GrayOutBackground.SetActive (false);
+		}
+
 		if(CountTo10 != null) { CountTo10.gameObject.SetActive (false); }
 		if(MonsterPetting != null) {MonsterPetting.gameObject.SetActive (false); }
 		if(LetterTracing != null) {LetterTracing.gameObject.SetActive (false); }
+		if(MemoryGame != null) {MemoryGame.gameObject.SetActive (false); }
 	}
 
 	public void StartRandomGame(Monster monster)
 	{
 		_currentMonster = monster;
 
-		GameType game;
-		if (TutorialController.Instance.GetIsInMinigameTutorial()) { //JONATHAN!!!!//UserInfo.Instance.GetHadMinigameTutorial() == 0) {
-			game = TutorialMinigame; 
-		} else {
-			Array values = Enum.GetValues(typeof(GameType));
-			int rnd = Random.Range (0, values.Length);
-			game = (GameType)values.GetValue(rnd);
-		}
-		 
-
-//		StartGame (game);
-		StartGame (GameType.LetterTracing);
-//		StartGame (GameType.CountTo10);
-//		StartGame (GameType.MonsterPetting);
+		StartGame (_currentMonster.MiniGame);
 	}
 
 	void StartGame(GameType game)
@@ -83,16 +78,21 @@ public class MiniGameController : MonoBehaviour
 		case GameType.MonsterPetting:
 			currentGame = MonsterPetting;
 			break;
-
 		case GameType.LetterTracing:
 			currentGame = LetterTracing;
+			break;
+		case GameType.MemoryGame:
+			currentGame = MemoryGame;
+			if (GrayOutBackground != null) {
+				GrayOutBackground.SetActive (true);
+			}
 			break;
 		}
 
 		if (currentGame != null) {
 			currentGame.gameObject.SetActive (true);
 			currentGame.init (CurrentMonster);
-			if (game == GameType.MonsterPetting || TutorialController.Instance.GetIsInMinigameTutorial()) {
+			if (game == GameType.MonsterPetting) {
 				TutorialController.Instance.StartTutorial (game);
 			}
 		} else {
@@ -102,6 +102,10 @@ public class MiniGameController : MonoBehaviour
 
 	void DestroyGame()
 	{
+		if (GrayOutBackground != null) {
+			GrayOutBackground.SetActive (false);
+		}
+
 		if (currentGame != null) {
 			currentGame.gameObject.SetActive(false);
 		}
@@ -137,30 +141,31 @@ public class MiniGameController : MonoBehaviour
 
 	public void LevelComplite()
 	{
-		int count = UserInfo.Instance.GetToLevelCount() + 1;
-		if (count >= GameplaySettings.HungryAfraidCompliteLevels) {
+//		Monster monster = getNotEmotionMonster ();
 
-			Monster monster = getNotEmotionMonster ();
-			if (monster != null) {
-				if (UnityEngine.Random.value < 0.5f) {
-					monster.EmotionType = MonsterEmotionTypes.Hungry;	
-				} else {
-					monster.EmotionType = MonsterEmotionTypes.Afraid;
-				}
-			}
-			UserInfo.Instance.SetToLevelCount (0);
-		} else {
-			UserInfo.Instance.SetToLevelCount (count);
-		}
+//		if (monster != null) {
+//			int count = UserInfo.Instance.GetToLevelCount () + 1;
+//			if (count >= GameplaySettings.HungryAfraidCompliteLevels) {
+//				if (monster != null) {
+//					if (UnityEngine.Random.value < 0.5f) {
+//						monster.EmotionType = MonsterEmotionTypes.Hungry;	
+//					} else {
+//						monster.EmotionType = MonsterEmotionTypes.Afraid;
+//					}
+//				}
+//				UserInfo.Instance.SetToLevelCount (0);
+//			} else {
+//				UserInfo.Instance.SetToLevelCount (count);
+//			}
+//		}
 	}
-
 
 	public Monster getNotEmotionMonster()
 	{
 		Monster[] monsters = UserInfo.Instance.CollectedFriends;
 
 		foreach (Monster m in monsters) {
-			if (m.EmotionType == MonsterEmotionTypes.Happy && m.Gage > 0) {
+			if (m.EmotionType == MonsterEmotionTypes.Happy && m.IsReady) {
 				return m;
 			}
 		}
@@ -172,7 +177,7 @@ public class MiniGameController : MonoBehaviour
 		Monster[] monsters = UserInfo.Instance.CollectedFriends;
 
 		foreach (Monster m in monsters) {
-			if (m.EmotionType != MonsterEmotionTypes.Happy && m.Gage > 0) {
+			if (m.EmotionType != MonsterEmotionTypes.Happy && m.EmotionType != MonsterEmotionTypes.NONE && m.IsReady && m.MiniGame != GameType.None) {
 				return m;
 			}
 		}

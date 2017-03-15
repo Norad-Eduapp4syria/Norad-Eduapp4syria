@@ -27,14 +27,18 @@ public class XMLLevel {
 	[XmlAttribute("SegmentTime")]
 	public float SegmentTime;
 
+	[XmlAttribute("StoneType")]
+	public int StoneType;
+
 	[XmlArray("Segments")]
 	[XmlArrayItem("Segment")]
 	public Segment[] Segments;
 
+/*
 	[XmlArray("Recognitions")]
 	[XmlArrayItem("Recognition")]
 	public Recognition[] Recognitions;
-
+*/
 
 
 	[XmlAttribute("LettersGroup")]
@@ -88,6 +92,21 @@ public class XMLLevel {
 		yield return true;
 	}
 
+
+
+	public void LoadFromResources2(int levelId, string levelPath, Level level) {
+		TextAsset xmlDataFile = new TextAsset ();
+		xmlDataFile = (TextAsset)Resources.Load (levelPath, typeof(TextAsset));
+		MemoryStream ms = new MemoryStream (xmlDataFile.bytes);
+
+		XmlTextReader reader;
+		reader = new XmlTextReader  (ms);
+
+		SerializeLevelFromXML (levelId, levelPath ,reader, level);
+	}
+
+
+
 	private void SerializeLevelFromXML(int levelId, string levelPath, XmlReader reader, Level level) {
 		var serializer = new XmlSerializer(typeof(XMLLevel));
 
@@ -103,6 +122,7 @@ public class XMLLevel {
 		level.hideCallout = xmlLevel.HideCallout;
 		level.shuffleSegment = xmlLevel.ShuffleSegment;
 		level.SegmentTime = (xmlLevel.SegmentTime > 0f) ? xmlLevel.SegmentTime : GameplaySettings.CountdownDefault;
+		level.StoneType = xmlLevel.StoneType;
 
 		if (!string.IsNullOrEmpty (xmlLevel.CollectableMonster)) {
 
@@ -122,16 +142,16 @@ public class XMLLevel {
 		}
 
 		LevelMaxScore += "Level: " + levelId + ",  FileName: " + levelPath + ",  Max Points: " + maxPointsInLevel.ToString () + "\n";
-
-		if ( xmlLevel.Recognitions != null) {
+/*
+ 		if ( xmlLevel.Recognitions != null) {
 			GameplayController.Instance.Recognitions = xmlLevel.Recognitions;
 		}
-
-		Level templete = Resources.Load ("Gameplay/LevelTempletes/LevelTempleteBlueSky") as Level;
-		if (templete != null) {
-			level.LoadTemplete (templete);
-		}
-
+*/
+//		Level templete = Resources.Load ("Gameplay/LevelTempletes/LevelTempleteBlueSky") as Level;
+//		if (templete != null) {
+			level.LoadTemplete (GameplayController.Instance.DefaultLevelTempletes);
+//		}
+		Debug.Log ("LoadLevel" + levelPath);
 	}
 
 	int calcWordMaxScore(Level level) {
