@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DFE268C6-4C21-C5EC-D6A6-B04C4D629899}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile>Assets\smcs.rsp</CompilerResponseFile>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
+    <UnityBuildTarget>Android:13</UnityBuildTarget>
+    <UnityVersion>5.5.1f1</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_1;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT;MOBILE_INPUT;</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_1;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT;MOBILE_INPUT;</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PlaymodeTestsRunner">
+      <HintPath>Library\UnityAssemblies\UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ArabicSupport">
+      <HintPath>Assets\ArabicSupport\Plugins\ArabicSupport.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\Attributes\AdvertiserOptInAttribute.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\Attributes\RangedTooltipAttribute.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\Attributes\TooltipAttribute.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\Field.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\Fields.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\GAIHandler.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\GoogleAnalyticsAndroidV4.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\GoogleAnalyticsMPV3.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\GoogleAnalyticsV4.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\GoogleAnalyticsiOSV3.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\AppViewHitBuilder.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\EventHitBuilder.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\ExceptionHitBuilder.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\HitBuilder.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\ItemHitBuilder.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\SocialHitBuilder.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\TimingHitBuilder.cs" />
+    <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\TransactionHitBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\EasyMovieTexture\Chromakey.shader" />
+    <None Include="Assets\EasyMovieTexture\Chromakey2.shader" />
+    <None Include="Assets\EasyMovieTexture\Unlit_SphereInside.shader" />
+    <None Include="Assets\EasyMovieTexture\readme.txt" />
+    <None Include="Assets\EasyMovieTexture\readme_License.txt" />
+    <None Include="Assets\Outline_2DSprite.shader" />
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\RecognitionsVariants.txt" />
+    <None Include="Assets\Resources\Gameplay\Levels\level0.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level1.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level10.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level11.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level12.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level13.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level14.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level15.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level16.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level17.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level18.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level19.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level2.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level20.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level21.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level22.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level23.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level24.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level25.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level26.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level27.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level28.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level29.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level3.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level30.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level31.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level32.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level33.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level34.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level35.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level36.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level37.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level38.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level39.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level4.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level40.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level41.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level42.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level43.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level44.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level45.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level46.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level47.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level48.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level49.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level5.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level50.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level51.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level52.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level53.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level54.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level55.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level56.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level57.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level58.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level59.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level6.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level60.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level61.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level62.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level63.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level64.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level65.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level66.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level67.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level68.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level69.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level7.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level70.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level71.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level72.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level73.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level74.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level75.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level76.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level8.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\level9.xml" />
+    <None Include="Assets\Resources\Gameplay\Levels\readme.txt" />
+    <None Include="Assets\Resources\Gameplay\letters.xml" />
+    <None Include="Assets\UI\Mask\CircularMask.shader" />
+    <None Include="Assets\UI\Mask\CircularMasked.shader" />
+    <None Include="Assets\UI\Mask\Mask.shader" />
+    <None Include="Assets\UI\Mask\SoftMaskShader.shader" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>

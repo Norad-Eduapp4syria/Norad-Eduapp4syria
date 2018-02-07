@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{F462E444-2A05-1C0F-B5F7-D6E020828DDF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-UnityScript</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_4;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\ArabicSupport\Scripts\Fix3dTextJS.js" />
+     <Compile Include="Assets\ArabicSupport\Scripts\FixGUITextJS.js" />
+     <None Include="Assets\Resources\Gameplay\Levels\level72.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level30.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level115.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level18.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level11.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level68.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level111.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level49.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level73.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level56.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level0.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level105.xml" />
+     <None Include="Assets\EasyMovieTexture\Unlit_SphereInside.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level10.xml" />
+     <None Include="Assets\UI\Mask\SoftMaskShader.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level98.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level14.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level107.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level75.xml" />
+     <None Include="Assets\UI\Mask\CircularMasked.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level16.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level50.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level112.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level116.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level12.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level17.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level64.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level95.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level69.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level34.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level106.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level66.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level1.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level24.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level97.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level54.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level4.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level86.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level13.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level96.xml" />
+     <None Include="Assets\EasyMovieTexture\Chromakey.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level35.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level91.xml" />
+     <None Include="Assets\Resources\Gameplay\dressing.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level89.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level36.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level76.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level90.xml" />
+     <None Include="Assets\EasyMovieTexture\readme.txt" />
+     <None Include="Assets\Resources\Gameplay\Levels\level38.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level22.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level47.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level102.xml" />
+     <None Include="Assets\Resources\Gameplay\letters.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level80.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level6.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level85.xml" />
+     <None Include="Assets\Shaders\Greyscale.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level82.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\readme.txt" />
+     <None Include="Assets\UI\Mask\CircularMask.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level20.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level57.xml" />
+     <None Include="Assets\EasyMovieTexture\Chromakey2.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level26.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level88.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level45.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level58.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level2.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level109.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level74.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level61.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level92.xml" />
+     <None Include="Assets\EasyMovieTexture\readme_License.txt" />
+     <None Include="Assets\Resources\Gameplay\Levels\level52.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level15.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level108.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level51.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level78.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level67.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level94.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level93.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level8.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level113.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level71.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level7.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level84.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level110.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level29.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level42.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level77.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level9.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level60.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level5.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level48.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level31.xml" />
+     <None Include="Assets\Outline_2DSprite.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level65.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level27.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level87.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level117.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level104.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level46.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level55.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level62.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level41.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level40.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level81.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level53.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level37.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level44.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level70.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level33.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level21.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level101.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level118.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level32.xml" />
+     <None Include="Assets\UI\Mask\Mask.shader" />
+     <None Include="Assets\Resources\Gameplay\Levels\level28.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level25.xml" />
+     <None Include="Assets\RecognitionsVariants.txt" />
+     <None Include="Assets\Resources\Gameplay\Levels\level100.xml" />
+     <None Include="Assets\Resources\Gameplay\Levels\level114.xml" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="ArabicSupport">
+ <HintPath>C:/WorkSpace/FTM/FTM-Main/Assets/ArabicSupport/Plugins/ArabicSupport.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Common">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{E43A77CC-C643-C1E0-250C-387547442C4F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
