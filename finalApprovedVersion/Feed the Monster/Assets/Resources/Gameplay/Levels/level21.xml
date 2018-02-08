@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="LetterName"
+	CollectableMonster=""
+	SegmentTime="15"
+	HideCallout="-1"
+	LettersGroup="2"
+	StoneType="1"
+>
+  <Segments>
+    <Segment spawnIds="7,22" SegmentTime="0">
+    	<!-- Puzzle One -->
+    	<MonsterRequiredLetters>
+    		<string>ج</string>
+    	</MonsterRequiredLetters>
+    	<MonsterAllLetters>
+    	</MonsterAllLetters>
+    	<Stones>
+    		<string>ج</string>
+    		<string>ح</string>
+    	</Stones>
+	</Segment>
+	<Segment spawnIds="83,9,71" SegmentTime="0">
+		<!-- Puzzle Two -->
+		<MonsterRequiredLetters>
+			<string>ب</string>
+		</MonsterRequiredLetters>
+	  	<MonsterAllLetters>
+	  	</MonsterAllLetters>
+	  	<Stones>
+        	<string>ب</string>
+        	<string>ت</string>
+			<string bonusScore="150">BonusLetter</string>
+      	</Stones>
+    </Segment>
+	<Segment spawnIds="21,6" SegmentTime="0">
+		<!-- Puzzle Three -->
+      	<MonsterRequiredLetters>
+			<string>ف</string>
+	  	</MonsterRequiredLetters>
+	  	<MonsterAllLetters>
+	  	</MonsterAllLetters>
+	  	<Stones>
+			<string>ف</string>
+	        <string>س</string>
+      	</Stones>
+	</Segment>
+	<Segment spawnIds="82,8,70" SegmentTime="0">
+		<!-- Puzzle Four -->
+      	<MonsterRequiredLetters>
+			<string>ك</string>
+	  	</MonsterRequiredLetters>
+	  	<MonsterAllLetters>
+	  	</MonsterAllLetters>
+	  	<Stones>
+	        <string>ك</string>
+	        <string>م</string>
+			<string bonusScore="150">BonusLetter</string>
+      	</Stones>
+    </Segment>
+	<Segment spawnIds="59,61" SegmentTime="0">
+		<!-- Puzzle Five -->
+      	<MonsterRequiredLetters>
+			<string>ت</string>
+	  	</MonsterRequiredLetters>
+	  	<MonsterAllLetters>
+	  	</MonsterAllLetters>
+	  	<Stones>
+	        <string>ت</string>
+	        <string>ب</string>
+      	</Stones>
+	</Segment>
+  </Segments>
+</XMLLevel>

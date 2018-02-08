@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="SoundLetterName"
+	CollectableMonster=""
+	SegmentTime="15"
+	HideCallout="-1"
+	LettersGroup="2"
+	StoneType="1"
+>
+  <Segments>
+    <Segment spawnIds="25,28" SegmentTime="0">
+    	<!-- Puzzle One -->
+    	<MonsterRequiredLetters>
+    		<string>ج</string>
+    	</MonsterRequiredLetters>
+    	<MonsterAllLetters>
+    	</MonsterAllLetters>
+    	<Stones>
+    		<string>ج</string>
+    		<string>ح</string>
+    	</Stones>
+	</Segment>
+	<Segment spawnIds="" SegmentTime="0">
+		<!-- Puzzle Two -->
+		<MonsterRequiredLetters>
+			<string>ب</string>
+		</MonsterRequiredLetters>
+	  	<MonsterAllLetters>
+	  	</MonsterAllLetters>
+	  	<Stones>
+        	<string spawnId="25">ب</string>
+        	<string spawnId="28">ت</string>
+			<string spawnId="60">FireWrongLetter</string>
+      	</Stones>
+    </Segment>
+	<Segment spawnIds="96,55" SegmentTime="0">
+		<!-- Puzzle Three -->
+      	<MonsterRequiredLetters>
+			<string>ف</string>
+	  	</MonsterRequiredLetters>
+	  	<MonsterAllLetters>
+	  	</MonsterAllLetters>
+	  	<Stones>
+			<string>ف</string>
+	        <string>م</string>
+      	</Stones>
+	</Segment>
+	<Segment spawnIds="95,54" SegmentTime="0">
+		<!-- Puzzle Four -->
+      	<MonsterRequiredLetters>
+			<string>ك</string>
+	  	</MonsterRequiredLetters>
+	  	<MonsterAllLetters>
+	  	</MonsterAllLetters>
+	  	<Stones>
+	        <string>ك</string>
+	        <string>د</string>
+      	</Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="0">
+		<!-- Puzzle Five -->
+      	<MonsterRequiredLetters>
+			<string>ت</string>
+	  	</MonsterRequiredLetters>
+	  	<MonsterAllLetters>
+	  	</MonsterAllLetters>
+	  	<Stones>
+	        <string spawnId="8">ت</string>
+	        <string spawnId="22">ب</string>
+			<string spawnId="21">FireWrongLetter</string>
+			<string spawnId="9" bonusScore="200">BonusLetter</string>
+			
+      	</Stones>
+	</Segment>
+  </Segments>
+</XMLLevel>

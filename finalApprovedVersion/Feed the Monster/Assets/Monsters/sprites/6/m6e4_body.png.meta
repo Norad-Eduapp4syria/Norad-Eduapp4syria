@@ -1,0 +1,288 @@
+fileFormatVersion: 2
+guid: 41f689a374b3446b7847f0007b4ab804
+timeCreated: 1486380300
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: m6e4_shield_top_front
+    21300002: m6e4_shield_top_back
+    21300004: m6e4_brow1
+    21300006: m6e4_brow2
+    21300008: m6e4_body
+    21300010: m6e4_hair
+    21300012: m6e4_shield_bottom
+    21300014: m6e4_hand_R
+    21300016: m6e4_hand_L
+    21300018: m6e4_arm_L
+    21300020: m6e4_shield_top_back1
+    21300022: m6e4_leg_L
+    21300024: m6e4_feet_L
+    21300026: m6e4_shadow
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: m6e4_shield_top_front
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 632
+        width: 375
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_shield_top_back
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 789
+        width: 193
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_brow1
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 992
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_brow2
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 995
+        width: 35
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_body
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 476
+        width: 247
+        height: 297
+      alignment: 9
+      pivot: {x: 0.52294034, y: 0.10317346}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_hair
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 768
+        width: 311
+        height: 220
+      alignment: 9
+      pivot: {x: 0.106461994, y: 0.45363992}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_shield_bottom
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 264
+        width: 377
+        height: 305
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.08014196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_hand_R
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 472
+        width: 121
+        height: 204
+      alignment: 9
+      pivot: {x: 0.63112015, y: 0.82775193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_hand_L
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 472
+        width: 116
+        height: 204
+      alignment: 9
+      pivot: {x: 0.46092382, y: 0.8221968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_arm_L
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 210
+        width: 161
+        height: 258
+      alignment: 9
+      pivot: {x: 0.950483, y: 0.9655965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_shield_top_back1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 112
+        width: 370
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_leg_L
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 56
+        width: 85
+        height: 142
+      alignment: 9
+      pivot: {x: 0.39334142, y: 0.851146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_feet_L
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 7
+        width: 66
+        height: 113
+      alignment: 9
+      pivot: {x: 0.44849002, y: 0.720631}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e4_shadow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 530
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

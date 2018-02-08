@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="LetterInWord"
+	CollectableMonster=""
+	SegmentTime="14"
+	HideCallout="4"
+	LettersGroup="5"
+	StoneType="2"
+>
+  <Segments>
+    <Segment spawnIds="" SegmentTime="0">
+      <!-- Puzzle One -->
+	  <MonsterRequiredLetters>
+		<string>ـذور</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>بُـ</string>
+		<string>X</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="86">ـذور</string>
+        <string spawnId="56">ـذور</string>
+        <string spawnId="74">راع</string>
+		<string spawnId="4">راع</string>
+		<string spawnId="5">ـرور</string>
+		<string spawnId="75">ـرور</string>
+		<string spawnId="57">ـزال</string>
+		<string spawnId="87">ـزال</string>
+		<string spawnId="60" bonusScore="275" >BonusLetter</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="0">
+      <!-- Puzzle Two -->
+	  <MonsterRequiredLetters>
+		<string>ـلام</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>غُـ</string>
+		<string>X</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="2">ـلام</string>
+        <string spawnId="70">ـلام</string>
+        <string spawnId="8">ـلَم</string>
+		<string spawnId="95">ـلَم</string>
+		<string spawnId="96">ـلاف</string>
+		<string spawnId="9">ـلاف</string>
+		<string spawnId="71">ـهار</string>
+		<string spawnId="3">ـهار</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="0">
+      <!-- Puzzle Three -->
+	  <MonsterRequiredLetters>
+		<string>ـضار</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>خُـ</string>
+		<string>X</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="58">ـضار</string>
+        <string spawnId="78">ـضار</string>
+        <string spawnId="6">ـباب</string>
+		<string spawnId="63">ـباب</string>
+		<string spawnId="64">ـطار</string>
+		<string spawnId="7">ـطار</string>
+		<string spawnId="79">ـغار</string>
+		<string spawnId="62">ـغار</string>
+		<string spawnId="60" bonusScore="275" >BonusLetter</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="0">
+      <!-- Puzzle Four -->
+	  <MonsterRequiredLetters>
+		<string>ـلاف</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>غِـ</string>
+		<string>X</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="25">ـلاف</string>
+        <string spawnId="93">ـلاف</string>
+        <string spawnId="36">ـلام</string>
+		<string spawnId="67">ـلام</string>
+		<string spawnId="66">ـراب</string>
+		<string spawnId="45">ـراب</string>
+		<string spawnId="94">ـزال</string>
+		<string spawnId="28">ـزال</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="0">
+      <!-- Puzzle Five -->
+	  <MonsterRequiredLetters>
+		<string>قُنْـ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>X</string>
+		<string>ـفُذ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="86">قُنْـ</string>
+        <string spawnId="21">قُنْـ</string>
+        <string spawnId="91">فُنْـ</string>
+		<string spawnId="0">فُنْـ</string>
+		<string spawnId="1">بَهْـ</string>
+		<string spawnId="92">بَهْـ</string>
+		<string spawnId="22">دَغْـ</string>
+		<string spawnId="87">دَغْـ</string>
+		<string spawnId="60" bonusScore="275" >BonusLetter</string>
+      </Stones>
+    </Segment>
+  </Segments>
+</XMLLevel>

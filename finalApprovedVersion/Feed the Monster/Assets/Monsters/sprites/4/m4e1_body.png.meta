@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: fddf18b66699c3549867176b99f5eed7
+timeCreated: 1482306913
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: m4e1_body
+    21300002: m4e1_top
+    21300004: m4e1_bottom
+    21300006: m4e1_top_back
+    21300008: m4e1_botton_back
+    21300010: m4e1_bump
+    21300012: m4e1_shadow
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: m4e1_body
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 615
+        width: 305
+        height: 375
+      alignment: 9
+      pivot: {x: 0.47493225, y: 0.034462728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m4e1_top
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 857
+        width: 218
+        height: 157
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.8733571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m4e1_bottom
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 545
+        width: 306
+        height: 299
+      alignment: 9
+      pivot: {x: 0.49167138, y: 0.026057087}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m4e1_top_back
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 442
+        width: 214
+        height: 86
+      alignment: 9
+      pivot: {x: 0.49280074, y: 0.85561424}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m4e1_botton_back
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 284
+        width: 215
+        height: 153
+      alignment: 9
+      pivot: {x: 0.41211885, y: 0.09223022}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m4e1_bump
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 167
+        width: 85
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m4e1_shadow
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 54
+        width: 401
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: Monster_4_1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

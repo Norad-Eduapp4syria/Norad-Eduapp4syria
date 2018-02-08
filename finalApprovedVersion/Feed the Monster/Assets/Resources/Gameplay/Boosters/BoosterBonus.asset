@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0c48abc1be709469e2aa748434f403, type: 3}
+  m_Name: BoosterBonus
+  m_EditorClassIdentifier: 
+  Sound: {fileID: 8300000, guid: 8395d23e896d18d4b9f7d323697319fb, type: 3}
+  Icon: {fileID: 21300000, guid: 373907daf06fc5840a47816bf90826f3, type: 3}
+  SelectedIcon: {fileID: 21300000, guid: 373907daf06fc5840a47816bf90826f3, type: 3}
+  Type: 6
+  EffectOnLetterPrefab: {fileID: 1578472856545854, guid: fb4dd1e470a2d4645803671263766957,
+    type: 2}

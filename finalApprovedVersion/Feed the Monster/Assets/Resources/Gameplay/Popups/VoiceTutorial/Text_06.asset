@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd12c2d65c1b514f82899ada49eb118, type: 3}
+  m_Name: Text_06
+  m_EditorClassIdentifier: 
+  DelayInterval: 0.5
+  MainImage: {fileID: 21300000, guid: 6a569e4b793c8c64384e638b212ce018, type: 3}
+  Clips:
+  - {fileID: 8300000, guid: 195475923e712de4b8a71361a2dc5a75, type: 3}
+  - {fileID: 8300000, guid: bf45d3c8ef794da4fa0ea89d4b7a39a0, type: 3}
+  BubbleImages:
+  - {fileID: 21300000, guid: c6595b00c77ce9b4cbf07aee6eb18017, type: 3}
+  - {fileID: 21300000, guid: 3e9d13c3e0e5af44e8e15d8f7348a76e, type: 3}

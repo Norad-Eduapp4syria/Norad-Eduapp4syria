@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: e57577a567a974c539a32ffd14bc4bb8
+timeCreated: 1484057240
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: m5e1_body
+    21300002: m5e1_top
+    21300004: m5e1_leaf1
+    21300006: m5e1_bottom
+    21300008: m5e1_leaf1_shadow
+    21300010: m5e1_top_back
+    21300012: m5e1_leaf2
+    21300014: m5e1_bottom_back
+    21300016: m5e1_leaf3
+    21300018: m5e1_shadow
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: m5e1_body
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 612
+        width: 308
+        height: 380
+      alignment: 9
+      pivot: {x: 0.47, y: 0.034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_top
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 884
+        width: 209
+        height: 129
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8733}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_leaf1
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 876
+        width: 169
+        height: 127
+      alignment: 9
+      pivot: {x: 0.976114, y: 0.03316035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_bottom
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 548
+        width: 308
+        height: 296
+      alignment: 9
+      pivot: {x: 0.49, y: 0.034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_leaf1_shadow
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 734
+        width: 175
+        height: 140
+      alignment: 9
+      pivot: {x: 0.9265374, y: 0.03617728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_top_back
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 444
+        width: 204
+        height: 85
+      alignment: 9
+      pivot: {x: 0.5, y: 0.855}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_leaf2
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 464
+        width: 201
+        height: 240
+      alignment: 9
+      pivot: {x: 0.015408493, y: 0.02357343}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_bottom_back
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 286
+        width: 211
+        height: 148
+      alignment: 9
+      pivot: {x: 0.412, y: 0.092}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_leaf3
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 223
+        width: 208
+        height: 229
+      alignment: 9
+      pivot: {x: 0.96149623, y: 0.03151}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m5e1_shadow
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 54
+        width: 401
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: Monster_5_1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

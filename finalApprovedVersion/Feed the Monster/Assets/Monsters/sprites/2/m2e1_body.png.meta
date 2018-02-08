@@ -1,0 +1,218 @@
+fileFormatVersion: 2
+guid: 3f8082055cc5a4c86b633b27195bdecf
+timeCreated: 1477994617
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: m2e1_open_top
+    21300002: m2e1_back_top
+    21300004: m2e1_glow_top
+    21300006: m2e1_open_bottom
+    21300008: m2e1_back_bottom
+    21300010: m2e1_glow_bottom
+    21300012: m2e1_body
+    21300014: m2e1_glow_all
+    21300016: m2e1_shadow
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: m2e1_open_top
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 829
+        width: 269
+        height: 166
+      alignment: 9
+      pivot: {x: 0.49507034, y: 0.9503673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m2e1_back_top
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 845
+        width: 236
+        height: 131
+      alignment: 9
+      pivot: {x: 0.48314306, y: 0.884665}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m2e1_glow_top
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 818
+        width: 304
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m2e1_open_bottom
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 485
+        width: 320
+        height: 325
+      alignment: 9
+      pivot: {x: 0.49999985, y: 0.025800101}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m2e1_back_bottom
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 602
+        width: 274
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5048396, y: 0.04457817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m2e1_glow_bottom
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 484
+        width: 325
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m2e1_body
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 320
+        height: 385
+      alignment: 9
+      pivot: {x: 0.49999985, y: 0.014344233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m2e1_glow_all
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 128
+        width: 310
+        height: 394
+      alignment: 9
+      pivot: {x: 0.49561572, y: 0.4827242}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m2e1_shadow
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 13
+        width: 417
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: Monster_2_1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

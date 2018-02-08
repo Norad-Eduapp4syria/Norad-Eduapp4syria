@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+	<meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>%UNITY_WEB_NAME%</title>
+	<script>
+	var GAME_VER_ID				= "%UNITY_CUSTOM_VER_ID%";
+	var UNITY_WEBGL_BUILD_URL	= "%UNITY_WEBGL_BUILD_URL%";
+	document.write('<scr'+'ipt type="text/javascript" src="TemplateData/WebGLVer.js?ver=' + new Date().getTime() +'"></sc'+'ript>');
+	</script>    
+	<link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="TemplateData/FTM_icon.ico" />
+	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700'>
+	<!--link rel="stylesheet" href="//cdn.cet.ac.il/ui-services/login/css/cet.ui-services.login.full.min.css"-->
+	<script>
+	document.write('<li'+'nk rel="stylesheet" href="//cdn' + getEnvironment() +'.cet.ac.il/ui-services/login/css/cet.ui-services.login.full.min.css"></li'+'nk>');
+	</script>
+
+	
+
+	<!--script src="TemplateData/WebGLVer.js"></script-->
+	<script src="%UNITY_WEBGL_LOADER_URL%"></script>
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.20.min.js"></script>
+
+    <style>
+    .GameSize
+    {
+		width: %UNITY_WIDTH%px;
+		height: %UNITY_HEIGHT%px;
+    }
+    </style>
+  </head>
+  <body>
+   	<div class="logo">
+  	<img class="logo" src="TemplateData/logo.png?s">
+  	</div>
+	<div class="store">
+		<a href="https://itunes.apple.com/us/app/id1209833253?ls=1&mt=8" target="_blank"><img class="store_ios" src="TemplateData/ios.png" /></a>
+		&nbsp;
+		<a href="https://play.google.com/store/apps/details?id=com.eduapp4syria.feedthemonster" target="_blank"><img class="store_android" src="TemplateData/play.png" /></a>
+	</div>
+    <div id="gameParent" class="GameCenter GameSize">
+		<div id="gameContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px; margin: auto"></div>
+    </div>
+	<div id="rootMountElement" class="lo-default-theme"></div>
+  </body>
+  <map id="planetmap" name="planetmap">
+   <area id="planetmap_ios" 	shape="rect" coords="492,581,837,682" alt="Apple App Store" href="https://itunes.apple.com/us/app/id1209833253?ls=1&mt=8">
+   <area id="planetmap_android"	shape="rect" coords="92,581,432,682" alt="Google Play" href="https://play.google.com/store/apps/details?id=com.eduapp4syria.feedthemonster">
+  </map>
+<script >
+	UnityLoader.Error.handler = function(e, t) {
+		if(isTestEnvironment()) {
+			alert ("An error occured running the Unity content on this page. See your browser JavaScript console for more info. The error was:\n\n" + e.message);
+		}
+	}
+	
+	addNewScript('TemplateData/CetWebGLPlugin.js?ver=' + GAME_VER_ID);
+	
+	addNewScript('//ebag' + getEnvironment() + '.cet.ac.il/CetSso.js' + "?ver=" + GAME_VER_ID);
+	
+	addNewScript('TemplateData/WebGLSupport.js?ver=' + GAME_VER_ID);
+	addNewScript('TemplateData/s3.js?ver=' + GAME_VER_ID);
+	addNewScript('TemplateData/GAnalitics.js?ver=' + GAME_VER_ID);
+	
+	addNewScript('//cdn'  + getEnvironment() + '.cet.ac.il/libs/jquery/2.1.1/jquery-2.1.1.min.js' + "?ver=" + GAME_VER_ID);
+	addNewScript('//cdn'  + getEnvironment() + '.cet.ac.il/libs/jquery.validate/1.13.0/jquery.validate.js' + "?ver=" + GAME_VER_ID);
+	
+	addNewScript('//ebag' + getEnvironment() + '.cet.ac.il/api/environment/settingsAsScript' + "?ver=" + GAME_VER_ID);
+	addNewScript('//ebag' + getEnvironment() + '.cet.ac.il/api/js/ofakim.api.js' + "?ver=" + GAME_VER_ID);
+	addNewScript('//ebag' + getEnvironment() + '.cet.ac.il/api/js/cookies.js' + "?ver=" + GAME_VER_ID);
+
+	addNewScript('//cdn'  + getEnvironment() + '.cet.ac.il/ui-services/login/js/cet.ui-services.login.full.js' + "?ver=" + GAME_VER_ID);
+</script>
+
+</html>

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0c48abc1be709469e2aa748434f403, type: 3}
+  m_Name: BoosterFire
+  m_EditorClassIdentifier: 
+  Sound: {fileID: 8300000, guid: 3528b35f6c88a6a479535f8b4285221a, type: 3}
+  Icon: {fileID: 21300000, guid: e970380c64cb054418c0882cddda9a3f, type: 3}
+  SelectedIcon: {fileID: 21300000, guid: e970380c64cb054418c0882cddda9a3f, type: 3}
+  Type: 1
+  EffectOnLetterPrefab: {fileID: 1523914779050434, guid: a645a3d020cd76c4f81ce33bfbe933db,
+    type: 2}

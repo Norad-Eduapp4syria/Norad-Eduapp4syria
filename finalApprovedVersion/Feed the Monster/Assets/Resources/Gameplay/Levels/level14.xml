@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="LetterInWord"
+	CollectableMonster=""
+	SegmentTime="17"
+	HideCallout="-1"
+	LettersGroup="2"
+	StoneType="2"
+>
+  <Segments>
+    <Segment spawnIds="74,75" SegmentTime="0">
+      <!-- Puzzle One -->
+	  <MonsterRequiredLetters>
+		<string>ـحَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>سَـ</string>
+		<string>ـمَـ</string>
+		<string>X</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ـحَ</string>
+		<string>سَ</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="0">
+      <!-- Puzzle Two -->
+	  <MonsterRequiredLetters>
+		<string>سَـ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>X</string>
+		<string>ـرَ</string>
+		<string>دَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="93">سَـ</string>
+        <string spawnId="94">سَ</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="21,22" SegmentTime="0">
+      <!-- Puzzle Three -->
+	  <MonsterRequiredLetters>
+		<string>دَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>X</string>
+		<string>رَ</string>
+		<string>سَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>دَ</string>
+        <string>ـدَ</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="0">
+      <!-- Puzzle Four -->
+	  <MonsterRequiredLetters>
+		<string>ـمَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>رَ</string>
+		<string>سَـ</string>
+		<string>X</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="25">ـمَ</string>
+        <string spawnId="28">مَـ</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="25,28,60" SegmentTime="0">
+      <!-- Puzzle Five -->
+	  <MonsterRequiredLetters>
+		<string>ـرَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>حَـ</string>
+		<string>X</string>
+		<string>سَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ـرَ</string>
+        <string>ـدَ</string>
+		<string bonusScore="100">BonusLetter</string>
+      </Stones>
+    </Segment>
+  </Segments>
+</XMLLevel>

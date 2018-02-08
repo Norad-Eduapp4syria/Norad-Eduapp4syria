@@ -1,0 +1,386 @@
+fileFormatVersion: 2
+guid: 920d2db223efd40f98fbc302cdd1814d
+timeCreated: 1474973716
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: m1e4_body
+    21300002: m1e4_horn_left
+    21300004: m1e4_horn_right
+    21300006: m1e4_body_texture
+    21300008: m1e4_body_mask
+    21300010: m1e4_cheek
+    21300012: m1e4_brow_left
+    21300014: m1e4_brow_right
+    21300016: m1e4_magnet
+    21300018: m1e4_leg_left
+    21300020: m1e4_leg_right
+    21300022: m1e4_hand_left1
+    21300024: m01e04_parts_12
+    21300026: m1e4_hand_left2
+    21300028: m1e4_hand_right1
+    21300030: m1e4_shadow
+    21300032: m1e4_light1
+    21300034: m1e4_light2
+    21300036: m1e4_light3
+    21300038: m1e4_brow_left1
+    21300040: m1e4_brow_right1
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: m1e4_body
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1604
+        width: 336
+        height: 428
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1375008}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_horn_left
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 1773
+        width: 148
+        height: 252
+      alignment: 9
+      pivot: {x: 0.87838334, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_horn_right
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1767
+        width: 162
+        height: 260
+      alignment: 9
+      pivot: {x: 0.1429824, y: 0.5035306}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_body_texture
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1876
+        width: 162
+        height: 161
+      alignment: 9
+      pivot: {x: 0.40932852, y: 0.08374327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_body_mask
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1934
+        width: 83
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_cheek
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1658
+        width: 85
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_brow_left
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1696
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_brow_right
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1699
+        width: 44
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_magnet
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1644
+        width: 192
+        height: 209
+      alignment: 9
+      pivot: {x: 0.7060032, y: 0.3680998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_leg_left
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1450
+        width: 96
+        height: 125
+      alignment: 9
+      pivot: {x: 0.5667278, y: 0.09002441}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_leg_right
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1450
+        width: 94
+        height: 121
+      alignment: 9
+      pivot: {x: 0.43185246, y: 0.087059334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_hand_left1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1289
+        width: 94
+        height: 127
+      alignment: 9
+      pivot: {x: 0.92201096, y: 0.9117403}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m01e04_parts_12
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1401
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_hand_left2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1258
+        width: 96
+        height: 158
+      alignment: 9
+      pivot: {x: 0.4457736, y: 0.7889876}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_hand_right1
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1212
+        width: 131
+        height: 198
+      alignment: 9
+      pivot: {x: 0.09394988, y: 0.93257093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_shadow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1115
+        width: 469
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_light1
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 1135
+        width: 307
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_light2
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1132
+        width: 144
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_light3
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 1134
+        width: 142
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_brow_left1
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1660
+        width: 42
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m1e4_brow_right1
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 1660
+        width: 45
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: Monster_1_4
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

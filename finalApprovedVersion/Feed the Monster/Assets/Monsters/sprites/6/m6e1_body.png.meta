@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: 20e146d9c8ace4827b3ea5d1efe0465a
+timeCreated: 1485722196
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: m6e1_body
+    21300002: m6e1_body_top_front
+    21300004: m6e1_tail_R
+    21300006: m6e1_body_bottom_front
+    21300008: m6e1_tail_L
+    21300010: m6e1_body_top_back
+    21300012: m6e1_helmet
+    21300014: m6e1_body_bottom_back
+    21300016: m6e1_helmet_back
+    21300018: m6e1_helmet_hair
+    21300020: m6e1_shadow
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: m6e1_body
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 616
+        width: 304
+        height: 376
+      alignment: 9
+      pivot: {x: 0.49999994, y: 0.004198115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_body_top_front
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 829
+        width: 252
+        height: 170
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.9306763}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_tail_R
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 757
+        width: 212
+        height: 267
+      alignment: 9
+      pivot: {x: 0.0042502927, y: 0.00906955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_body_bottom_front
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 548
+        width: 301
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5013095, y: 0.005514145}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_tail_L
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 471
+        width: 212
+        height: 267
+      alignment: 9
+      pivot: {x: 1.00132, y: 0.004646673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_body_top_back
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 444
+        width: 214
+        height: 106
+      alignment: 9
+      pivot: {x: 0.49999985, y: 0.9445693}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_helmet
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 218
+        width: 324
+        height: 243
+      alignment: 9
+      pivot: {x: 0.51457876, y: 0.50971913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_body_bottom_back
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 286
+        width: 211
+        height: 148
+      alignment: 9
+      pivot: {x: 0.49440336, y: 0.07711483}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_helmet_back
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 305
+        width: 296
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.93663037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_helmet_hair
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 147
+        width: 124
+        height: 85
+      alignment: 9
+      pivot: {x: 0.24287122, y: 0.027644796}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: m6e1_shadow
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 53
+        width: 401
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: Monster_6_1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

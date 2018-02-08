@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="LetterInWord"
+	CollectableMonster=""
+	SegmentTime="15"
+	HideCallout="6"
+	LettersGroup="3"
+	StoneType="1"
+>
+  <Segments>
+    <Segment spawnIds="59,64,78,17,16,79,63,61" SegmentTime="0">
+      <!-- Puzzle One -->
+	  <MonsterRequiredLetters>
+		<string>ـنَـ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>مَـ</string>
+		<string>X</string>
+		<string>ـحَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ـنَـ</string>
+        <string>ـنَـ</string>
+        <string>ـدَ</string>
+		<string>ـدَ</string>
+		<string>رَ</string>
+        <string>رَ</string>
+		<string>ـتَـ</string>
+		<string>ـتَـ</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="59,64,78,17,16,79,63,61" SegmentTime="0">
+      <!-- Puzzle Two -->
+	  <MonsterRequiredLetters>
+		<string>عَـ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>دَ</string>
+		<string>X</string>
+		<string>ـسَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>عَـ</string>
+        <string>عَـ</string>
+        <string>فا</string>
+		<string>فا</string>
+		<string>كَ</string>
+        <string>كَ</string>
+		<string>نا</string>
+		<string>نا</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="" SegmentTime="0">
+      <!-- Puzzle Three -->
+	  <MonsterRequiredLetters>
+		<string>ـزَ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>عَـ</string>
+		<string>X</string>
+		<string>فَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string spawnId="69">ـزَ</string>
+        <string spawnId="84">ـزَ</string>
+        <string speed="150" loop="true" delayIn="0" delayRepet="0" spawnId="11,86,11">رُ</string>
+		<string spawnId="81">رُ</string>
+		<string speed="150" loop="true" delayIn="0" delayRepet="0" spawnId="87,12,87">زُ</string>
+        <string spawnId="72">زُ</string>
+		<string spawnId="19">SlowMovment</string>
+		<string spawnId="18" bonusScore="275" >BonusLetter</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="59,64,78,17,16,79,63,61" SegmentTime="0">
+      <!-- Puzzle Four -->
+	  <MonsterRequiredLetters>
+		<string>ـشَـ</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>نَـ</string>
+		<string>X</string>
+		<string>ـرَ</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>ـشَـ</string>
+        <string>ـشَـ</string>
+        <string>ـسَـ</string>
+		<string>ـسَـ</string>
+		<string>فَ</string>
+		<string>فَ</string>
+		<string>ﺕ</string>
+		<string>ﺕ</string>
+      </Stones>
+    </Segment>
+	<Segment spawnIds="59,64,78,17,16,79,63,61" SegmentTime="0">
+      <!-- Puzzle Five -->
+	  <MonsterRequiredLetters>
+		<string>وا</string>
+	  </MonsterRequiredLetters>
+	  <MonsterAllLetters>
+		<string>دَ</string>
+		<string>X</string>
+		<string>م</string>
+	  </MonsterAllLetters>
+	  <Stones>
+        <string>وا</string>
+        <string>وا</string>
+        <string>وُ</string>
+		<string>وُ</string>
+		<string>مَـ</string>
+		<string>مَـ</string>
+		<string>جا</string>
+		<string>جا</string>
+      </Stones>
+    </Segment>
+  </Segments>
+</XMLLevel>

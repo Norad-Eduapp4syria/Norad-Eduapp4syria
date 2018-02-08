@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="SoundWord"
+	CollectableMonster="Hypnosis"
+	SegmentTime="17"
+	HideCallout="-1"
+	LettersGroup="2"
+	StoneType="1"
+>
+	<Segments>
+		<Segment spawnIds="21,60,22" SegmentTime="0">
+			<!-- Puzzle One -->
+			<MonsterRequiredLetters>
+				<string>سَـ</string>
+				<string>ـجَـ</string>
+				<string>ـدَ</string>
+			</MonsterRequiredLetters>
+			<MonsterAllLetters>
+			</MonsterAllLetters>
+			<Stones>
+				<string>سَـ</string>
+				<string>ـجَـ</string>
+				<string>ـدَ</string>
+			</Stones>
+    </Segment>
+	<Segment spawnIds="90,55,96" SegmentTime="0">
+		<!-- Puzzle Two -->
+		<MonsterRequiredLetters>
+			<string>سَـ</string>
+			<string>ـكَـ</string>
+			<string>ـبَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>سَـ</string>
+			<string>ـكَـ</string>
+			<string>ـبَ</string>
+		</Stones>
+    </Segment>
+	<Segment spawnIds="89,54,95" SegmentTime="0">
+		<!-- Puzzle Three -->
+		<MonsterRequiredLetters>
+			<string>كَـ</string>
+			<string>ـتَـ</string>
+			<string>ـبَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>كَـ</string>
+			<string>ـتَـ</string>
+			<string>ـبَ</string>
+		</Stones>
+    </Segment>
+	<Segment spawnIds="59,93,36" SegmentTime="0">
+		<!-- Puzzle Four -->
+		<MonsterRequiredLetters>
+			<string>سا</string>
+			<string>فَـ</string>
+			<string>ـرَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>سا</string>
+			<string>فَـ</string>
+			<string>ـرَ</string>
+		</Stones>
+	</Segment>
+	<Segment spawnIds="61,94,45" SegmentTime="0">
+		<!-- Puzzle Five -->
+		<MonsterRequiredLetters>
+			<string>حَـ</string>
+			<string>ـبَـ</string>
+			<string>ـسَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>حَـ</string>
+			<string>ـبَـ</string>
+			<string>ـسَ</string>
+		</Stones>
+    </Segment>
+  </Segments>
+</XMLLevel>

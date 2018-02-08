@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XMLLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	monsterInputType="SoundWord"
+	CollectableMonster="Ice"
+	SegmentTime="15"
+	HideCallout="5"
+	LettersGroup="4"
+	StoneType="1"
+>
+	<Segments>
+		<Segment spawnIds="90,55,96,91,93" SegmentTime="0">
+			<!-- Puzzle One -->
+			<MonsterRequiredLetters>
+				<string>فَـ</string>
+				<string>ـحَـ</string>
+				<string>ـصَ</string>
+			</MonsterRequiredLetters>
+			<MonsterAllLetters>
+			</MonsterAllLetters>
+			<Stones>
+				<string>فَـ</string>
+				<string>ـحَـ</string>
+				<string>ـصَ</string>
+				<string>خَـ</string>
+				<string>قَـ</string>
+			</Stones>
+    </Segment>
+	<Segment spawnIds="90,55,96,91,93" SegmentTime="0">
+		<!-- Puzzle Two -->
+		<MonsterRequiredLetters>
+			<string>طَـ</string>
+			<string>ـبَـ</string>
+			<string>ـعَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>طَـ</string>
+			<string>ـبَـ</string>
+			<string>ـعَ</string>
+			<string>ـرَ</string>
+			<string>قَ</string>
+		</Stones>
+    </Segment>
+	<Segment spawnIds="90,55,96,91,93" SegmentTime="0">
+		<!-- Puzzle Three -->
+		<MonsterRequiredLetters>
+			<string>بُرْ</string>
+			<string>تُـ</string>
+			<string>ـقال</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>بُرْ</string>
+			<string>تُـ</string>
+			<string>ـقال</string>
+			<string>ف</string>
+			<string>صَـ</string>
+		</Stones>
+    </Segment>
+	<Segment spawnIds="90,55,96,91,93" SegmentTime="0">
+		<!-- Puzzle Four -->
+		<MonsterRequiredLetters>
+			<string>خَـ</string>
+			<string>ـلَـ</string>
+			<string>ـطَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>خَـ</string>
+			<string>ـلَـ</string>
+			<string>ـطَ</string>       
+			<string>ل</string>
+			<string>طا</string>
+		</Stones>
+	</Segment>
+	<Segment spawnIds="90,55,96,91,93" SegmentTime="0">
+		<!-- Puzzle Five -->
+		<MonsterRequiredLetters>
+			<string>قَـ</string>
+			<string>ـرَ</string>
+			<string>عَ</string>
+		</MonsterRequiredLetters>
+		<MonsterAllLetters>
+		</MonsterAllLetters>
+		<Stones>
+			<string>قَـ</string>
+			<string>ـرَ</string>
+			<string>عَ</string>
+			<string>ز</string>
+			<string>ـعَ</string>
+		</Stones>
+    </Segment>
+  </Segments>
+</XMLLevel>
