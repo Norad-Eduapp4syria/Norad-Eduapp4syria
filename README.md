@@ -54,3 +54,9 @@ modification, are permitted provided that the following conditions are met:
 ```
 
 All digital content included in this repository is released under a [Creative Commons Attribution License](https://creativecommons.org/licenses/by/4.0/legalcode) (CC-BY).
+
+Copyright:
+
+* **Antura and the Letters**: Copyright (c) 2016 [TH Köln / Cologne Game Lab](https://www.colognegamelab.de/), [Video Games Without Borders](https://vgwb.org) & [Wixel Studios](https://www.wixelstudios.com)
+* **Feed the Monster**: Copyright (c) 2016 Originally developed by a consortium led by [Apps Factory](http://www.appsfactory.ro/), subsequent translations by [Curious Learning](https://www.curiouslearning.org)
+
