@@ -36,7 +36,7 @@ This repository contains a snapshot (2017) of the source code for all the winner
 
 ## License
 
-All apps included in this repo are licensed under a [BSD 2-Clause license](LICENSE):
+The apps and software developed as part of Eduapp4syria and included in this repo are all licensed under a [BSD 2-Clause license](LICENSE):
 
 ```
 Copyright (c) 2017, Norad-Eduapp4syria
@@ -52,3 +52,5 @@ modification, are permitted provided that the following conditions are met:
   this list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
 ```
+
+All digital content included in this repository is released under a [Creative Commons Attribution License](https://creativecommons.org/licenses/by/4.0/legalcode) (CC-BY).
